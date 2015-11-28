@@ -15,5 +15,4 @@ Maybe it's just that I get along well with the characters.
 
 You can still find books one and two on amazon:
 
-http://www.amazon.com/Kestrel-Chronicles-2-Book/dp/B0161X4O6K/ref=sr_1_3?s=digital-text&ie=UTF8&qid=1448733049&sr=1-3
-
+[The Kestrel Chronicles](http://www.amazon.com/Kestrel-Chronicles-2-Book/dp/B0161X4O6K/ref=sr_1_3?s=digital-text&ie=UTF8&qid=1448733049&sr=1-3 "The Kestrel Chronicles")
