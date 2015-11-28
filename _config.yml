@@ -1,0 +1,8 @@
+excerpt_separator: ""
+pygments: true
+markdown: kramdown
+url: http://mikelevins.github.io
+title: mikel evins
+tagline: engine of joy
+description: What I'm saying about what I'm thinking
+paginate: 5
