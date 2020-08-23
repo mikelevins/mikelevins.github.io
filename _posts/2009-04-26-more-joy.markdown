@@ -173,4 +173,4 @@ approximation, but one that grew farther away over time, rather than
 closer.
 
 I guess I'll have to do some thinking about what both Dylan and
-Clojure are approximations of.</event>
+Clojure are approximations of.
