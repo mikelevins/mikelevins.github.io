@@ -302,7 +302,7 @@ default domain, which is named -c3-, uses a dispatching algorithm very
 similar to that of CLOS. It's not identical to CLOS; it uses a scheme
 first described in
 
- http://192.220.96.201/dylan/linearization-oopsla96.html
+ [http://192.220.96.201/dylan/linearization-oopsla96.html](http://192.220.96.201/dylan/linearization-oopsla96.html)
 
 That scheme, which is generally called 'C3,' yields dispatching
 behavior that is very similar to that of CLOS, but which in a few
