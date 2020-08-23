@@ -3,6 +3,7 @@ published: true
 title: Book Three Incoming
 layout: post
 ---
+
 Here's a sneak peek at the cover for the book I'm working on now:
 
 ![Imgur](http://i.imgur.com/vgIKUXh.jpg)

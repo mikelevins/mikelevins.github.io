@@ -1,0 +1,176 @@
+---
+published: true
+title: More joy
+layout: post
+---
+
+Programmers inevitably spend a certain amount of our time fighting
+with our tools. There's always something wrong with them, always some
+case that they handle badly, always some work we have to do, not
+because of the job we're doing, but because of limitations of the
+stupid tool.
+
+Programming can be a joy, even programming for a living. I'm lucky in
+that it's been a joy for me more often than it hasn't. But fighting
+with the tools is not a source of joy. In fact, it's the
+opposite. More fighting with tools means less joy.
+
+Less joy is bad.
+
+That's why I remain a Lisp programmer: the various forms of Lisp have
+given me by far the best return on investment I ever experienced in
+terms of joy per unit fighting. I can write code in other
+languages. I've written lots of it. I've been paid a lot of money to
+write a lot of lines of C, C++, Python, shell script, Java, ML,
+Objective-C...just lots of languages, on lots of jobs, in lots of
+circumstances. I'm still writing Lisp code because of that
+joy-to-fighting ratio.
+
+More joy is good.
+
+So what's my favorite programming language?
+
+Well...
+
+I used to say it was 1992-era Dylan. Dylan was a Lisp that Apple
+invented. I worked for several years on Apple's Newton project. Newton
+was initially written mostly in Dylan, and I got to write a lot of OS
+code in Dylan. That was a time of high joy in my programming life.
+
+It didn't last, of course. The story of Newton's abandonment of Dylan
+and its other adventures makes entertaining reading, but the short of
+it is that eventually I had to stop programming in Dylan.
+
+Less joy is bad.
+
+Halfway through 2008, one of the original designers and implementors
+of Dylan pointed out to me this new Lisp dialect named Clojure:
+
+http://clojure.org/
+
+The reason she noticed it was that it's a Lisp whose name is a
+misspelling of the world "closure", and she's a partner in a Lisp
+company named "Clozure Associates". Fun coincidence!
+
+It turned out that this new Lisp, named Clojure, was pretty good. In
+fact, the more little projects I ported to it, the happier I
+became. More joy is good.
+
+Three quarters of a year later, Clojure has become my favorite
+programming language for personal projects. Whenever I think about
+writing something, I immediately think about Clojure, and if
+deployment on the JVM is at all reasonable, then Clojure is probably
+what I'll use.
+
+I guess Clojure is my favorite programming language now.
+
+All is not entirely well, though. There's a lot of joy, but there's
+still just a little bit too much fighting.
+
+Every time I do anything significant in Clojure, I inevitably stumble
+over something that makes me wish I was using Dylan instead.
+
+Bother.
+
+I never used to wish I was using Clojure back in the day, instead of
+Dylan. Well, of course, Clojure didn't exist then, but I never wished
+I was using anything instead of Dylan.
+
+So why don't I just use Dylan? It's still around, right?
+
+http://www.opendylan.org/
+
+Well...something happened to Dylan over the past seventeen years. It's
+not bad or anything. It just doesn't excite me that way its ancestral
+form did. It doesn't feel like a Lisp anymore. Less joy is bad.
+
+Still, when I use Clojure, I often wish I had Dylan. When I used
+Dylan, I never wished I had something else. What's the problem?
+
+Sometimes I'm working on an application that has certain requirements
+on its data. I'd like to just clearly and concisely write down those
+requirements. In Dylan (or a zillion other languages) I'd write a type
+definition (Dylan calls them classes). There's nothing like that in
+Clojure.
+
+Now, Clojure is a Lisp. You can write whatever facilities you need, if
+they're not there already. So I wrote my own implementation of record
+types, so that I could write down my data requirements
+succinctly. Problem solved. Still: more fighting, less joy.
+
+Polymorphic functions are really handy. With polymorphic functions you
+can easily write abstract protocols and then implement them for
+various different data types without needing to rewrite any of the
+protocol code. Very useful, especially when you're writing some big
+application that you expect to evolve over time, that you expect to
+need to encompass new and evolving data types.
+
+Clojure has its own idea about how polymorphic functions should
+work. I don't want to get into the details, because it would get long
+and eye-glazing and I'd probably start to froth at the mouth. Let's
+just say that Clojure's creator and some of its other users believe
+that Clojure's approach is a better way to approach polymorphism,
+whereas I think it's like someone giggling hysterically as they break
+all your toys and poke sharp sticks in your eyes.
+
+More fighting; less joy.
+
+So I wrote my own generic functions subsystem. Now I can make APIs
+that don't randomly burst into flame when someone writes code that
+uses them. Once again, it's nice that Clojure is a Lisp: it gives me
+the tools I need to patch things like this. Still, less joy continues
+to be bad.
+
+One of the great things about Clojure is that it's designed to be
+hosted on the JVM, and to interoperate seamlessly with Java. That's
+quite a useful feature, and Clojure's Java interface is really easy
+and convenient. So easy and convenient, in fact, that it's probably
+easier to use Java libraries from Clojure than it is to use them from
+Java.
+
+On the other hand, Clojure sort of has more than one type system, and
+each of the type systems is sort of not really comprehensive. I mean,
+on the one hand, every Clojure value is in fact a Java value, but, on
+the other hand, knowing that two different values are both instances
+of PersistentHashMap may not be all that helpful if each has different
+:type metatdata, and your application includes some code somewhere
+that distinguishes them on that basis.
+
+What exactly is the type of Clojure value? Well, there's its Java
+class, which may or may not be a helpful thing to know, depending on
+context. Then there's its metadata, if it's a kind of value that can
+have metadata, and if it is, there might or might not be a :type in
+that metadata, and that type might or might not be something your code
+can use for something useful. It sort of feels like Common Lisp's
+types before CLOS came along and absorbed all types into its grand
+galactic scheme.
+
+And what if you want to make your own types? Well, there isn't really
+any Clojure facility for doing that, but it's a Lisp, right? You can
+make whatever kind of type system you want. Of course, the more type
+systems you have, the more you have to keep track of, and none of them
+are really comprehensive over all possible Clojure values. Well,
+except Java's. You can always fall back to Java classes. Except that
+if you want to define new ones you have to kind of jump through a few
+hoops.
+
+You know what I'm going to say: more fighting, less joy.
+
+No doubt someone will skim this and assume I'm bashing Clojure. I'm
+not bashing Clojure. It's my favorite programming language right
+now. I just noticed that, hey, I keep wishing it was something
+else. That's weird. The last time I was doing a lot of work in my
+favorite programming language, I didn't ever wish it was something
+else. What's up with that?
+
+Maybe it's that Clojure is still very young and is evolving rapidly
+(except, hmm...Dylan was really young back then and evolving very
+rapidly, too...)
+
+Or maybe it's that Clojure approximates the Lisp I really want,
+without actually being it. If so, then Dylan was apparently a closer
+approximation, but one that grew farther away over time, rather than
+closer.
+
+I guess I'll have to do some thinking about what both Dylan and
+Clojure are approximations of.</event>
