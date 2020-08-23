@@ -1,6 +1,6 @@
 ---
 published: true
-title: General public busybody theory
+title: On sailing
 layout: post
 tags: stoicism
 ---
