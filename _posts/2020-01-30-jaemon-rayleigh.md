@@ -2,7 +2,7 @@
 published: true
 title: Jaemon Rayleigh
 layout: post
-tags: fiction writing
+tags: stories
 ---
 
 Executive Officer and second-in-command of the torch ship _Kestrel_.

@@ -2,7 +2,7 @@
 published: true
 title: Mai Greenhill
 layout: post
-tags: fiction writing
+tags: stories
 ---
 
 Ordinary Spacer Mai Greenhill, a member of the crew in the _Kestrel
