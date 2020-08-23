@@ -6,7 +6,7 @@ layout: post
 
 CEO of Rayleigh Scientific, Captain of the torch ship _Kestrel_
 
-![](assets/esgar2.png)
+![](/assets/esgar2.png)
 
 Esgar Rayleigh, along with his brother Jaemon, inherited majority
 ownership of Rayleigh Company, an old and prestigious shipping firm
