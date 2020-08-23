@@ -2,7 +2,7 @@
 published: true
 title: On sailing
 layout: post
-tags: Stoicism
+tags: stoicism
 ---
 
 Living is sailing.
