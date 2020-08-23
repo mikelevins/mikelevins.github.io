@@ -31,7 +31,7 @@ passed to and returned from functions, and bound to variables.
 
 Categories defines a set of primitive type objects that represent
 built-in types of the underlying platform. For example, the Scheme
-version defines primitive types like <pair> and <symbol>, and it
+version defines primitive types like `<pair>` and `<symbol>`, and it
 arranges for its reflective operations to return appropriate
 values. For example:
 
@@ -60,13 +60,13 @@ easier, Categories provides type synonyms:
   (type-synonym <string>))
 ```
 
-By defining <name> as a synonym for <string> you can use <string>
-objects to represent names, while calling them <name>s in your code to
+By defining `<name>` as a synonym for `<string>` you can use `<string>`
+objects to represent names, while calling them `<name>`s in your code to
 clearly communicate their purpose. Later, if you find that you need to
 represent names in some other way--say as some structured object that
 takes into account various different kinds of names that people
-use--you can replace the definition of <name>. You'll then have to
-change the implementations of functions that operate on <name>s, of
+use--you can replace the definition of `<name>`. You'll then have to
+change the implementations of functions that operate on `<name>`s, of
 course, but if you structure your APIs appropriately, that's all
 you'll have to change.
 
@@ -82,8 +82,8 @@ called a structure:
 ```
 
 Like other types, structures are first class objects. The above code
-binds a new structure to the variable <cartesian-point>. The new
-structure has two keys: x and y. Instances of <cartesian-point> will
+binds a new structure to the variable `<cartesian-point>`. The new
+structure has two keys: x and y. Instances of `<cartesian-point>` will
 contain two values, one stored on the key x, and the other stored on
 the key y.
 
@@ -256,7 +256,7 @@ bind it to a variable, like this:
 
 The function object that is bound to the variable named 'serialize' is
 created with a single implementation, corresponding to the type
-<store>. If we want to add another implementation, we can use
+`<store>`. If we want to add another implementation, we can use
 add-method!:
 
 ```scheme
@@ -361,9 +361,9 @@ in the example above, an error is signaled.
 
 The -c3- domain defines a more complicated--and more
 familiar--dispatching scheme. It will try to match $r against
-serialize methods that are defined on <repository>.  When it fails to
+serialize methods that are defined on `<repository>`.  When it fails to
 find one, it then tries to find serialize methods defined on
-supertypes of <repository>.
+supertypes of `<repository>`.
 
 Didn't I say above that datatypes don't define supertype or
 inheritance relations? Yes, because *domains* do. The -c3- domain
@@ -390,15 +390,15 @@ type that is different from the others. For example:
 (define <vehicle> (category <car> <truck>)) 
 ```
 
-The expression above binds a new type to <vehicle>. The new type,
+The expression above binds a new type to `<vehicle>`. The new type,
 which is called a category, represents any of the types passed as
-inputs to the 'category' constructor. Once <vehicle> is defined, any
-method matching <vehicle> will also apply to <car> or <truck>. You can
-therefore define functions that accept <vehicle> values, and those
-functions will work on <car> or <truck> values, *even if the functions
-are defined on the flat domain*. In other words, even without
-inheritance, it is possible to define functions that operate the same
-way on a variety of different types.
+inputs to the 'category' constructor. Once `<vehicle>` is defined, any
+method matching `<vehicle>` will also apply to `<car>` or
+`<truck>`. You can therefore define functions that accept `<vehicle>`
+values, and those functions will work on `<car>` or `<truck>` values,
+*even if the functions are defined on the flat domain*. In other
+words, even without inheritance, it is possible to define functions
+that operate the same way on a variety of different types.
 
 ### Supertypes and subtypes
 
@@ -412,8 +412,8 @@ example,
   supertypes: (list <transportation> <four-wheeled-objects>)) 
 ```
 
-...adds to -c3- a type named <truck>, with supertypes <transportation>
-and <four-wheeled-objects>.
+...adds to -c3- a type named `<truck>`, with supertypes
+`<transportation>` and `<four-wheeled-objects>`.
 
 You can, of course, also add types to the -flat- domain:
 
@@ -442,7 +442,7 @@ For example, suppose I have these two definitions:
     (age type: <count-of-years>)) 
 ```
 
-Now suppose I want to define <historic-property> like
+Now suppose I want to define `<historic-property>` like
 this:
 
 ```scheme
@@ -451,9 +451,9 @@ this:
     (square-footage asking-price)) 
 ```
 
-Well, I can't. The definition of age in <monument> conflicts with the
-definition of age in <property>. What I can do, though, is rename one
-or both of the included keys:
+Well, I can't. The definition of age in `<monument>` conflicts with
+the definition of age in `<property>`. What I can do, though, is
+rename one or both of the included keys:
 
 ```scheme
 (define <historic-property> 
@@ -510,9 +510,9 @@ define-function forms like this:
 (define-function -c3- add ((x <integer>)(y <integer>)) ...)  
 ```
 
-The forms (x <integer>) and (y <integer>) mean that the formal
+The forms `(x <integer>)` and `(y <integer>)` mean that the formal
 parameters x and y match inputs only if those inputs can be matched
-with the <integer> type, according to the domain.
+with the `<integer>` type, according to the domain.
 
 A domain like -pred- works quite differently, and requires a different
 syntax for parameter lists. Instead of piecewise matching input values
@@ -584,9 +584,9 @@ definition again:
 ```
 
 All the parser needs to do is collect the type qualifiers from the
-formal parameter, which is ((x <integer>)(y <integer>)), and make a
-method signature that matches two inputs that are both of type
-<integer>.
+formal parameter list, which is `((x <integer>)(y <integer>))`, and
+make a method signature that matches two inputs that are both of type
+`<integer>`.
 
 That brings us to method signatures, and to the matcher. Once again,
 the method signature can be any data structure you like, as long as it
@@ -595,10 +595,10 @@ the matcher a method signature and a collection of input values. The
 matcher must return true if the signature matches the inputs, and
 false otherwise. For -c3-, a method signature can simply be a sequence
 of types. For example, the method signature for the add function
-defined above is just (<integer> <integer>). The -c3- domain will say
-that any sequence of two values matches that signature, as long as
-both are of type <integer>, or of some type that, according to -c3-,
-is a subtype of <integer>.
+defined above is just `(<integer> <integer>)`. The -c3- domain will
+say that any sequence of two values matches that signature, as long as
+both are of type `<integer>`, or of some type that, according to -c3-,
+is a subtype of `<integer>`.
 
 What if more than one signature matches a set of inputs? How does the
 domain know what to do?
