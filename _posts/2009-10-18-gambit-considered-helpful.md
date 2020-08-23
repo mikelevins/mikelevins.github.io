@@ -2,6 +2,7 @@
 published: true
 title: Gambit considered helpful
 layout: post
+tags: programming
 ---
 
 I've just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my

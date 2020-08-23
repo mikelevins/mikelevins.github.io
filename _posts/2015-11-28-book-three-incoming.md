@@ -2,6 +2,7 @@
 published: true
 title: Book Three Incoming
 layout: post
+tags: fiction writing
 ---
 
 Here's a sneak peek at the cover for the book I'm working on now:

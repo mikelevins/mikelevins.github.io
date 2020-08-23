@@ -2,6 +2,7 @@
 published: true
 title: Esgar Rayleigh
 layout: post
+tags: fiction writing
 ---
 
 CEO of Rayleigh Scientific, Captain of the torch ship _Kestrel_

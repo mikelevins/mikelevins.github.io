@@ -2,6 +2,7 @@
 published: true
 title: Chief Engineer Burrell
 layout: post
+tags: fiction writing
 ---
 This is Evelyn Burrell, the chief engineer aboard *Kestrel*:
 

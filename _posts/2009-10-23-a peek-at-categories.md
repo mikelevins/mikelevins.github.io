@@ -2,6 +2,7 @@
 published: true
 title: A peek at Categories
 layout: post
+tags: programming
 ---
 
 I've begun preparations to package Categories for release. The first

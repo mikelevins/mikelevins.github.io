@@ -2,6 +2,7 @@
 published: true
 title: Obamus Caesar
 layout: post
+tags: politics
 ---
 
 In 27 B.C., Augustus Caesar became the first emperor of Rome, marking

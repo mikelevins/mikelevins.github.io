@@ -2,6 +2,7 @@
 published: true
 title: Lev Chrysotile, MD
 layout: post
+tags: fiction writing
 ---
 
 Ixion 11 "Lev" Chrysotile is the ship's physician aboard

@@ -2,6 +2,7 @@
 published: true
 title: Categories
 layout: post
+tags: programming
 ---
 
 There are a few things I've written that I see cited or quoted

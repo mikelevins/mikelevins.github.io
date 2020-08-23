@@ -2,6 +2,7 @@
 published: true
 title: Programming as teaching
 layout: post
+tags: programming
 ---
 
 

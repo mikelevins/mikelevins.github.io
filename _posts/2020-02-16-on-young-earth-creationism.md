@@ -2,6 +2,7 @@
 published: true
 title: On young-earth creationism
 layout: post
+tags: science
 ---
 
 Once, around ten years ago, someone in an online discussion said that

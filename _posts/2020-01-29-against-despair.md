@@ -2,6 +2,7 @@
 published: true
 title: Against despair
 layout: post
+tags: Stoicism
 ---
 
 Despair is a pernicious kind of vanity, and it's seductive when things
