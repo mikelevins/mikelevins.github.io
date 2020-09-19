@@ -9,9 +9,9 @@ Once in a while it comes up in conversation that I consider myself an
 anarchist. Most of the time when people learn that, they have one of
 three reactions:
 
-. I'm kidding (or exaggerating, or engaging in some kind of hyperbole for effect)
-. I'm serious, and crazy
-. I'm serious, and they want to know what the heck I mean and how I can hold that position
+1. I'm kidding (or exaggerating, or engaging in some kind of hyperbole for effect)
+2. I'm serious, and crazy
+3. I'm serious, and they want to know what the heck I mean and how I can hold that position
 
 Well, I'm not kidding, and as far as I know, I'm not crazy, so maybe I
 should say what I mean and how and why I hold the position I do.
