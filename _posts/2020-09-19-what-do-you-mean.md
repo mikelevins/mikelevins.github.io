@@ -72,7 +72,7 @@ contract.
 If you have entered voluntarily into an agreement, and if it's not an
 agreement that reasonable people would find unconscionable or coerced,
 then you have an obligation to abide by it. If you fail to abide by
-it, then you owe some reasonable comepnsation for your failure.
+it, then you owe some reasonable compensation for your failure.
 
 But if someone particularly strong and forceful comes along and tells
 you that this is now his territory and you are obliged to follow his
