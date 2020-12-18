@@ -29,7 +29,7 @@ The word **repl** is an acronym that stands for **read-eval-print
 loop**. The term comes from the history of Lisp. From the start, sixty
 years ago, the standard way of working with a Lisp has been to start a
 language processor, type expressions at its prompt, and wait for it to
-evalute the expressions and print their results, before prompting for
+evaluate the expressions and print their results, before prompting for
 another expression. Read, eval, print. Loop.
 
 Nowadays, repls are all the rage. Every language and its brother
@@ -37,16 +37,15 @@ offers a repl. There's a website, [repl.it](https://repl.it/), whose
 entire purpose is to provide all the repls.
 
 It doesn't actually provide *all* the repls, of course. What's
-particularly ironic is that it doesn't provide either of the
-canonical, ancestral repl-driven development environments: Common Lisp
-and Smalltalk.
+particularly ironic is that it doesn't provide either of the canonical
+repl-driven development environments: Common Lisp and Smalltalk.
 
 That brings us back to entha_saava's question: if Common Lisp and
 Smalltalk are repl-driven environments, and Python and Ruby are not,
 what's the difference? What do Lisp and Smalltalk have that Python and
 Ruby don't?
 
-What they have is a language and runtime system that is designed from
+What they have is a language and runtime system that are designed from
 the ground up with the assumption that you're going to develop
 programs by starting the language engine and talking to it, teaching
 it how to be your program *interactively*, by changing it *while it
@@ -59,14 +58,14 @@ entirely useless.
 
 Being able to do *some* things in the repl does not make an engine
 into a repl-driven programming environment. What distinguishes
-old-fashioned Lisp and Smalltalk environment is that you can do
+old-fashioned Lisp and Smalltalk environments is that you can do
 *everything* in the repl. They place no gratuitous limitations on what
 you can do; if the language and runtime can do it, then the repl can
 do it.
 
-For example, even now, you can ask the current version of Clozure
-Common Lisp to rebuild itself from scratch by evaluating the following
-expression at the repl prompt:
+For example, you can ask the current version of Clozure Common Lisp to
+rebuild itself from scratch by evaluating the following expression at
+the repl prompt:
 
     (rebuild-ccl :full t)
 
@@ -141,7 +140,7 @@ Let's take another example of a facility designed to support
 interactive programming. Once again, try this in your favorite repl:
 
 Define a datatype. I mean a class, a struct, a record type--whatever
-user-defined type your favorite language supports. Make some instance
+user-defined type your favorite language supports. Make some instances
 of it. Write some functions (or methods, or procedures, or whatever)
 to operate on them.
 
@@ -163,38 +162,39 @@ don't want to have to kill your program and rebuild it from scratch
 just because you changed a definition. That's silly; adding and
 changing definitions is most of what you do! If your development
 environment is going to support interactive development, then it had
-better know how to keep your program running after you change some
+better know how to keep your program running when you change some
 definitions.
 
-Old-fashioned Lisp and Smalltalk system know how to do that. A few
-other kinds of systems, mostly older ones, do, too.
+Old-fashioned Lisp and Smalltalk system know how to do that. There are
+also a few other kinds of systems, mostly older ones, that know how to
+do it.
 
-These are not eccentric new ideas out of left field. They're
-well-thought-out system facilities that have been provided by mature
-development environments for decades. They controbute materially to
-productivity in interactive development.
+These are not eccentric new ideas out of left field. They've been
+around for half a century. They contribute materially to productivity
+in interactive development.
 
 They're what sets **repl-driven development** apart from mere
 development with a repl.
 
-Not every programmer prefers that kind of development. Some progammers
-prefer to think of development as a more formal process of designing,
+Now, not every programmer prefers that kind of development. Some
+programmers prefer to think of development as a process of designing,
 planning, making blueprints, and assembling parts on a
 workbench. There's nothing wrong with that. Indeed, a
 multibillion-dollar international industry has been built upon it.
 
 But if you prefer interactive development, if it's more natural to
 you, then it can make you enormously more productive, not to mention
-happier.
+happier in your work.
 
-Interactive development with a proper repl-driven environment is
-fairly rare nowadays. As a consequence, there are a lot of programmers
-out there who've never even heard of it, who have no idea what tools
-are possible. My intuition is that some fraction of those programmers
-would prefer well-supported interactive programming, and would benefit
-from it, if they just knew it was possible.
+Interactive development with a proper repl-driven environment is the
+exception. Most programming is done in other ways.
+
+As a consequence, there are a lot of programmers out there who've
+never even heard of it, who have no idea that it exists. My intuition
+is that some fraction of those programmers would prefer well-supported
+interactive programming, and would benefit from it, if they just knew
+what it was.
 
 Maybe if enough programmers are exposed to that style of programming
-then we'll once again begin to see new development environments that
-embrace it.
+then we'll begin to see new tools that embrace it.
 
