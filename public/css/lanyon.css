@@ -75,11 +75,15 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   max-width: 28rem;
 }
-@media (min-width: 38rem) {
-  .container {
-    max-width: 32rem;
-  }
-}
+
+/* mle 2021-01-01 */
+/* reportedly the cause of flickering on iOS */
+/* @media (min-width: 38rem) { */
+/*   .container { */
+/*     max-width: 32rem; */
+/*   } */
+/* } */
+
 @media (min-width: 56rem) {
   .container {
     max-width: 38rem;
