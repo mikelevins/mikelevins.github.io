@@ -6,4 +6,4 @@ title: engine of joy
 tagline: mikel evins
 description: What I'm saying about what I'm thinking
 paginate: 4
-remote_theme: fongandrew/hydeout
+theme: jekyll-theme-dinky
