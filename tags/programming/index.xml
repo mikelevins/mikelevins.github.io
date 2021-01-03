@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>programming on engine of joy</title>
+    <link>http://mikelevins.github.io/tags/programming/</link>
+    <description>Recent content in programming on engine of joy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Dec 2020 23:29:52 -0600</lastBuildDate><atom:link href="http://mikelevins.github.io/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On repl-driven programming</title>
+      <link>http://mikelevins.github.io/posts/2020-12-18-repl-driven/</link>
+      <pubDate>Fri, 18 Dec 2020 23:29:52 -0600</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2020-12-18-repl-driven/</guid>
+      <description>Once upon a time, someone with the handle &amp;ldquo;entha_saava&amp;rdquo; posted this question on Hacker News:
+ Can someone knowledgeable explain how are lisp REPLs different from Python / Ruby REPLs? What is the differentiating point of REPL driven development?
+ The answer is that there is a particular kind of programming in which you build a program by interacting with it as it runs, and there are certain languages and runtimes that are designed from the ground up to support that kind of programming.</description>
+    </item>
+    
+    <item>
+      <title>Programming as teaching</title>
+      <link>http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</link>
+      <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</guid>
+      <description>Most programming uses an approach that we might call programming as carpentry. We start with some idea of an artifact we want to build. We analyze the idea into a set of needed parts. We set to work on our workbench to craft the needed parts and assemble them into a finished product, then we examine and measure the result to determine how close we came to our goal.
+Next we repeat the process to correct details that have fallen short of what we want, either because we made mistakes in construction, or because our original plan was wrong in some way.</description>
+    </item>
+    
+    <item>
+      <title>A peek at Categories</title>
+      <link>http://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</link>
+      <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</guid>
+      <description>I&amp;rsquo;ve begun preparations to package Categories for release. The first thing I&amp;rsquo;m doing is going over the surface syntax. In previous iterations I&amp;rsquo;ve built Categories from the bottom up, which confirmed that the concepts and mechanisms worked, but left a few warts in the surface syntax. This time, I figured I&amp;rsquo;d start at the surface syntax and work the other way, in hopes that the result will be more congenial.</description>
+    </item>
+    
+    <item>
+      <title>Gambit considered helpful</title>
+      <link>http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</link>
+      <pubDate>Sun, 18 Oct 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</guid>
+      <description>I&amp;rsquo;ve just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my testers. Delectus is an application for keeping track of collections of things. The inspiration for it was an ancient and hoary program my mother used to keep track of her movies. She has around a thousand movies, the majority of them still on videocassettes. Each cassette has a catalog number on it, and she uses a database program to associate those numbers with information like the title, star, genre, and so forth, so that she can quickly find a particular movie in her stacks of shelves.</description>
+    </item>
+    
+    <item>
+      <title>Categories</title>
+      <link>http://mikelevins.github.io/posts/2009-08-13-categories/</link>
+      <pubDate>Thu, 13 Aug 2009 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-08-13-categories/</guid>
+      <description>There are a few things I&amp;rsquo;ve written that I see cited or quoted repeatedly. The oldest is a quip about omnipotent beings that I wrote eighteen years ago in a USENET discussion:
+&amp;ldquo;Perhaps this morning there were only three Euclidean solids, but god changed its mind retroactively at lunchtime, remaking the whole history of the universe. That&amp;rsquo;s the way it is with omnipotent beings.&amp;rdquo;
+More recent is an explanation I once gave of the concept of &amp;ldquo;natural law&amp;rdquo; in politics.</description>
+    </item>
+    
+    <item>
+      <title>Heresy</title>
+      <link>http://mikelevins.github.io/posts/2009-07-17-heresy/</link>
+      <pubDate>Fri, 17 Jul 2009 23:29:52 -0600</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-07-17-heresy/</guid>
+      <description>I’m coming to the close of a contract, and I’m spending part time doing what is natural in that situation: looking for new contracts, and preparing some of my personal projects for release as products.
+The first product scheduled for delivery is a Cocoa application for Mac OS X. Written in Scheme. This, of course, is heresy.
+Cocoa applications are supposed to be written in Objective-C. (Well, to be fair, about a third of the code in this one is Objective-C.</description>
+    </item>
+    
+    <item>
+      <title>Obamus Caesar</title>
+      <link>http://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</link>
+      <pubDate>Mon, 25 May 2009 23:29:52 -0600</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</guid>
+      <description>In 27 B.C., Augustus Caesar became the first emperor of Rome, marking the final end of the Roman Republic. While officially praising and respecting Rome&amp;rsquo;s republican laws and traditions, he laid the groundwork for five centuries of autocracy that have become synonymous with despotism and corruption.
+It has been common since the founding of the American republic to compare and contrast it with that of ancient Rome, and the comparison can be entertaining, and maybe even informative, if we don&amp;rsquo;t try to make the analogy closer than it really is.</description>
+    </item>
+    
+    <item>
+      <title>More joy</title>
+      <link>http://mikelevins.github.io/posts/2009-04-26-more-joy/</link>
+      <pubDate>Sun, 26 Apr 2009 23:29:52 -0600</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2009-04-26-more-joy/</guid>
+      <description>Programmers inevitably spend a certain amount of our time fighting with our tools. There&amp;rsquo;s always something wrong with them, always some case that they handle badly, always some work we have to do, not because of the job we&amp;rsquo;re doing, but because of limitations of the stupid tool.
+Programming can be a joy, even programming for a living. I&amp;rsquo;m lucky in that it&amp;rsquo;s been a joy for me more often than it hasn&amp;rsquo;t.</description>
+    </item>
+    
+  </channel>
+</rss>

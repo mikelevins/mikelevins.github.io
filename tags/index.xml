@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on engine of joy</title>
+    <link>http://mikelevins.github.io/tags/</link>
+    <description>Recent content in Tags on engine of joy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Dec 2020 23:29:52 -0600</lastBuildDate><atom:link href="http://mikelevins.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>programming</title>
+      <link>http://mikelevins.github.io/tags/programming/</link>
+      <pubDate>Fri, 18 Dec 2020 23:29:52 -0600</pubDate>
+      
+      <guid>http://mikelevins.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>politics</title>
+      <link>http://mikelevins.github.io/tags/politics/</link>
+      <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/tags/politics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stoicism</title>
+      <link>http://mikelevins.github.io/tags/stoicism/</link>
+      <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/tags/stoicism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>science</title>
+      <link>http://mikelevins.github.io/tags/science/</link>
+      <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/tags/science/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>stories</title>
+      <link>http://mikelevins.github.io/tags/stories/</link>
+      <pubDate>Thu, 30 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/tags/stories/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
