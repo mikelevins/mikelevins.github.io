@@ -5,6 +5,7 @@
     <link>http://mikelevins.github.io/categories/</link>
     <description>Recent content in Categories on engine of joy</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://mikelevins.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <copyright>Copyright (c) 2009 - 2021, mikel evins; all rights reserved.</copyright><atom:link href="http://mikelevins.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
