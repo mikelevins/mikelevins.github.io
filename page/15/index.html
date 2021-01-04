@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="generator" content="Hugo 0.79.1" />
+	
+	<title>engine of joy - by mikel evins</title>
+
+	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+	<link href="http://mikelevins.github.io//css/bootstrap.min.css" rel="stylesheet">
+	<link href="http://mikelevins.github.io//css/strange-case.css" rel="stylesheet">
+	
+
+	
+	
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+	
+	<link href="http://mikelevins.github.io/index.xml" rel="alternate" type="application/rss+xml" title="engine of joy" />
+</head>
+<body class="scheme-joy">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-4 col-md-3 col-lg-3 sidebar">
+
+			
+<div class="sidebar-content">
+
+    <a href="http://mikelevins.github.io/"><h1>engine of joy</h1></a>
+    <p>by mikel evins</p>
+
+    
+
+    <div class="sidebar-recent">
+	<p>Recent Posts</p>
+	    
+	    
+            <div class="tagbutton">
+		<a href="/posts/">Posts</a>
+            </div>
+	    
+    </div>
+
+    
+    <div class="sidebar-recent">
+	<p>Topics</p>
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/politics/ title="All pages with tag <i>politics</i>">politics</a>
+	    <sup>2</sup>
+	</div>
+	
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/programming/ title="All pages with tag <i>programming</i>">programming</a>
+	    <sup>8</sup>
+	</div>
+	
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/science/ title="All pages with tag <i>science</i>">science</a>
+	    <sup>1</sup>
+	</div>
+	
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/stoicism/ title="All pages with tag <i>stoicism</i>">stoicism</a>
+	    <sup>3</sup>
+	</div>
+	
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/stories/ title="All pages with tag <i>stories</i>">stories</a>
+	    <sup>5</sup>
+	</div>
+	
+	
+    </div>
+
+    
+    <div class="sidebar-contact">
+	&#187; <a href="mailto:mikel@evins.net">Send mail to mikel</a>
+    </div>
+    
+
+    <p class="copyright">&copy; 2021. All rights reserved. </p>
+    <p class="attr">Powered by <a href="http://gohugo.io">Hugo</a> &amp; <a href="https://github.com/ExchangeRate-API/strange-case">Strange Case</a> (inspired by <a href="https://github.com/poole/hyde">Hyde</a>).</p>
+
+</div>
+
+
+			</div>
+			<div class="col-sm-7 col-sm-offset-4 col-md-6 col-md-offset-3 col-lg-5 col-lg-offset-3 content">
+
+				
+				<div class="post">
+
+					<div class="post-heading">
+						<h1><a href="http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/">Gambit considered helpful</a></h1>
+						<span>Oct 18, 2009</span>
+					</div>
+
+					<p>I&rsquo;ve just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my
+testers. Delectus is an application for keeping track of collections
+of things. The inspiration for it was an ancient and hoary program my
+mother used to keep track of her movies. She has around a thousand
+movies, the majority of them still on videocassettes. Each cassette
+has a catalog number on it, and she uses a database program to
+associate those numbers with information like the title, star, genre,
+and so forth, so that she can quickly find a particular movie in her
+stacks of shelves. Recently the software, which is over twenty years
+old, finally became obsolete. As we were looking for a replacement, I
+decided I&rsquo;d just write one, and that became the genesis of Delectus.</p>
+<p>The basic design of Delectus is very simple. A Delectus document
+stores a list of rows and a list of columns. Each column has a text
+label. Each row contains a list of text fields. The number of fields
+is the same in every row, and it&rsquo;s also the same as the number of
+columns. So you can create a document with the columns &ldquo;Title&rdquo;,
+&ldquo;Genre&rdquo;, and &ldquo;Star&rdquo;, and every row will then have three fields. You
+can make a new row and put the title of a movie into the &ldquo;Title&rdquo;
+field, the star into the &ldquo;Star&rdquo; field, and the genre into the &ldquo;Genre&rdquo;
+field.</p>
+<p>Delectus doesn&rsquo;t decide for you how many columns to create or what the
+names will be. Instead, a new Delectus document has no rows and no
+columns. You can add new rows and new columns at any time, and you can
+delete them at any time, too. This flexibility makes it easy to set up
+your databases any way that is convenient for you. You can sort a
+document&rsquo;s entries, forward or backward, by clicking the heading of a
+column. If every entry in a column is a number, Delectus detects that
+automatically, and sorts by number instead of lexicographically.</p>
+<p>Delectus uses a trash can, like OS X&rsquo;s trash can. When you delete a
+row or column, it&rsquo;s not really gone, but tossed into the trash. Click
+a trash button, and Delectus shows the trash to you, integrated in the
+document, but displayed in a different color, so you can easily tell
+which items are deleted. Empty the trash, of course, and the deleted
+items are gone forever.</p>
+<p>Delectus is mainly written in Scheme. The Scheme compiler I&rsquo;m using is
+Gambit-C. A few weeks ago, I wrote a post about the happy discovery
+that Gambit-C made it easy to work with Mac OS X&rsquo;s Cocoa frameworks. I
+said Gambit was a great platform for Cocoa development. That opinion
+drew some fire, but I haven&rsquo;t changed it. To the contrary, I&rsquo;ve grown
+happier with Gambit as I&rsquo;ve developed Delectus.</p>
+<p>Some people grumbled that I&rsquo;m not allowed to call it a great platform
+if I still have to deal with C code. Now, that&rsquo;s silly. You know, I
+actually had a Lisp system once in which I never had to deal with C
+code. It was called a Symbolics Lisp Machine, Every other Lisp I&rsquo;ve
+used&ndash;and I&rsquo;ve used a lot of them in twenty one years of
+programming&ndash;has had to deal with C in one way or another, at one time
+or another. Heck, even when I was writing Lisp code for an operating
+system written in Lisp (an unshipped version of Apple&rsquo;s Newton), we
+had to deal with C code. If your eyes are damaged by the sight of
+semicolons, a hard road awaits you. C code is in the underpinnings of
+every system you are ever likely to use. At least Gambit makes it easy
+to wrap our beloved parentheses around it, so that the hothouse
+flowers in our midst are protected from the hot exhaust bits spewing
+forth from the C code beneath our feet.</p>
+<p>The other common complaint seems to be that I made a grammatical error
+in using the adjective &ldquo;great&rdquo; to modify a set of development tools
+that does not include an IDE. To paraphrase Yoda, &ldquo;IDEs not make one
+great.&rdquo;  Sure, there have been great IDEs. Smalltalk-80 was a great
+IDE. Xerox Interlisp was a great IDE. Most IDEs are not great. Most
+IDEs are <em>going</em> to be great, someday. That is, they&rsquo;re going to be
+great, right up to the point where the weight of the implementation
+collapses the envelope of optimism providing their buoyancy, and they
+crumple into a heap of random features, slowly and inexorably sinking
+under their combined mass.</p>
+<p>IDEs are large, complicated systems that require serious design and
+engineering. They are major cost centers to anyone who is not in the
+business of selling IDEs, and the market for them is small. It should
+not be surprising that they&rsquo;re mostly not all that good.</p>
+<p>What&rsquo;s more, the benefit of even a great IDE is, let&rsquo;s face it,
+marginal, as long as the basic tools are comprehensive and good. So
+yeah, I&rsquo;d like to have a great IDE. I&rsquo;m not holding my breath. Maybe
+I&rsquo;ll like the Factor IDE. It looks pretty good. But I&rsquo;m working in
+Scheme, right now.</p>
+<p>So, yeah, folks who never want to see a line of C code, you&rsquo;re not
+going to like the tools I&rsquo;m using. Ditto for anyone who must have his
+projects managed by a digital valet in an impeccably-tailored suit of
+color-coordinated windows. There&rsquo;s nothing for you guys to see here;
+move along.</p>
+<p>For me, though, Gambit has definitely been great. In the development
+of Delectus, I&rsquo;ve ditched XCode (but not Interface Builder). In Alpha
+2, 83% of the application code by linecount is Scheme code. The
+remaining 17% is Objective-C. Basically, there&rsquo;s just enough
+Objective-C to load the nibfiles that define the app&rsquo;s windows and
+menus, and hook their event-handlers to the Scheme code that does all
+the real work.</p>
+<p>After some experimentation, I partitioned the application into the
+following parts:</p>
+<ol>
+<li>
+<p>The back-end: this is pure Scheme code that handles all the data
+structures, as well as sorting, filtering, and updating. It also
+handles serializing and deserializing data as CSV and a native
+binary format, and writing to and reading from disk files.</p>
+</li>
+<li>
+<p>The UI: this is Objective-C code that loads the nibfiles, sets up
+calls into the back-end, responds to notifications that originate
+in the back-end, and provides the minor customizations I needed
+to make Apple&rsquo;s UI elements look just the way I wanted. This part
+is less than 700 lines of code, total.</p>
+</li>
+<li>
+<p>The bridge. This is a small amount of Scheme code, and an even
+smaller amount of Objective-C code, in a couple of files. It
+provides simple utilities like a means of converting Scheme
+strings to NSString objects when the UI needs to fetch a string
+from the back-end, without being prodigal about allocation of
+strings. It provides a mechanism for notifying the Objective-C
+code from Scheme code, so that the pure-Scheme back-end can post
+error messages, update requests, and other notifications, without
+any code that is actually aware that an Objective-C component
+exists.</p>
+</li>
+</ol>
+<p>The last point is maybe interesting. There is a very small amount of
+mixed Scheme/C code that enables the Objective-C UI to interact
+productively with the Scheme back-end. I could easily have put that
+code into the main body of the back-end proper, and at first, that&rsquo;s
+what I did. After all, there&rsquo;s only a little of it; what&rsquo;s the harm?</p>
+<p>Before long though, I refactored the code to completely separate all
+that code into a bridge layer. The reason, basically, is that I like
+to have a fairly comprehensive set of unit tests around my major
+application functionality. With such a set of tests in place, it&rsquo;s
+very easy to detect when a change in the code makes an application
+feature fail, and it&rsquo;s easy to find what broke it. By factoring all of
+the mixed code out into its own small layer, I was able to make the
+back-end pure Scheme code, with no reference anywhere to any foreign
+functions. That means that I can load the entire back-end into an
+interactive repl and exercise it. I can run all the unit tests at
+once, or run particular ones interactively. If one breaks, I can use
+the interactive debugger to crawl around inside the back-end&rsquo;s runtime
+and figure out what&rsquo;s wrong.</p>
+<p>Furthermore, by factoring things this way, I create a circumscribed
+and coherent API for calling into the back-end and getting data from
+it. That makes it very easy to hook up the Cocoa UI, simply by having
+event-handlers call the appropriate API functions. UI calls into the
+back-end are almost always one or two lines of code. That means that,
+even when a bug is in the UI rather than the back-end, the way the app
+is factored makes that easy to detect. And since there is so little
+front-end code, it&rsquo;s easy to find and fix.</p>
+<p>Obviously, you could structure any Cocoa app similarly, whether the
+back-end is Scheme or C or ML or whatever. What makes Gambit great for
+me, a Lisp hacker by preference, is that over eighty percent of the
+code I work with is pure Scheme code that I can work with
+interactively, in the way I prefer.</p>
+<p>You could argue that Delectus is really a C program, on the grounds
+that Gambit-C compiles Scheme to C, before subsequently compiling it
+to native code. That suits me fine, as long as I can continue to write
+my C code in Scheme.</p>
+<p>I&rsquo;ll say it again: Gambit-C has been a great platform for developing a
+Cocoa app. I&rsquo;ll enthusiastically use it again in the future to do the
+same kind of work. I would recommend it to anyone who wants to use
+Lisp to write a Cocoa app, provided that they&rsquo;re not allergic to C
+code, and provided that they&rsquo;re okay with using compilers and editors
+without an IDE to command the servants for them.</p>
+<p>Delectus should be out soon. The gating factor right now is the
+opinion of the testers. When they&rsquo;re happy with the feature set and
+the stability of the product, I&rsquo;ll release it.</p>
+<p>After the release of Delectus, I&rsquo;ll begin work on a web application
+aimed at MMORPG players. Most likely, the server side of that
+application will be written in Clojure.</p>
+<p>A little while ago, I promised interested people that they would soon
+be able to get their hands on my Categories object system. The object
+system had to take a back seat to revenue-generating work, but when
+Delectus is out, I&rsquo;ll be working on a release of Categories. I intend
+to use it in my next product anyway, and so I may as well also package
+it for release to the tiny community of people who are interested in
+such things.</p>
+<p>The current working prototype of Categories runs on Gambit, and it&rsquo;s
+likely that&rsquo;s the version I&rsquo;ll clean up and release first. Then I&rsquo;ll
+port it back to Clojure (which is where I developed the first versions
+of it), and make that available as well. It may be a little while
+before I do either; we must now wait on the verdict of my
+testers. When they say Delectus is done, then I can move forward.</p>
+<p>I have several other plans in the works, including the resurrection of
+some old friends. After six years, I still occasionally get fan mail
+about Alpaca, the text editor. Those few fans may be glad to know that
+a new version of Alpaca is on the roadmap. Another old project that
+I&rsquo;m still sometimes asked about is Bosco, a simple set of tools for
+building a Cocoa application in Clozure Common Lisp. Well, Bosco was
+absorbed into Clozure Common Lisp a couple of years ago, but there
+stlll seems to be a place under the sun for a small package of files
+that shows how to build a minimal Cocoa application with the smallest
+possible amount of Lisp code. I have another project called Apis that
+can serve that purpose, among others. Apis, and other things derived
+from it, are also on the roadmap.</p>
+<p>There are other things, but they&rsquo;re even further down the road. For
+now, I&rsquo;m still squarely in the midst of Delectus, and loving
+Gambit. Turns out it&rsquo;s still a great platform for developing Cocoa
+apps.</p>
+
+
+				</div>
+				
+
+				<div class="text-center">
+					
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/14/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/">1</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/2/">2</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/3/">3</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/14/">14</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/page/15/">15</a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/16/">16</a>
+  </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/page/19/">19</a>
+  </li>
+  <li class="page-item">
+    <a href="/page/16/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/19/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+
+				</div>
+
+			</div>
+			<div class="col-sm-1 col-md-3 col-md-4">
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script src="http://mikelevins.github.io//js/bootstrap.min.js"></script>
+
+</body>
+</html>
