@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2009 - 2021, mikel evins; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 18 Dec 2020 23:29:52 -0600</lastBuildDate><atom:link href="http://mikelevins.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mikelevins.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Art is not optional</title>
+      <link>http://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</link>
+      <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</guid>
+      <description>Art is one of the oldest things that humans do. A handful of carvings have been found in a few different places that are somewhere between half a million and three quarters of a million years old, probably older than Homo sapiens.
+Art is older than writing or architecture or agriculture. It&amp;rsquo;s older than most kinds of tools. It might be older than fire; history.com claims that the oldest &amp;ldquo;unequivocal&amp;rdquo; evidence of human control of fire is about 400,000 years old.</description>
+    </item>
+    
     <item>
       <title>On repl-driven programming</title>
       <link>http://mikelevins.github.io/posts/2020-12-18-repl-driven/</link>

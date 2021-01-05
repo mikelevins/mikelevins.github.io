@@ -43,6 +43,10 @@
 	    
 	    
             <div class="tagbutton">
+		<a href="/posts/2021-01-04-art-is-not-optional/">Art is not optional</a>
+            </div>
+	    
+            <div class="tagbutton">
 		<a href="/posts/2020-12-18-repl-driven/">On repl-driven programming</a>
             </div>
 	    
@@ -74,15 +78,18 @@
 		<a href="/posts/2020-01-25-mai-greenhill/">Mai Greenhill</a>
             </div>
 	    
-            <div class="tagbutton">
-		<a href="/posts/2020-01-24-amor-fati/">Amor Fati</a>
-            </div>
-	    
     </div>
 
     
     <div class="sidebar-recent">
 	<p>Topics</p>
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/life/ title="All pages with tag <i>life</i>">life</a>
+	    <sup>1</sup>
+	</div>
+	
 	 
 	
 	<div class="tagbutton">
@@ -140,151 +147,133 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/">Programming as teaching</a></h1>
-						<span>Feb 3, 2020</span>
+						<h1><a href="http://mikelevins.github.io/posts/2020-02-16-on-young-earth-creationism/">On young-earth creationism</a></h1>
+						<span>Feb 16, 2020</span>
 					</div>
 
-					<p>Most programming uses an approach that we might call <strong>programming as
-carpentry</strong>. We start with some idea of an artifact we want to
-build. We analyze the idea into a set of needed parts. We set to work
-on our workbench to craft the needed parts and assemble them into a
-finished product, then we examine and measure the result to determine
-how close we came to our goal.</p>
-<p>Next we repeat the process to correct details that have fallen short
-of what we want, either because we made mistakes in construction, or
-because our original plan was wrong in some way.</p>
-<p>There&rsquo;s a different way to approach programming. We might call it
-<strong>programming as teaching</strong>. In this approach, we begin by starting up
-a runtime that already knows how to be a working program; it just
-doesn&rsquo;t know how to be our particular application. By talking to the
-runtime interactively, we incrementally teach it the features we need
-it to have. When it knows how to provide all those features, we&rsquo;re
-done. We can save the accumulated changes to an artifact, and that
-artifact becomes our product.</p>
-<p>It&rsquo;s less like nailing together an artifact on a workbench, and more
-like teaching a student a new set of skills.</p>
-<p>Programming as carpentry is far better known and more widely used than
-programming as teaching. I&rsquo;d venture to say that most programmers
-aren&rsquo;t even aware that programming as teaching is an option. That&rsquo;s a
-shame, I think, because for some people it&rsquo;s a better option.</p>
-<p>I don&rsquo;t claim that the teaching paradigm is absolutely and objectively
-better. I claim only that it&rsquo;s better for some people. Take me, for
-example: programming as teaching makes me much happier, faster, and
-more productive in my work.</p>
-<p>I&rsquo;m not the only one. There are many other programmers who prefer the
-teaching paradigm. The reason it&rsquo;s an obscure minority paradigm is
-that there are even more programmers—vastly more—who are familiar with
-programming as carpentry.</p>
-<p>The fact that most programmers don&rsquo;t seem to even know that the
-teaching paradigm exists suggests to me that if it were more widely
-known, then more people would use it. What are the odds that everyone
-who prefers the obscure paradigm is already using it, when most people
-don&rsquo;t know it exists?</p>
-<p>In some sense, it doesn&rsquo;t matter. The great majority of software is
-developed in the carpentry paradigm, and the industry prospers. Is it
-really important to evangelize a different paradigm? Probably not, at
-least for the sake of the industry as a whole.</p>
-<p>On the other hand, I think it is important for the sake of us as
-programmers. If I hadn&rsquo;t been exposed to programming as teaching, I
-probably never would have known how happy and productive I can be in
-my work. A world in which I know about the teaching paradigm is a
-better world, at least for me. If there are other programmers who
-would prefer the teaching paradigm, and who don&rsquo;t know about it, then
-there&rsquo;s a better world awaiting them. All they need is to find out
-about it.</p>
-<p>So if programming as teaching is such a great idea—even if it&rsquo;s only
-great for a minority of programmers—why isn&rsquo;t it better known? I think
-it&rsquo;s because programming as teaching requires some tools over and
-above what programming as carpentry requires. You have to expend extra
-work to make those tools available, and you have to know about them
-before you can decide to do that.</p>
-<p>You can build a solid carpentry workbench without knowing anything
-about the teaching paradigm. The reverse isn&rsquo;t true. A good
-programming-as-teaching system is going to need all the tools of the
-carpentry workbench. It&rsquo;s going to need parsers and data structures
-and code-walkers and code generators. It&rsquo;s going to need file I/O and
-performance tools and debuggers, and so forth. It&rsquo;s going to need all
-that stuff, but it&rsquo;s going to need some other stuff, too.</p>
-<p>Programming as teaching means starting the application running before
-it&rsquo;s defined, then defining and redefining features while it runs. It
-means inspecting the contents of its memory, stopping control
-structures in the middle of executing, and inspecting and changing and
-redefining their dynamic context. It means updating the definitions of
-functions that are pending on the stack and of datatypes that are used
-by existing instances, and relying on the application to keep working
-reasonably while you&rsquo;re tinkering around in its guts.</p>
-<p>All of those features require substantial runtime support, and if you
-want it to work well, the runtime needs to be designed from the start
-to support it.</p>
-<p>Smalltalk systems have thorough support for that kind of
-programming. So do Common Lisp and other old-fashioned Lisp
-systems. Outside Smalltalk and Common Lisp and, to some extent FORTH
-systems, there aren&rsquo;t many development systems with the full suite of
-programming-as-teaching features.</p>
-<p>Some of these features exist in some form in modern
-programming-as-carpentry systems, but they don&rsquo;t amount to a
-programming-as-teaching system. To build a working
-programming-as-teaching system, you need to design the whole runtime
-from the ground up to support it. Let me give you an example of what I
-mean.</p>
-<p>The ANSI Common Lisp standard defines a generic function named
-UPDATE-INSTANCE-FOR-REDEFINED-CLASS. When the runtime detects a value
-whose class has been redefined since it was instantiated, it
-automatically calls this function to restructure the value so that it
-conforms to the new definition. In effect, it retroactively makes the
-value an instance of the new definition instead of the old one.</p>
-<p>You can specialize UPDATE-INSTANCE-FOR-REDEFINED-CLASS to correctly
-reinitialize instances to conform to their new definitions. If you
-don&rsquo;t, then the runtime drops you into an interactive session in which
-you can provide the new initialization interactively. You can then
-resume execution and the affected value behaves as if it was
-originally instantiated from the updated definition.</p>
-<p>If you&rsquo;re coming from programming-as-carpentry, you might reasonably
-wonder why you would ever want a function like that at all, much less
-why you would want it to be part of a language standard. But Common
-Lisp was designed by experienced Lisp users and implementors. They
-were steeped in the practice of programming as teaching (though they
-didn&rsquo;t call it that; they just called it &ldquo;programming&rdquo;).</p>
-<p>To the designers of Common Lisp, the normal way of developing a
-program was to start the Lisp and then teach it, definition by
-definition, how to be the program they wanted. They wouldn&rsquo;t expect to
-have to restart their Lisp just because they redefined something;
-that&rsquo;s silly. Redefining things was nearly all they did! No, their
-expectation was that you redefine things and keep going. It&rsquo;s the job
-of the runtime to adapt in a reasonable way to the changes that you
-tell it about. It&rsquo;s also the job of the runtime to ask you for help
-when it doesn&rsquo;t know what to do.</p>
-<p>UPDATE-INSTANCE-FOR-REDEFINED-CLASS is one element of a whole standard
-protocol defined by ANSI Common Lisp for changing and redefining
-things while the program you&rsquo;re developing continues to run. The
-standard describes facilities for defining classes and functions,
-updating bindings, catching errors by dropping into an interactive
-session where you can inspect and change everything about the dynamic
-environment, then tell the function where the error occurred to resume
-execution with the new definitions, and generally for accomplishing
-every aspect of building and deploying a program through an
-interactive conversation with the running program itself.</p>
-<p>Smalltalk systems have the same kind of design.</p>
-<p>This kind of development environment is a whole that is greater than
-the sum of its parts. To get it, you have to design the language and
-runtime from the start to support it. You can&rsquo;t convert a carpentry
-system to a teaching system by patching in one feature at a time.</p>
-<p>Very few development toolchains support the full suite of
-programming-as-teaching features. Most of the ones that do have been
-around for a long time. Newer languages and runtimes are mostly
-designed without any knowledge or understanding of the whole-system
-programming paradigm that is embodied in old Lisp and Smalltalk
-systems. Even some newer Lisps have been designed without that
-understanding.</p>
-<p>I worry sometimes that programming-as-teaching is fading away, and I
-feel sad that my favorite paradigm might someday disappear altogether.</p>
-<p>I don&rsquo;t think that if it does it&rsquo;ll be the end of software
-development, or anything apocalyptic like that. I do think that I&rsquo;ll
-miss it when it&rsquo;s gone, and I think it&rsquo;ll be sad if new generations of
-programmers never have the opportunity to experience it.</p>
-<p>There&rsquo;s something magical about gradually turning a program into the
-application you want by talking to it while it runs. For some fraction
-of programmers, it&rsquo;s the best way of working. I&rsquo;d hate to lose it.</p>
+					<p>Once, around ten years ago, someone in an online discussion said that
+they were raised as a young-earth creationist, but had become curious
+about the scientific account of the natural world and how it
+worked. They wanted to know what the problems with young-earth
+creationism were, from a scientific perspective.</p>
+<p>I offered them the best answer I could manage. Here it is:</p>
+<p>The first thing you have to do is set aside God as an
+explanation. Sure, if you assume there&rsquo;s an omnipotent, omniscient,
+supernatural creator, then you can explain anything by saying, &ldquo;It&rsquo;s
+God&rsquo;s will.&rdquo; The problem is, that doesn&rsquo;t really explain anything. It
+doesn&rsquo;t tell you anything that you didn&rsquo;t already know.</p>
+<p>Take infectious disease, for example. It&rsquo;s been a scourge of the human
+race since prehistory. Saying, &ldquo;It&rsquo;s God&rsquo;s will,&rdquo; or &ldquo;the will of the
+gods,&rdquo; for thousands of years didn&rsquo;t help people discover the causes
+or cures for diseases. What did help was examining the natural world
+with a curious mind, and seeking to understand what was found.</p>
+<p>Curious people found out that there are tiny organisms, too small to
+see, and they&rsquo;re everywhere. Some of them can colonize our bodies, and
+some of those cause diseases. There are also chemicals we can use to
+counter those invading organisms, and those chemicals help us defend
+ourselves against many diseases.</p>
+<p>We didn&rsquo;t learn those things from saying &ldquo;disease is God&rsquo;s
+will&rdquo;—regardless of whether it is or isn&rsquo;t. We learned them from
+looking at the evidence that the natural world gives us and reasoning
+about what we found.</p>
+<p>So the first thing you do is set God aside. Then you collect evidence
+and see where it leads you. You try to find natural explanations for
+the evidence that you find.</p>
+<p>So far, that approach has been spectacularly successful.</p>
+<p>From that perspective, there are some serious problems with
+young-earth creationism.</p>
+<p>For example, living things are made of lots of carbon, hydrogen,
+oxygen, and nitrogen, and smaller amounts of other things. There&rsquo;s
+more than one kind of carbon, each identified by an atomic number. You
+can find both carbon 12 and carbon 14 in living things.</p>
+<p>It turns out that carbon 14 is radioactive, which means that it falls
+apart, turning into atoms that aren&rsquo;t carbon 14 anymore. This happens
+at a predictable rate: if you keep a lump of carbon 14 around for 5730
+years, you&rsquo;ll find out that half of it isn&rsquo;t carbon 14 anymore; it&rsquo;s
+turned into carbon 12.</p>
+<p>So that should mean that eventually all the carbon 14 should
+disappear, right? It should all turn into carbon 12. Except that
+radiation from space striking the earth&rsquo;s upper atmosphere keeps
+making more of it at a pretty steady rate. It rains down and mixes
+into the atmosphere and gets carried all over the world.</p>
+<p>One kind of carbon is as good as another to living things, so plants
+absorb it, animals get it by eating the plants or each other, and it
+ends up in everything living.</p>
+<p>This, too, happens at a steady, predictable rate: out of every
+trillion carbon atoms in a living creature, one of them is carbon 14.</p>
+<p>But remember: carbon 14 is radioactive. It falls apart. After 5730
+years, only one atom in <em>two</em> trillion will be carbon 14, unless the
+living thing keeps adding more.</p>
+<p>Well, when creatures are alive, they <em>do</em> keep adding more, by
+consuming it from their environment. But when they die, they stop
+adding carbon 14. The carbon 14 doesn&rsquo;t stop falling apart, though; it
+keeps on turning into carbon 12. The longer the corpse lies there, the
+more of it falls apart at that steady, predictable rate. So if you
+measure the carbon 14 in a corpse, you can use simple arithmetic to
+figure out how long ago it died.</p>
+<p>When you do that with a lot of dead things, you find out that some of
+them died more than 6000 years ago. In fact, a whole lot of them died
+<em>way</em> more than 6000 years ago.</p>
+<p>This isn&rsquo;t the only way to find out how old things are, by the
+way. You can measure age by the radioactive decay of elements besides
+carbon. You can use other natural processes that happen at steady
+rates, like the deposition of silt, or the changes in magnetism
+recorded in rocks, or the rate that minerals trap ions the solar wind
+and cosmic rays. When you use several different measures of age and
+get close to the same result, you can be pretty confident that you
+know the age of the thing you&rsquo;re measuring.</p>
+<p>We&rsquo;ve collected age measurements for a lot of things at this point. We
+have tons of animal and plant remains that are millions—or in some
+cases billions—of years old. We have minerals that are millions or
+billions of years old. We have astronomical evidence of things in
+space that are millions or billions of years old.</p>
+<p>So now our naturalistic picture of the world needs to account for the
+fact that we&rsquo;ve found all this evidence of very old things. For
+example, we need to account for living things that died a lot more
+than 6000 years ago.</p>
+<p>Now, we could just say that God created the world with all that
+evidence already in it. That&rsquo;s cheating, though. Remember: the rules
+are that we look for <em>natural</em> explanations. That&rsquo;s science. If we
+resort to supernatural explanations then we&rsquo;re doing theology, not
+science.</p>
+<p>Also, we&rsquo;d have to wonder why the creator planted gobs of evidence
+that the world is billions of years old, if he wanted us to believe
+that it isn&rsquo;t, but that&rsquo;s not science, either</p>
+<p>The simplest natural explanation for dead bodies more than 6000 years
+old is that the earth is more than 6000 years old.</p>
+<p>If you run through the mountains of evidence that scientists have
+accumulated over the past five hundred years, you&rsquo;ll notice a lot more
+situations like this, situations where you either say, &ldquo;Well, God just
+made the world like that,&rdquo; or else you try to think of a natural
+explanation. The natural explanations tend to contradict young-earth
+creationism.</p>
+<p>The earth is more than 6000 years old because we can find things in it
+that have been around longer than that. Living things evolved from
+other, earlier living things because we&rsquo;ve seen it happen in our
+present environment, and because we&rsquo;ve found many remains of living
+things that are different from anything currently living, and because
+we&rsquo;ve found sequences of genetic material from which we can infer
+ancestral relationships.</p>
+<p>Human beings, for example, are apes because we have the skeletal
+structure of apes, the blood types of apes, the reproductive biology
+of apes, and the genetic makeup of apes. We know humans are apes in
+exactly the same way that we know chimpanzees are apes.</p>
+<p>We can measure how similar or different two pieces of genetic material
+are, and from doing that we know that humans are closely related to
+chimpanzees and bonobos. We also know that there used to be other
+human-like species that are gone now, because we&rsquo;ve found their tools
+and their remains.</p>
+<p>We know that there were stars in the sky more than 6000 years ago
+because we know how fast light travels and we can measure the
+distances to the stars pretty well. Some stars are so far away that
+it&rsquo;s taken more than 6000 years for the light to reach us. For
+example, the light from the Andromeda galaxy—the nearest galaxy to our
+own—takes two and half million years to reach us.</p>
+<p>You can still believe in young-earth creationism, if you want to. You
+just have to also believe that, for some reason, the creator planted
+evidence against it all over the place.</p>
+<p>But if you want a natural explanation of what we see around us, then
+young-earth creationism just doesn&rsquo;t do the job.</p>
 
 
 				</div>
@@ -321,13 +310,13 @@ of programmers, it&rsquo;s the best way of working. I&rsquo;d hate to lose it.</
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/19/">19</a>
+    <a class="page-link" href="/posts/page/20/">20</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/6/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/19/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/20/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

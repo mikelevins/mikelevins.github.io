@@ -54,6 +54,13 @@
 	 
 	
 	<div class="tagbutton">
+	    <a href=/tags/life/ title="All pages with tag <i>life</i>">life</a>
+	    <sup>1</sup>
+	</div>
+	
+	 
+	
+	<div class="tagbutton">
 	    <a href=/tags/politics/ title="All pages with tag <i>politics</i>">politics</a>
 	    <sup>2</sup>
 	</div>
@@ -108,100 +115,239 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="http://mikelevins.github.io/posts/2009-07-17-heresy/">Heresy</a></h1>
-						<span>Jul 17, 2009</span>
+						<h1><a href="http://mikelevins.github.io/posts/2009-08-13-categories/">Categories</a></h1>
+						<span>Aug 13, 2009</span>
 					</div>
 
-					<p>I’m coming to the close of a contract, and I’m spending part time
-doing what is natural in that situation: looking for new contracts,
-and preparing some of my personal projects for release as products.</p>
-<p>The first product scheduled for delivery is a Cocoa application for
-Mac OS X. Written in Scheme. This, of course, is heresy.</p>
-<p>Cocoa applications are supposed to be written in Objective-C. (Well,
-to be fair, about a third of the code in this one is Objective-C. The
-rest I wrote in Scheme.)</p>
-<p>Why would I do a crazy thing like that?</p>
-<p>Well, I like Lisp. I’m a Lisp programmer for a reason, that reason
-being that Lisp is the clear winner on the Joy-Per-Unit-Effort
-scale. I’m not really partisan in my choice of Lisps. I like Scheme
-and Common Lisp and Clojure all just fine. If I ever had a favorite
-Lisp, it was Dylan, but it’s been a while since Dylan really felt like
-a Lisp.</p>
-<p>So I was planning to release this product, and I was looking at
-options for packaging it. I could certainly have just written it in
-Objective-C. I’ve been using Objective-C and Apple’s development tools
-(and NeXT’s development tools before that) for nigh onto twenty years
-now. It’s a comfortable and familiar ecosystem. But I figured I’d give
-Lisp a fair shot before settling on the conventional choice because,
-you know, I like Lisp.</p>
-<p>Clojure? Nah; the quick route there is a Swing app. The Java Virtual
-Machine has many advantages, but delivering great Cocoa apps is not
-one of them. Sure, if you spend enough time and effort, you can
-achieve a sort of approximation of a Cocoa UI, but it’s not a fun
-process. Less Joy Is Bad.</p>
-<p>Common Lisp? Maybe. I love Clozure Common Lisp, and it has a great
-Cocoa interface. Only trouble is, universal apps are off the table,
-for now. Lispworks? Another good possibility. But my license is
-getting a little long in the tooth. If I was going to build a product
-on it, I should really get a new license, so I can have the latest
-version of Lispworks. And y’know? Right now, end of contract, looking
-for new contracts, and other revenue streams&hellip;not the best moment to
-spend a few thousand bucks speculatively. Prudence. One learns a
-modicum of prudence.</p>
-<p>I was experimenting with a few options, and
-<a href="http://dynamo.iro.umontreal.ca/~gambit/wiki/index.php/Main_Page">Gambit-C</a>
-pleasantly surprised me. Gambit’s been installed on my systems since,
-oh, probably since 1990 at least. It’s a great Scheme system that has
-gotten steadily better over the years. But there’s not really any
-Cocoa support there, or so I thought. Go ahead, Google around; you
-won’t find much of anything. Except this:</p>
-<p><a href="http://jlongster.com/blog/">http://jlongster.com/blog/</a></p>
-<p>It describes how this fellow set up remote debugging of a Gambit app
-running on the iPhone. Wait a second; Gambit on the iPhone? Um. Turns
-out I know something about iPhone apps. Turns out I’ve written some
-iPhone products
-(<a href="http://www.iphone4kids.net/2009/06/21/firstwords-learning-how-to-spell/)">http://www.iphone4kids.net/2009/06/21/firstwords-learning-how-to-spell/)</a>. If
-this guy has Gambit code running on the iPhone, I’m pretty sure I can
-get Gambit code to run a Cocoa app, as well.</p>
-<p>In fact, it was a piece of cake.</p>
-<p>I had allocated a number of hours spread over a week or so to evaluate
-several alternative possibilities before just settling down and
-building the app in plain, vanilla Objective-C. After the first
-session with Gambit, I cancelled all the other evaluations and just
-wrote the app in Gambit.</p>
-<p>It’s true that there is no Objective-C interface in Gambit. Turns out
-you don’t need one. Gambit has a very good foreign-function
-interface&ndash;a C interface really. Gambit compiles Scheme to C code, and
-then compiles the resulting C code to native code. One advantage of
-this approach, which is used by several other Schemes (Chicken and
-Bigloo, for example), is that you can embed C code in your Scheme, and
-pretty freely mix the two languages. In point of fact, because Gambit
-uses the platform’s C compiler, and because Apple’s C compiler handles
-Objective-C, you can in fact embed Objective-C code in your Scheme.</p>
-<p>For example,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>application-main
-  (<span style="color:#a6e22e">c-lambda</span> () int
-&lt;&lt;c-code
-   NSApplication *app = [NSApplication sharedApplication]<span style="color:#75715e">;</span>
-   NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init]<span style="color:#75715e">;</span>
-   [NSBundle loadNibNamed: [[[NSBundle mainBundle] infoDictionary] objectForKey: @<span style="color:#e6db74">&#34;NSMainNibFile&#34;</span>]
-             owner: app]<span style="color:#75715e">;</span>
-   [app run]<span style="color:#75715e">;</span>
-   [pool release]<span style="color:#75715e">;</span>
-   ___result = <span style="color:#ae81ff">0</span><span style="color:#75715e">;</span>
-c-code
-))
-</code></pre></div><p>Well, whaddya know? We don’t need no steenking Cocoa interface.</p>
-<p>So currently the app is about two thirds Scheme code and one third
-Objective-C code. It works great. It launches in under half a second
-and loads its test database in about seventy milliseconds. UI
-responsiveness and scrolling are as fast as you could possibly want. I
-built the UI the conventional way, in Interface Builder, and it calls
-into the Scheme code to display and edit data. The delivered app
-bundle is 7MB and it’s a universal application that runs on Tiger and
-later.</p>
-<p>Turns out Gambit is a great platform for Cocoa app development. Who
-knew?</p>
+					<p>There are a few things I&rsquo;ve written that I see cited or quoted
+repeatedly. The oldest is a quip about omnipotent beings that I wrote
+eighteen years ago in a USENET discussion:</p>
+<p>&ldquo;Perhaps this morning there were only three Euclidean solids, but god
+changed its mind retroactively at lunchtime, remaking the whole
+history of the universe.  That&rsquo;s the way it is with omnipotent
+beings.&rdquo;</p>
+<p>More recent is an explanation I once gave of the concept of &ldquo;natural
+law&rdquo; in politics. There are a couple of basic theories of law; one of
+them is called &ldquo;natural law&rdquo;. Because that phrase is also used to mean
+&ldquo;law of nature&rdquo;, people sometimes confuse the two concepts, often, I
+think, because they&rsquo;re not aware that the legal one exists, or are not
+aware of what it is. This was my attempt to succinctly summarize it in
+one discussion:</p>
+<p>&ldquo;People will naturally and predictably find some methods for resolving
+[&hellip;] conflicts more congenial than others. There are some classes of
+conflict for which people will naturally and predictably find certain
+kinds of resolutions more congenial than others. The procedures people
+find more congenial will also produce the resolutions people find more
+congenial. And the procedures and resolutions that people find more
+congenial will tend to resemble each other across times and cultures.&rdquo;</p>
+<p>Two others are more technical articles that I wrote early in the 1990s
+about programming. They were published in a magazine aimed at Mac
+developers, called Frameworks.</p>
+<p>&ldquo;Objects Without Classes&rdquo; was republished by the ACM&rsquo;s Computer
+magazine in Volume 27 , Issue 3 (March 1994) . It&rsquo;s a basic
+description of prototype-based object systems, such as those found in
+languages like Self and Javascript. Languages with prototype-based
+object systems probably seemed novel to more people then than they do
+now. Lots of people use Javascript now, but at that time you might
+never have heard of prototype-based object systems unless you were at
+Sun working on Self, or in the AI business, working with frame
+languages, or at Apple working on Newton or SK8.</p>
+<p>The topic of this post is the ideas presented in &ldquo;Protocols,&rdquo;
+originally published in the March, 1994 issue of Frameworks, and
+archived at
+<a href="http://www.mactech.com/articles/frameworks/8_2/Protocol_Evins.html">http://www.mactech.com/articles/frameworks/8_2/Protocol_Evins.html</a>. It&rsquo;s
+an article about how representation, behavior, and taxonomy are
+distinct concepts that can be handled separately, despite the fact
+that object-oriented languages tend to confuse them.</p>
+<p>Those points need clarifying, I know.</p>
+<p>By &ldquo;representation,&rdquo; I mean how we concretely lay out data. As an
+example, you can represent an array as a contiguous sequence of memory
+locations, or as a table of indexes paired with pointers, or as a tree
+of cells in which bit patterns are mapped to subtrees, or, of course,
+in many other ways. There are circumstances in which each of the
+different approaches might be advantageous. These are different
+<em>representations</em> of a common abstract concept that I have here called
+an &ldquo;array&rdquo;.</p>
+<p>By &ldquo;behavior,&rdquo; I mean the set of operations that is defined on any
+given set of values. Taking the abovementioned abstract concept of an
+&ldquo;array&rdquo; as an example, you can use any of the mentioned
+representations to support a common behavior. You can
+straightforwardly implement functions that fetch an element of an
+array by index, that iterate over the members of an array, that write
+a new value to the array at some specified index. The implementation
+and performance details will differ, of course, because the
+representation differs, but the behavior—that is, the API and what it
+accomplishes—is the same.</p>
+<p>By &ldquo;taxonomy,&rdquo; I mean the relationship between one defined set of
+values and another. Types are categories of values. They are (possibly
+unbounded) collections of data objects. Types naturally have subtypes;
+a collection of values has a natural relation to a smaller collection
+of some of the same values: the smaller set is a subtype of the larger
+one. It&rsquo;s natural to think of obtaining the smaller set by starting
+with the larger one and adding restrictions that filter out some
+values. You can think of taxonomies of types, such as the class
+hierarchies in languages like Smalltalk and Java, as sets of values
+that begin with a very inclusive type, like Java&rsquo;s Object, and
+develops more and more refined types by adding more and more exclusive
+restrictions. Object is all the values (I know; it&rsquo;s not really all of
+them.) Number excludes all those objects that aren&rsquo;t representations
+of magnitudes. Integer excludes all that are not representations of
+whole numbers. And so on.</p>
+<p>These three concepts, representation, behavior, and taxonomy, are
+quite distinct, but most object-oriented languages conflate at least
+two of them. Some combine all three. Smalltalk classes, for example,
+are representation, behavior, and taxonomy all rolled into one. The
+representation is in the instance variables; the behavior is in the
+methods; the taxonomy is in the subclass/superclass relations. THe
+trouble with that approach is that when you ask for one of the three,
+you get the other two whether you want them or not. For example, if
+you create a new subclass, you inherit representation, behavior, and
+taxonomy, even if all you wanted was behavior. If you create some
+subclass because you want a certain taxonomic relation, you also get a
+representation and a behavior that may or may not be what you need.</p>
+<p>The claim of the &ldquo;Prototypes&rdquo; article was that you can treat these
+three concepts separately, and by doing so develop a discipline that
+makes object-oriented design and implementation feasible in any
+language. Furthermore, by doing so, you can develop APIs that are
+language independent. To take the &ldquo;array&rdquo; example, what makes it an
+&ldquo;array&rdquo; is that you can get and set elements by index, and iterate
+over them in index order. That&rsquo;s behavior. If representation,
+behavior, and taxonomy are properly separated, you can represent
+&ldquo;arrays&rdquo; any way you like, and you can arrange for them to be subtypes
+of any type you like, and they&rsquo;ll still be arrays, because they
+support &ldquo;array&rdquo; behavior. Representation and taxonomy can be treated
+independently as well, but not if your tools insist on conflating
+them.</p>
+<p>I still think that&rsquo;s true, and useful, but I was always interested in
+codifying the ideas of that article more concretely. I was interested
+in working with an object system designed around clearly
+distinguishing representation, behavior, and taxonomy.</p>
+<p>One language that pretty much nails it is Haskell. In Haskell,
+representation is the province of datatypes. Behavior is handled by
+functions. Taxonomy belongs to typeclasses.</p>
+<p>For those unfamiliar with Haskell, the terminology is probably
+confusing. Without some experience with Haskell, it&rsquo;s probably not at
+all clear how and why &ldquo;datatypes&rdquo; and &ldquo;typeclasses&rdquo; are
+different. Briefly, a Haskell datatype is a named description of an
+arrangement of data. A typeclass is a named description of a set of
+operations. You can make a datatype into a member of a typeclass by
+defining functions that implement the operations specified by the
+typeclass.</p>
+<p>This is pretty close to what I was talking about in &ldquo;Protocols;&rdquo; it&rsquo;s
+probably closer than anything else I&rsquo;ve seen to language support for
+those concepts. The next closest thing, I think, is the style of
+object system exemplified by CLOS (the Common Lisp Object System). In
+CLOS, classes describe representation and taxonomy. Generic functions
+and methods describe behavior. It&rsquo;s easy and convenient to describe
+behavior in CLOS independently of representation or taxonomy. CLOS
+does still conflate representation with taxonomy, though it provides
+facilities for modifying itself that enable you to work around that
+conflation if you really want to.</p>
+<p>In February of 2009 I had been using the new Lisp dialect, Clojure,
+for about five months on some projects, and was generally pretty happy
+with it. One area I wasn&rsquo;t happy with, though, was Clojure&rsquo;s approach
+to types and polymorphic functions. Clojure doesn&rsquo;t really have a type
+system as such. It has a small number of well-chosen and well-designed
+types, and it can transparently use Java&rsquo;s types (Clojure&rsquo;s main
+implementation is built on the JVM). For most uses, these two
+facilities are more than sufficient, and they work very well. They
+fell a little short of what I wanted for some of my work, though. One
+of my projects requires ways to specify a large number of structured
+data elements with taxonomic relations. The set of elements is open,
+and expected to grow over time, so I need a convenient way to add
+descriptions of new ones, and ways to ensure that relevant APIs are
+defined to work in the proper way over all the values currently
+described, and over all those that are yet to be described.</p>
+<p>Clojure gives me a lot of what I want to support this scenario, but
+not all of it. Clojure&rsquo;s maps provide a great way to describe
+structured data, but not a great way to place restrictions on it. I
+can say that Foo has fields A, B, and C, but there&rsquo;s no convenient way
+to say that A is an automobile and B is a hypotenuse; nor is there a
+convenient way to say that a Foo has A,B, and C, and nothing else.</p>
+<p>I was even more dissatisfied with the facilities that Clojure provided
+for defining taxonomy. Clojure&rsquo;s documentation, and its justifiably
+enthusiastic users, make much of the fact that Clojure&rsquo;s derive
+function and its polymorphic MultiFns make it possible to define
+arbitrary taxonomies. That&rsquo;s true for small values of &ldquo;arbitrary&rdquo;. You
+can easily construct any taxonomy, as long as it&rsquo;s a taxonomy that
+Clojure was designed to easily construct. Mine wasn&rsquo;t.</p>
+<p>The details of the problems don&rsquo;t matter. My main point is that I ran
+into a couple of insoluble problems with Clojure&rsquo;s MultiFns, derive,
+and hierarchies, and, after some discussion, satisfied myself that the
+Clojure community regarded those obstacles as features rather than
+bugs. So I did what any sensible Lisp hacker does in a situation like
+that: I wrote my own object system.</p>
+<p>It began as an existence proof of an alternative way of handling
+polymorphic dispatch. There was a little bit of interest in it from a
+couple of people, but for the most part the Clojure community reacted
+with a shrug. On the whole, they&rsquo;re happy with Clojure&rsquo;s
+approach. More power to them.</p>
+<p>As I tweaked a few things to respond to casually-mentioned
+hypothetical objections, I started to like what I had. I was testing
+it by reimplementing important parts of some production code I was
+working on. I realized pretty early that the subsystem I was builiding
+bore more than a passing resemblance to the ideas in &ldquo;Protocols&rdquo;. I
+refactored it a few times. I tried a couple of different
+implementation strategies. It got faster, simpler, and more appealing
+(to me, that is). Somewhere along the way, I started calling it
+Categories.</p>
+<p>I have a couple of implementations of it in Clojure now, with somewhat
+different APIs. More recently, I ported it to Scheme, so that I can
+try it out in a different application context. The API mutated a
+little more. I&rsquo;m still refactoring things to try to make the surface
+API simpler and easier to understand.</p>
+<p>Categories represents the concepts from &ldquo;Protocols&rdquo; pretty
+straightforwardly. The basic concepts are:</p>
+<p>Types: descriptions of how data are laid out.</p>
+<p>Functions: operations that accept zero or more values as parameters,
+and that compute and return zero or more values as results.</p>
+<p>Domains: descriptions of relations among types.</p>
+<p>Functions are polymorphic, and are defined in terms of domains. In
+other words, a functions looks at its arguments at runtime and decides
+which actual code to run based on what it sees. This is like any other
+object-oriented language, as far as it goes. The distinguishing
+characteristic of the system is how a function choses a method.</p>
+<p>When you construct a function, one parameter to its constructor is a
+domain. A domain contains a catalog of types, and a set of rules
+(represented as functions) that describe how the types are
+related. Domains can tell you things like whether a type is a member
+of the domain, whether one type is a subtype of another, and whether a
+method can be applied to a particular set of argument values.</p>
+<p>Importantly, you can have as many domains as you want, and each one
+can work differently. How you represent the relations among types is
+entirely up to you. This means that you can pretty easily implement
+any kind of dispatching you want. Smaltalk-style, Java-style,
+CLOS-style, predicate dispatch—it&rsquo;s all good. The Categories subsystem
+defines a default domain that implements a dispatch scheme very
+similar to those of CLOS and Dylan (because I like those schemes and
+am comfortable with them), but the default is just one domain. If you
+want something different, it&rsquo;s easy enough to build it. Just to make
+sure, I wrote implementations of Clojure&rsquo;s dispatch and of a
+predicate-dispatch scheme. They were easy to do.</p>
+<p>When I was first discussing these ideas, someone mentioned some
+concern that it wouldn&rsquo;t be possible to implement such a system
+efficiently, or to optimize it. In practice, it hasn&rsquo;t been a
+problem. There is a tradeoff between exposing the API you need to
+implement a domain efficiently, and making the domain API
+understandable, and that&rsquo;s been a major issue I&rsquo;m dealing with in
+rewrites of Categories. It seems clear at this point, though, that
+efficient implementations are doable. The trick is setting things up
+so that you can write domains that are efficient without exposing a
+confusing array of knobs and switches. I&rsquo;m still working on striking
+the right balance.</p>
+<p>You can&rsquo;t get a current working version of Categories right now; I
+still have its guts out on the table so I can tinker with them. Some
+of its early predecessors are readily available if you really want
+them, but if you read this and are really interested in Categories,
+I&rsquo;d counsel patience. I&rsquo;m folding it into some product code right now,
+and making corrections and improvements as that process reveals the
+need. It&rsquo;s my intention to nail it down and ship a product that uses
+it, then port that version back over to Clojure to support some other
+work I&rsquo;m doing in that language. Once I reach that point, if you ask
+me for it, I&rsquo;ll give it to you.</p>
+<p>Why would you want it? I dunno; you might not. I sure did, though,
+enough to build it. Soon I&rsquo;ll see if it was a waste of time, or a
+great new tool for my toolbox.</p>
 
 
 				</div>
@@ -237,14 +383,17 @@ knew?</p>
   <li class="page-item">
     <a class="page-link" href="/page/18/">18</a>
   </li>
+  <li class="page-item disabled">
+    <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
+  </li>
   <li class="page-item">
-    <a class="page-link" href="/page/19/">19</a>
+    <a class="page-link" href="/page/20/">20</a>
   </li>
   <li class="page-item">
     <a href="/page/18/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/19/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/20/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

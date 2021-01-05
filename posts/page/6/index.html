@@ -43,6 +43,10 @@
 	    
 	    
             <div class="tagbutton">
+		<a href="/posts/2021-01-04-art-is-not-optional/">Art is not optional</a>
+            </div>
+	    
+            <div class="tagbutton">
 		<a href="/posts/2020-12-18-repl-driven/">On repl-driven programming</a>
             </div>
 	    
@@ -74,15 +78,18 @@
 		<a href="/posts/2020-01-25-mai-greenhill/">Mai Greenhill</a>
             </div>
 	    
-            <div class="tagbutton">
-		<a href="/posts/2020-01-24-amor-fati/">Amor Fati</a>
-            </div>
-	    
     </div>
 
     
     <div class="sidebar-recent">
 	<p>Topics</p>
+	 
+	
+	<div class="tagbutton">
+	    <a href=/tags/life/ title="All pages with tag <i>life</i>">life</a>
+	    <sup>1</sup>
+	</div>
+	
 	 
 	
 	<div class="tagbutton">
@@ -140,28 +147,151 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="http://mikelevins.github.io/posts/2020-01-30-lev-chrysotile/">Lev Chrysotile, MD</a></h1>
-						<span>Jan 30, 2020</span>
+						<h1><a href="http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/">Programming as teaching</a></h1>
+						<span>Feb 3, 2020</span>
 					</div>
 
-					<p>Ixion 11 &ldquo;Lev&rdquo; Chrysotile is the ship&rsquo;s physician aboard
-<em>Kestrel</em>. He&rsquo;s the narrator of the first several Kestrel stories.</p>
-<p><img src="https://i.imgur.com/zRn64aL.png" alt="Lev Chrysotile"></p>
-<p>Lev is a <strong>mech</strong>—that is, an autonomous, self-aware robot. (Such
-persons are not referred to as &ldquo;robots&rdquo; in the setting; the word is
-considered a slur.) He is a Leslie Model 11 specialized for medical
-field maintenance on biological and mech persons.</p>
-<p>He&rsquo;s about twelve years old at the beginning of the Kestrel stories,
-but, like most autonomous mechs, Leslie Model 11 s roll out of the
-factory fully mature and prepared to take care of themselves.</p>
-<p>That said, they do tend to be a little naive at first.</p>
-<p>Lev met Jaemon Rayleigh at the beginning of his career, when they were
-both employed by the Criminal Investigations Unit of the Jovian
-Diplomatic Guard on Mars. They became close friends and served two
-five-year tours together. When Lev mustered out of the Guard he
-accepted Jaemon&rsquo;s invitation to visit Rayleigh Company on
-Callisto. There he joined the Company and became <em>Kestrel&rsquo;s</em> medical
-officer.</p>
+					<p>Most programming uses an approach that we might call <strong>programming as
+carpentry</strong>. We start with some idea of an artifact we want to
+build. We analyze the idea into a set of needed parts. We set to work
+on our workbench to craft the needed parts and assemble them into a
+finished product, then we examine and measure the result to determine
+how close we came to our goal.</p>
+<p>Next we repeat the process to correct details that have fallen short
+of what we want, either because we made mistakes in construction, or
+because our original plan was wrong in some way.</p>
+<p>There&rsquo;s a different way to approach programming. We might call it
+<strong>programming as teaching</strong>. In this approach, we begin by starting up
+a runtime that already knows how to be a working program; it just
+doesn&rsquo;t know how to be our particular application. By talking to the
+runtime interactively, we incrementally teach it the features we need
+it to have. When it knows how to provide all those features, we&rsquo;re
+done. We can save the accumulated changes to an artifact, and that
+artifact becomes our product.</p>
+<p>It&rsquo;s less like nailing together an artifact on a workbench, and more
+like teaching a student a new set of skills.</p>
+<p>Programming as carpentry is far better known and more widely used than
+programming as teaching. I&rsquo;d venture to say that most programmers
+aren&rsquo;t even aware that programming as teaching is an option. That&rsquo;s a
+shame, I think, because for some people it&rsquo;s a better option.</p>
+<p>I don&rsquo;t claim that the teaching paradigm is absolutely and objectively
+better. I claim only that it&rsquo;s better for some people. Take me, for
+example: programming as teaching makes me much happier, faster, and
+more productive in my work.</p>
+<p>I&rsquo;m not the only one. There are many other programmers who prefer the
+teaching paradigm. The reason it&rsquo;s an obscure minority paradigm is
+that there are even more programmers—vastly more—who are familiar with
+programming as carpentry.</p>
+<p>The fact that most programmers don&rsquo;t seem to even know that the
+teaching paradigm exists suggests to me that if it were more widely
+known, then more people would use it. What are the odds that everyone
+who prefers the obscure paradigm is already using it, when most people
+don&rsquo;t know it exists?</p>
+<p>In some sense, it doesn&rsquo;t matter. The great majority of software is
+developed in the carpentry paradigm, and the industry prospers. Is it
+really important to evangelize a different paradigm? Probably not, at
+least for the sake of the industry as a whole.</p>
+<p>On the other hand, I think it is important for the sake of us as
+programmers. If I hadn&rsquo;t been exposed to programming as teaching, I
+probably never would have known how happy and productive I can be in
+my work. A world in which I know about the teaching paradigm is a
+better world, at least for me. If there are other programmers who
+would prefer the teaching paradigm, and who don&rsquo;t know about it, then
+there&rsquo;s a better world awaiting them. All they need is to find out
+about it.</p>
+<p>So if programming as teaching is such a great idea—even if it&rsquo;s only
+great for a minority of programmers—why isn&rsquo;t it better known? I think
+it&rsquo;s because programming as teaching requires some tools over and
+above what programming as carpentry requires. You have to expend extra
+work to make those tools available, and you have to know about them
+before you can decide to do that.</p>
+<p>You can build a solid carpentry workbench without knowing anything
+about the teaching paradigm. The reverse isn&rsquo;t true. A good
+programming-as-teaching system is going to need all the tools of the
+carpentry workbench. It&rsquo;s going to need parsers and data structures
+and code-walkers and code generators. It&rsquo;s going to need file I/O and
+performance tools and debuggers, and so forth. It&rsquo;s going to need all
+that stuff, but it&rsquo;s going to need some other stuff, too.</p>
+<p>Programming as teaching means starting the application running before
+it&rsquo;s defined, then defining and redefining features while it runs. It
+means inspecting the contents of its memory, stopping control
+structures in the middle of executing, and inspecting and changing and
+redefining their dynamic context. It means updating the definitions of
+functions that are pending on the stack and of datatypes that are used
+by existing instances, and relying on the application to keep working
+reasonably while you&rsquo;re tinkering around in its guts.</p>
+<p>All of those features require substantial runtime support, and if you
+want it to work well, the runtime needs to be designed from the start
+to support it.</p>
+<p>Smalltalk systems have thorough support for that kind of
+programming. So do Common Lisp and other old-fashioned Lisp
+systems. Outside Smalltalk and Common Lisp and, to some extent FORTH
+systems, there aren&rsquo;t many development systems with the full suite of
+programming-as-teaching features.</p>
+<p>Some of these features exist in some form in modern
+programming-as-carpentry systems, but they don&rsquo;t amount to a
+programming-as-teaching system. To build a working
+programming-as-teaching system, you need to design the whole runtime
+from the ground up to support it. Let me give you an example of what I
+mean.</p>
+<p>The ANSI Common Lisp standard defines a generic function named
+UPDATE-INSTANCE-FOR-REDEFINED-CLASS. When the runtime detects a value
+whose class has been redefined since it was instantiated, it
+automatically calls this function to restructure the value so that it
+conforms to the new definition. In effect, it retroactively makes the
+value an instance of the new definition instead of the old one.</p>
+<p>You can specialize UPDATE-INSTANCE-FOR-REDEFINED-CLASS to correctly
+reinitialize instances to conform to their new definitions. If you
+don&rsquo;t, then the runtime drops you into an interactive session in which
+you can provide the new initialization interactively. You can then
+resume execution and the affected value behaves as if it was
+originally instantiated from the updated definition.</p>
+<p>If you&rsquo;re coming from programming-as-carpentry, you might reasonably
+wonder why you would ever want a function like that at all, much less
+why you would want it to be part of a language standard. But Common
+Lisp was designed by experienced Lisp users and implementors. They
+were steeped in the practice of programming as teaching (though they
+didn&rsquo;t call it that; they just called it &ldquo;programming&rdquo;).</p>
+<p>To the designers of Common Lisp, the normal way of developing a
+program was to start the Lisp and then teach it, definition by
+definition, how to be the program they wanted. They wouldn&rsquo;t expect to
+have to restart their Lisp just because they redefined something;
+that&rsquo;s silly. Redefining things was nearly all they did! No, their
+expectation was that you redefine things and keep going. It&rsquo;s the job
+of the runtime to adapt in a reasonable way to the changes that you
+tell it about. It&rsquo;s also the job of the runtime to ask you for help
+when it doesn&rsquo;t know what to do.</p>
+<p>UPDATE-INSTANCE-FOR-REDEFINED-CLASS is one element of a whole standard
+protocol defined by ANSI Common Lisp for changing and redefining
+things while the program you&rsquo;re developing continues to run. The
+standard describes facilities for defining classes and functions,
+updating bindings, catching errors by dropping into an interactive
+session where you can inspect and change everything about the dynamic
+environment, then tell the function where the error occurred to resume
+execution with the new definitions, and generally for accomplishing
+every aspect of building and deploying a program through an
+interactive conversation with the running program itself.</p>
+<p>Smalltalk systems have the same kind of design.</p>
+<p>This kind of development environment is a whole that is greater than
+the sum of its parts. To get it, you have to design the language and
+runtime from the start to support it. You can&rsquo;t convert a carpentry
+system to a teaching system by patching in one feature at a time.</p>
+<p>Very few development toolchains support the full suite of
+programming-as-teaching features. Most of the ones that do have been
+around for a long time. Newer languages and runtimes are mostly
+designed without any knowledge or understanding of the whole-system
+programming paradigm that is embodied in old Lisp and Smalltalk
+systems. Even some newer Lisps have been designed without that
+understanding.</p>
+<p>I worry sometimes that programming-as-teaching is fading away, and I
+feel sad that my favorite paradigm might someday disappear altogether.</p>
+<p>I don&rsquo;t think that if it does it&rsquo;ll be the end of software
+development, or anything apocalyptic like that. I do think that I&rsquo;ll
+miss it when it&rsquo;s gone, and I think it&rsquo;ll be sad if new generations of
+programmers never have the opportunity to experience it.</p>
+<p>There&rsquo;s something magical about gradually turning a program into the
+application you want by talking to it while it runs. For some fraction
+of programmers, it&rsquo;s the best way of working. I&rsquo;d hate to lose it.</p>
 
 
 				</div>
@@ -201,13 +331,13 @@ officer.</p>
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/19/">19</a>
+    <a class="page-link" href="/posts/page/20/">20</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/19/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/20/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
