@@ -163,8 +163,8 @@
 <p>Let me give an example: in Bard 0.7, a <strong>class</strong> is a named collection of <strong>types</strong>. A <strong>type</strong> is either a class or a <strong>structure</strong>. A <strong>structure</strong> is a concrete description of how to construct a value.</p>
 <p>In the current version, classes have no internal structure and no taxonomic relation to other types. They&rsquo;re just named containers for groups of types that participate in polymorphic functions in a particular role.</p>
 <p>An example might be a protocol function like:</p>
-<pre><code>(function add [Element List])
-</code></pre><p>In the vocabulary of Bard 0,7, this expression declares a <strong>function</strong> named <code>add</code> that accepts two arguments of classes <code>Element</code> and <code>List</code>. From this declaration we know nothing about <code>Element</code> and <code>List</code>, except that in order to be an instance of one of them, there has to be some method on <code>add</code> that works on them.</p>
+<pre><code>(function add-first [Element List])
+</code></pre><p>In the vocabulary of Bard 0,7, this expression declares a <strong>function</strong> named <code>add-first</code> that accepts two arguments of classes <code>Element</code> and <code>List</code>. From this declaration we know nothing about <code>Element</code> and <code>List</code>, except that in order to be an instance of one of them, there has to be some method on <code>add-first</code> that works on them.</p>
 <p>For example, suppose there&rsquo;s also a method definition like this:</p>
 <pre><code>(define method (add-first item list)
   where: {item: &lt;small-integer&gt;
