@@ -43,6 +43,10 @@
 	    
 	    
             <div class="tagbutton">
+		<a href="/posts/2021-01-06-type-taxonomy/">On the taxonomy of types</a>
+            </div>
+	    
+            <div class="tagbutton">
 		<a href="/posts/2021-01-04-art-is-not-optional/">Art is not optional</a>
             </div>
 	    
@@ -60,10 +64,6 @@
 	    
             <div class="tagbutton">
 		<a href="/posts/2020-02-16-on-young-earth-creationism/">On young-earth creationism</a>
-            </div>
-	    
-            <div class="tagbutton">
-		<a href="/posts/2020-02-03-programming-as-teaching/">Programming as teaching</a>
             </div>
 	    
     </div>
@@ -89,7 +89,7 @@
 	
 	<div class="tagbutton">
 	    <a href=/tags/programming/ title="All pages with tag <i>programming</i>">programming</a>
-	    <sup>8</sup>
+	    <sup>9</sup>
 	</div>
 	
 	 
@@ -135,200 +135,488 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/">Gambit considered helpful</a></h1>
-						<span>Oct 18, 2009</span>
+						<h1><a href="http://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/">A peek at Categories</a></h1>
+						<span>Oct 23, 2009</span>
 					</div>
 
-					<p>I&rsquo;ve just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my
-testers. Delectus is an application for keeping track of collections
-of things. The inspiration for it was an ancient and hoary program my
-mother used to keep track of her movies. She has around a thousand
-movies, the majority of them still on videocassettes. Each cassette
-has a catalog number on it, and she uses a database program to
-associate those numbers with information like the title, star, genre,
-and so forth, so that she can quickly find a particular movie in her
-stacks of shelves. Recently the software, which is over twenty years
-old, finally became obsolete. As we were looking for a replacement, I
-decided I&rsquo;d just write one, and that became the genesis of Delectus.</p>
-<p>The basic design of Delectus is very simple. A Delectus document
-stores a list of rows and a list of columns. Each column has a text
-label. Each row contains a list of text fields. The number of fields
-is the same in every row, and it&rsquo;s also the same as the number of
-columns. So you can create a document with the columns &ldquo;Title&rdquo;,
-&ldquo;Genre&rdquo;, and &ldquo;Star&rdquo;, and every row will then have three fields. You
-can make a new row and put the title of a movie into the &ldquo;Title&rdquo;
-field, the star into the &ldquo;Star&rdquo; field, and the genre into the &ldquo;Genre&rdquo;
-field.</p>
-<p>Delectus doesn&rsquo;t decide for you how many columns to create or what the
-names will be. Instead, a new Delectus document has no rows and no
-columns. You can add new rows and new columns at any time, and you can
-delete them at any time, too. This flexibility makes it easy to set up
-your databases any way that is convenient for you. You can sort a
-document&rsquo;s entries, forward or backward, by clicking the heading of a
-column. If every entry in a column is a number, Delectus detects that
-automatically, and sorts by number instead of lexicographically.</p>
-<p>Delectus uses a trash can, like OS X&rsquo;s trash can. When you delete a
-row or column, it&rsquo;s not really gone, but tossed into the trash. Click
-a trash button, and Delectus shows the trash to you, integrated in the
-document, but displayed in a different color, so you can easily tell
-which items are deleted. Empty the trash, of course, and the deleted
-items are gone forever.</p>
-<p>Delectus is mainly written in Scheme. The Scheme compiler I&rsquo;m using is
-Gambit-C. A few weeks ago, I wrote a post about the happy discovery
-that Gambit-C made it easy to work with Mac OS X&rsquo;s Cocoa frameworks. I
-said Gambit was a great platform for Cocoa development. That opinion
-drew some fire, but I haven&rsquo;t changed it. To the contrary, I&rsquo;ve grown
-happier with Gambit as I&rsquo;ve developed Delectus.</p>
-<p>Some people grumbled that I&rsquo;m not allowed to call it a great platform
-if I still have to deal with C code. Now, that&rsquo;s silly. You know, I
-actually had a Lisp system once in which I never had to deal with C
-code. It was called a Symbolics Lisp Machine, Every other Lisp I&rsquo;ve
-used&ndash;and I&rsquo;ve used a lot of them in twenty one years of
-programming&ndash;has had to deal with C in one way or another, at one time
-or another. Heck, even when I was writing Lisp code for an operating
-system written in Lisp (an unshipped version of Apple&rsquo;s Newton), we
-had to deal with C code. If your eyes are damaged by the sight of
-semicolons, a hard road awaits you. C code is in the underpinnings of
-every system you are ever likely to use. At least Gambit makes it easy
-to wrap our beloved parentheses around it, so that the hothouse
-flowers in our midst are protected from the hot exhaust bits spewing
-forth from the C code beneath our feet.</p>
-<p>The other common complaint seems to be that I made a grammatical error
-in using the adjective &ldquo;great&rdquo; to modify a set of development tools
-that does not include an IDE. To paraphrase Yoda, &ldquo;IDEs not make one
-great.&rdquo;  Sure, there have been great IDEs. Smalltalk-80 was a great
-IDE. Xerox Interlisp was a great IDE. Most IDEs are not great. Most
-IDEs are <em>going</em> to be great, someday. That is, they&rsquo;re going to be
-great, right up to the point where the weight of the implementation
-collapses the envelope of optimism providing their buoyancy, and they
-crumple into a heap of random features, slowly and inexorably sinking
-under their combined mass.</p>
-<p>IDEs are large, complicated systems that require serious design and
-engineering. They are major cost centers to anyone who is not in the
-business of selling IDEs, and the market for them is small. It should
-not be surprising that they&rsquo;re mostly not all that good.</p>
-<p>What&rsquo;s more, the benefit of even a great IDE is, let&rsquo;s face it,
-marginal, as long as the basic tools are comprehensive and good. So
-yeah, I&rsquo;d like to have a great IDE. I&rsquo;m not holding my breath. Maybe
-I&rsquo;ll like the Factor IDE. It looks pretty good. But I&rsquo;m working in
-Scheme, right now.</p>
-<p>So, yeah, folks who never want to see a line of C code, you&rsquo;re not
-going to like the tools I&rsquo;m using. Ditto for anyone who must have his
-projects managed by a digital valet in an impeccably-tailored suit of
-color-coordinated windows. There&rsquo;s nothing for you guys to see here;
-move along.</p>
-<p>For me, though, Gambit has definitely been great. In the development
-of Delectus, I&rsquo;ve ditched XCode (but not Interface Builder). In Alpha
-2, 83% of the application code by linecount is Scheme code. The
-remaining 17% is Objective-C. Basically, there&rsquo;s just enough
-Objective-C to load the nibfiles that define the app&rsquo;s windows and
-menus, and hook their event-handlers to the Scheme code that does all
-the real work.</p>
-<p>After some experimentation, I partitioned the application into the
-following parts:</p>
+					<p>I&rsquo;ve begun preparations to package Categories for release. The first
+thing I&rsquo;m doing is going over the surface syntax. In previous
+iterations I&rsquo;ve built Categories from the bottom up, which confirmed
+that the concepts and mechanisms worked, but left a few warts in the
+surface syntax. This time, I figured I&rsquo;d start at the surface syntax
+and work the other way, in hopes that the result will be more
+congenial.</p>
+<p>This rather long post describes the current state of the Categories
+surface syntax. Those who are interested in such things are invited to
+tell me what&rsquo;s wrong with it.</p>
+<p>Categories has three logical parts: datatypes (representation),
+functions (behavior), and domains (taxonomy). Following Larry Tesler&rsquo;s
+maxim that &lsquo;simple things should be simple; complex things should be
+possible,&rsquo; I&rsquo;ll start by describing just the simplest and most common
+use-cases, and then make another pass through all three parts of the
+system to add in the more complicated options.</p>
+<h2 id="datatypes">Datatypes</h2>
+<p>Representation is the province of Datatypes. Types are first-class
+objects in Categories. They can be created by evaluating expressions,
+passed to and returned from functions, and bound to variables.</p>
+<p>Categories defines a set of primitive type objects that represent
+built-in types of the underlying platform. For example, the Scheme
+version defines primitive types like <code>&lt;pair&gt;</code> and <code>&lt;symbol&gt;</code>, and it
+arranges for its reflective operations to return appropriate
+values. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">type</span> <span style="color:#e6db74">&#39;foo</span>)
+
+&lt;symbol&gt;
+
+? (<span style="color:#a6e22e">type?</span> <span style="color:#e6db74">&#39;foo</span> &lt;symbol&gt;)
+
+<span style="color:#66d9ef">#t</span>
+</code></pre></div><h2 id="type-synonyms">Type synonyms</h2>
+<p>The simplest possible way to define a type is to say that it&rsquo;s the
+same as some existing type. Of course, even simpler than that is to
+just go ahead and use the existing type. But sometimes you want a
+different name for the type, to better communicate its intended
+use. Sometimes you want to use an existing type for now, but may want
+to represent the data differently in the future. To make these uses
+easier, Categories provides type synonyms:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;name&gt; 
+  (<span style="color:#a6e22e">type-synonym</span> &lt;string&gt;))
+</code></pre></div><p>By defining <code>&lt;name&gt;</code> as a synonym for <code>&lt;string&gt;</code> you can use <code>&lt;string&gt;</code>
+objects to represent names, while calling them <code>&lt;name&gt;</code>s in your code to
+clearly communicate their purpose. Later, if you find that you need to
+represent names in some other way&ndash;say as some structured object that
+takes into account various different kinds of names that people
+use&ndash;you can replace the definition of <code>&lt;name&gt;</code>. You&rsquo;ll then have to
+change the implementations of functions that operate on <code>&lt;name&gt;</code>s, of
+course, but if you structure your APIs appropriately, that&rsquo;s all
+you&rsquo;ll have to change.</p>
+<h3 id="structures">Structures</h3>
+<p>More commonly, we want to create structured types by grouping several
+simpler types into named fields. In Categories, that kind of type is
+called a structure:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
+  (<span style="color:#a6e22e">structure</span> () x y))
+</code></pre></div><p>Like other types, structures are first class objects. The above code
+binds a new structure to the variable <code>&lt;cartesian-point&gt;</code>. The new
+structure has two keys: x and y. Instances of <code>&lt;cartesian-point&gt;</code> will
+contain two values, one stored on the key x, and the other stored on
+the key y.</p>
+<p>You can create an instance of a structure by applying the function
+make to it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;)
+</code></pre></div><p>You can get the value associated with a key by applying the function
+get-key:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;) <span style="color:#e6db74">&#39;x</span>)
+
+Error: Unbound key x 
+</code></pre></div><p>Unfortunately, we didn&rsquo;t specify any value for x when we created the
+instance. You can do that by passing in an initializer for the key:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>) <span style="color:#e6db74">&#39;x</span>) 
+
+<span style="color:#ae81ff">101</span> 
+</code></pre></div><p>You can also specify a default value for a key in the definition of
+the type:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    (<span style="color:#a6e22e">x</span> default: <span style="color:#ae81ff">7</span>)
+    y))
+
+? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;) <span style="color:#e6db74">&#39;x</span>) 
+  
+<span style="color:#ae81ff">7</span> 
+</code></pre></div><p>Before I go any farther, I had better explain why there&rsquo;s an empty
+list after the symbol &lsquo;structure&rsquo; in:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    x
+    y)) 
+</code></pre></div><p>When you create a new structure, you can specify zero or more existing
+structures to include in its definition. So if I wanted to define a
+new type of 3D point that is just like a cartesian point, but with an
+extra coordinate, I could define it like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;3d-point&gt; 
+  (<span style="color:#a6e22e">structure</span> (<span style="color:#a6e22e">&lt;cartesian-point&gt;</span>) 
+   z)) 
+</code></pre></div><p>&lsquo;Okay,&rsquo; you&rsquo;re thinking, &lsquo;that&rsquo;s nothing new. The new type inherits
+from the old one.&rsquo; Not so fast: there&rsquo;s no such thing as inheritance
+in types. Including a type just means you don&rsquo;t have to retype all its
+field definitions when you want to reuse them. Categories does support
+inheritance, but that belongs to domains, not to datatypes. Remember:
+datatypes are representation. Inheritance belongs to taxonomy, and
+that&rsquo;s the province of domains, not of datatypes.</p>
+<h3 id="structure-amenities">Structure amenities</h3>
+<p>The structure constructor provides a few more conveniences. You can
+say that you want Categories to automatically construct getter
+functions for the new type&rsquo;s keys:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    (<span style="color:#a6e22e">x</span> get: get-x) 
+    (<span style="color:#a6e22e">y</span> get: get-y))) 
+</code></pre></div><p>Now you can fetch the x value from a cartesian point like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-x</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>))
+
+<span style="color:#ae81ff">101</span> 
+</code></pre></div><p>If you leave off the get: argument for a key, then you have to use
+get-key and the key&rsquo;s name to fetch the value.</p>
+<p>You can also specify a setter:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    (<span style="color:#a6e22e">x</span> get: get-x set: set-x!)  
+    (<span style="color:#a6e22e">y</span> get: get-y set: set-y!)))  
+</code></pre></div><p>Categories then constructs a function for setting the value associated
+with the key:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#66d9ef">define </span>p (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>))
+
+<span style="color:#f92672">#</span>&lt;&lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span> y: <span style="color:#f92672">#</span>&lt;unbound&gt;&gt;
+
+? (<span style="color:#a6e22e">get-x</span> p) 
+
+<span style="color:#ae81ff">101</span>
+
+? (<span style="color:#a6e22e">set-x!</span> p <span style="color:#ae81ff">1001</span>) 
+
+? (<span style="color:#a6e22e">get-x</span> p) 
+
+<span style="color:#ae81ff">1001</span> 
+</code></pre></div><p>If you omit the set: argument then Categories makes the key
+read-only. Categories is generally biased in favor of immutable data.</p>
+<h3 id="functions">Functions</h3>
+<p>Now that we know how to define datatypes, what do we do with them? We
+apply <strong>functions</strong> to them.</p>
+<p>Functions are objects that can be applied to zero or more parameters
+and return zero or more results. Functions as defined in Categories
+are polymoprphic. In other words, the same function can have several
+different definitions. The one that applies to a particular set of
+inputs depends on the inputs.</p>
+<p>This practice of making the particular implementation of a function
+depend on its inputs is called <strong>polymorphism</strong>, and is one of the
+foundations of object-oriented programming. Choosing a specific
+implementation to run is called <strong>dispatching</strong>. Categories provides
+polymorphic functions with programmable dispatching.</p>
+<p>We&rsquo;ll look at how you can create your own dispatching schemes
+below. First, though, let&rsquo;s look at what it&rsquo;s like to define and use
+functions in the simplest way.</p>
+<h3 id="the-default-domain">The Default domain</h3>
+<p>The simplest way to define and use functions in Categories is with the
+<strong>default domain</strong>. Categories assumes you are using the default
+domain unless you tell it otherwise. The features of the default
+domain generally resemble those of CLOS.</p>
+<p>Like types, functions are first-class objects. You can create one and
+bind it to a variable, like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>serialize 
+  (<span style="color:#a6e22e">function</span> ((<span style="color:#a6e22e">s</span> &lt;store&gt;))
+    (vector <span style="color:#e6db74">&#39;store</span> 
+            (<span style="color:#a6e22e">version</span> s) 
+            (map serialize (<span style="color:#a6e22e">columns</span> s)) 
+            (<span style="color:#a6e22e">column-order</span> s) 
+            (<span style="color:#a6e22e">sort-column</span> s) 
+            (<span style="color:#a6e22e">sort-reversed?</span> s) 
+            (map serialize (<span style="color:#a6e22e">rows</span> s)) 
+            (<span style="color:#a6e22e">notes</span> s)))) 
+</code></pre></div><p>The function object that is bound to the variable named &lsquo;serialize&rsquo; is
+created with a single implementation, corresponding to the type
+<code>&lt;store&gt;</code>. If we want to add another implementation, we can use
+add-method!:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)) <span style="color:#f92672">...</span>)
+
+</code></pre></div><p>Why do the parameter lists have double parentheses? Because each
+parameter may be type-qualified:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)(<span style="color:#a6e22e">outs</span> &lt;stream&gt;)) 
+  <span style="color:#f92672">...</span>)  
+</code></pre></div><p>You can define a method to execute when no match is found for the
+inputs by omitting the type qualifiers:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize (<span style="color:#a6e22e">something</span> somewhere) <span style="color:#f92672">...</span>)
+
+</code></pre></div><p>It can be an inconvenience to keep track of where the definition of
+the function first appears, and to make sure that all the add-method!
+calls appear after it. If you instead use the define-function macro,
+that bookkeeping is handled for you automatically:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)
+
+(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)) <span style="color:#f92672">...</span>)
+    
+</code></pre></div><p>In that case, it doesn&rsquo;t matter which comes first.</p>
+<h3 id="domains">Domains</h3>
+<p>So how exactly does dispatching work in Categories? Well, that depends
+on what domain you use. By default, you use the default domain. The
+default domain, which is named -c3-, uses a dispatching algorithm very
+similar to that of CLOS. It&rsquo;s not identical to CLOS; it uses a scheme
+first described in</p>
+<p><a href="http://192.220.96.201/dylan/linearization-oopsla96.html">http://192.220.96.201/dylan/linearization-oopsla96.html</a></p>
+<p>That scheme, which is generally called &lsquo;C3,&rsquo; yields dispatching
+behavior that is very similar to that of CLOS, but which in a few
+complicated corner cases produces less surprising results. It&rsquo;s the
+default in Categories because I like it, and because it has served the
+general programming community well. It was designed for the Dylan
+programming language, but has been adopted by implementors outside the
+Dylan community, including the Python implementors and the designers
+of the Class::C3 object system for Perl.</p>
+<p>Although C3 is the default dispatching scheme, it&rsquo;s not the only
+dispatching scheme supported by Categories.  Two other dispatching
+schemes are provided with Categories, and by defining domains, you can
+make your own.</p>
+<p>Before we get to that, though, let&rsquo;s just look at how to use something
+other than the default domain.</p>
+<p>When you write:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
+</code></pre></div><p>that expression is really shorthand. It leaves out a reference to the
+domain you&rsquo;re using. If we wrote it out in full, it would look like
+this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
+</code></pre></div><p>You can see that here we&rsquo;ve said explicitly that we&rsquo;re defining a
+function that operates in the -c3- domain. We could instead use one of
+the other domains supplied with Categories, the Flat domain:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -flat- serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
+</code></pre></div><p>The difference between -c3- and -flat- is that -c3- defines supertype
+relations among types, and -flat- doesn&rsquo;t. Suppose you make an
+instance of <!-- raw HTML omitted --> and call serialize on it.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>$r (<span style="color:#a6e22e">make</span> &lt;repository&gt;)) 
+
+(<span style="color:#a6e22e">serialize</span> $r) 
+</code></pre></div><p>What happens? That depends on whether serialize is defined on the -c3-
+or on the -flat- domain. It&rsquo;s the domain that defines how dispatching
+is done. If it&rsquo;s defined on -flat- then the answer is simple:
+serialize finds no match for $r. Unless a default method is defined as
+in the example above, an error is signaled.</p>
+<p>The -c3- domain defines a more complicated&ndash;and more
+familiar&ndash;dispatching scheme. It will try to match $r against
+serialize methods that are defined on <code>&lt;repository&gt;</code>.  When it fails to
+find one, it then tries to find serialize methods defined on
+supertypes of <code>&lt;repository&gt;</code>.</p>
+<p>Didn&rsquo;t I say above that datatypes don&rsquo;t define supertype or
+inheritance relations? Yes, because <em>domains</em> do. The -c3- domain
+defines supertype relations with multiple inheritance. It tries to
+find an inherited method that matches, using the C3 algorithm to
+determine which matching method is most specific. Once again, if no
+such method is found then either the default method is called or, if
+there is no default method, an error is signaled.</p>
+<h3 id="more-options">More options</h3>
+<p>That&rsquo;s a first pass across the simplest and most commonly-used
+features of Categories. Let&rsquo;s go over the parts of the system one more
+time, and look at a few more options that it provides.</p>
+<h3 id="categories">Categories</h3>
+<p>First of all, I left out an important group of types, because it&rsquo;s
+hard to explain what they&rsquo;re for until you&rsquo;ve seen how Categories
+works with domains. A constructor named &lsquo;category&rsquo; creates a kind of
+type that is different from the others. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;vehicle&gt; (<span style="color:#a6e22e">category</span> &lt;car&gt; &lt;truck&gt;)) 
+</code></pre></div><p>The expression above binds a new type to <code>&lt;vehicle&gt;</code>. The new type,
+which is called a category, represents any of the types passed as
+inputs to the &lsquo;category&rsquo; constructor. Once <code>&lt;vehicle&gt;</code> is defined, any
+method matching <code>&lt;vehicle&gt;</code> will also apply to <code>&lt;car&gt;</code> or
+<code>&lt;truck&gt;</code>. You can therefore define functions that accept <code>&lt;vehicle&gt;</code>
+values, and those functions will work on <code>&lt;car&gt;</code> or <code>&lt;truck&gt;</code> values,
+<em>even if the functions are defined on the flat domain</em>. In other
+words, even without inheritance, it is possible to define functions
+that operate the same way on a variety of different types.</p>
+<h3 id="supertypes-and-subtypes">Supertypes and subtypes</h3>
+<p>Okay, but suppose you actually want types that have supertypes and
+subtypes? Well, then, you can use -c3-,or any domain that supports
+supertype relations, and you can add your own types to it. For
+example,</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-type!</span> -c3- &lt;truck&gt; 
+  supertypes: (list &lt;transportation&gt; &lt;four-wheeled-objects&gt;)) 
+</code></pre></div><p>&hellip;adds to -c3- a type named <code>&lt;truck&gt;</code>, with supertypes
+<code>&lt;transportation&gt;</code> and <code>&lt;four-wheeled-objects&gt;</code>.</p>
+<p>You can, of course, also add types to the -flat- domain:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-type!</span> -flat- &lt;truck&gt;) 
+</code></pre></div><p>You can&rsquo;t specify any supertypes for it, though, because -flat-
+doesn&rsquo;t support supertype relations. If you try to, then add-type!
+will signal an error.</p>
+<h3 id="name-collisions">Name collisions</h3>
+<p>What happens if I define a type that includes two other types that
+have different definitions for the same key?</p>
+<p>For example, suppose I have these two definitions:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;monument&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    (<span style="color:#a6e22e">age</span> type: &lt;historical-epoch&gt;))
+
+(<span style="color:#66d9ef">define </span>&lt;property&gt; 
+  (<span style="color:#a6e22e">structure</span> () 
+    (<span style="color:#a6e22e">age</span> type: &lt;count-of-years&gt;)) 
+</code></pre></div><p>Now suppose I want to define <code>&lt;historic-property&gt;</code> like
+this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;historic-property&gt; 
+  (<span style="color:#a6e22e">structure</span> (<span style="color:#a6e22e">&lt;monument&gt;</span> &lt;property&gt;) 
+    (<span style="color:#a6e22e">square-footage</span> asking-price)) 
+</code></pre></div><p>Well, I can&rsquo;t. The definition of age in <code>&lt;monument&gt;</code> conflicts with
+the definition of age in <code>&lt;property&gt;</code>. What I can do, though, is
+rename one or both of the included keys:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;historic-property&gt; 
+  (<span style="color:#a6e22e">structure</span> ((<span style="color:#a6e22e">&lt;monument&gt;</span> (<span style="color:#a6e22e">age</span> as: period))
+              (<span style="color:#a6e22e">&lt;property&gt;</span> (<span style="color:#a6e22e">age</span> as: how-old)))
+    (<span style="color:#a6e22e">square-footage</span> asking-price))) 
+</code></pre></div><h3 id="the-predicate-domain">The Predicate domain</h3>
+<p>Besides the default C3 domain and the flat domain, Categories includes
+a third domain that works very differently from either. The -pred-
+domain matches input function arguments with a user-defined predicate
+function. For example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -pred- ((<span style="color:#a6e22e">x</span> y z) all-odd?)  <span style="color:#f92672">...</span>)
+
+</code></pre></div><p>The example above shows a function that will match any three inputs,
+as long as calling the function all-odd? on the sequence of three
+inputs returns true. You can define functions that match on any
+predicate you like. You just have to ensure that when the function
+passes the inputs to your predicate, the predicate correctly returns
+either true or false.</p>
+<p>The -pred- domain also uses the C3 algorithm to support supertype
+relations among predicates. Using the -pred- domain you can construct
+whatever relations among predicate functions you like, and Categories
+will dispatch appropriately. For example, you define all-integers? to
+be a supertype of all-odd?, and then anything that matches all-odd?
+will also match all-integers?.</p>
+<p>I should probably mention here that -pred- may not be all that useful
+to anyone. It exists mainly because I wanted to make sure that it was
+workable to build a dispatching scheme in Categories that was quite a
+bit different from the usual thing.</p>
+<p>One mystery remains with the -pred- domain, though: the syntax for
+defining a function is different from the syntax used with the -c3-
+and -flat- domains. How does that work?</p>
+<h3 id="defining-domains">Defining domains</h3>
+<p>The unique define-function syntax of the -pred- domain is provided by
+the domain itself. It turns out that the operators &lsquo;function&rsquo; and
+define-function' don&rsquo;t define the syntax of parameter lists; the
+domain does. The -c3- and -flat- domains both define a syntax that is
+familiar to users of CLOS and similar object systems. You write
+define-function forms like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- add ((<span style="color:#a6e22e">x</span> &lt;integer&gt;)(<span style="color:#a6e22e">y</span> &lt;integer&gt;)) <span style="color:#f92672">...</span>)  
+</code></pre></div><p>The forms <code>(x &lt;integer&gt;)</code> and <code>(y &lt;integer&gt;)</code> mean that the formal
+parameters x and y match inputs only if those inputs can be matched
+with the <code>&lt;integer&gt;</code> type, according to the domain.</p>
+<p>A domain like -pred- works quite differently, and requires a different
+syntax for parameter lists. Instead of piecewise matching input values
+against types, -pred- matches the parameter list as a whole against
+predicates applied to it. That makes it possible to dispatch on
+conditions that -c3- and -flat- can&rsquo;t check. For example, -pred- can
+match a sequence of five integers that are monotonically increasing,
+or a sequence of characters that forms a palindrome.</p>
+<p>But if some domains require unique parameter-list syntax, that means
+Categories must have a way to define that syntax; and it does.</p>
+<p>When you define a domain, you are defining three things:</p>
 <ol>
 <li>
-<p>The back-end: this is pure Scheme code that handles all the data
-structures, as well as sorting, filtering, and updating. It also
-handles serializing and deserializing data as CSV and a native
-binary format, and writing to and reading from disk files.</p>
+<p>a format for function parameter lists</p>
 </li>
 <li>
-<p>The UI: this is Objective-C code that loads the nibfiles, sets up
-calls into the back-end, responds to notifications that originate
-in the back-end, and provides the minor customizations I needed
-to make Apple&rsquo;s UI elements look just the way I wanted. This part
-is less than 700 lines of code, total.</p>
+<p>a function that determines whether a particular method matches a
+given sequence of input values</p>
 </li>
 <li>
-<p>The bridge. This is a small amount of Scheme code, and an even
-smaller amount of Objective-C code, in a couple of files. It
-provides simple utilities like a means of converting Scheme
-strings to NSString objects when the UI needs to fetch a string
-from the back-end, without being prodigal about allocation of
-strings. It provides a mechanism for notifying the Objective-C
-code from Scheme code, so that the pure-Scheme back-end can post
-error messages, update requests, and other notifications, without
-any code that is actually aware that an Objective-C component
-exists.</p>
+<p>a function that can tell you which of two methods better matches a
+given set of inputs</p>
 </li>
 </ol>
-<p>The last point is maybe interesting. There is a very small amount of
-mixed Scheme/C code that enables the Objective-C UI to interact
-productively with the Scheme back-end. I could easily have put that
-code into the main body of the back-end proper, and at first, that&rsquo;s
-what I did. After all, there&rsquo;s only a little of it; what&rsquo;s the harm?</p>
-<p>Before long though, I refactored the code to completely separate all
-that code into a bridge layer. The reason, basically, is that I like
-to have a fairly comprehensive set of unit tests around my major
-application functionality. With such a set of tests in place, it&rsquo;s
-very easy to detect when a change in the code makes an application
-feature fail, and it&rsquo;s easy to find what broke it. By factoring all of
-the mixed code out into its own small layer, I was able to make the
-back-end pure Scheme code, with no reference anywhere to any foreign
-functions. That means that I can load the entire back-end into an
-interactive repl and exercise it. I can run all the unit tests at
-once, or run particular ones interactively. If one breaks, I can use
-the interactive debugger to crawl around inside the back-end&rsquo;s runtime
-and figure out what&rsquo;s wrong.</p>
-<p>Furthermore, by factoring things this way, I create a circumscribed
-and coherent API for calling into the back-end and getting data from
-it. That makes it very easy to hook up the Cocoa UI, simply by having
-event-handlers call the appropriate API functions. UI calls into the
-back-end are almost always one or two lines of code. That means that,
-even when a bug is in the UI rather than the back-end, the way the app
-is factored makes that easy to detect. And since there is so little
-front-end code, it&rsquo;s easy to find and fix.</p>
-<p>Obviously, you could structure any Cocoa app similarly, whether the
-back-end is Scheme or C or ML or whatever. What makes Gambit great for
-me, a Lisp hacker by preference, is that over eighty percent of the
-code I work with is pure Scheme code that I can work with
-interactively, in the way I prefer.</p>
-<p>You could argue that Delectus is really a C program, on the grounds
-that Gambit-C compiles Scheme to C, before subsequently compiling it
-to native code. That suits me fine, as long as I can continue to write
-my C code in Scheme.</p>
-<p>I&rsquo;ll say it again: Gambit-C has been a great platform for developing a
-Cocoa app. I&rsquo;ll enthusiastically use it again in the future to do the
-same kind of work. I would recommend it to anyone who wants to use
-Lisp to write a Cocoa app, provided that they&rsquo;re not allergic to C
-code, and provided that they&rsquo;re okay with using compilers and editors
-without an IDE to command the servants for them.</p>
-<p>Delectus should be out soon. The gating factor right now is the
-opinion of the testers. When they&rsquo;re happy with the feature set and
-the stability of the product, I&rsquo;ll release it.</p>
-<p>After the release of Delectus, I&rsquo;ll begin work on a web application
-aimed at MMORPG players. Most likely, the server side of that
-application will be written in Clojure.</p>
-<p>A little while ago, I promised interested people that they would soon
-be able to get their hands on my Categories object system. The object
-system had to take a back seat to revenue-generating work, but when
-Delectus is out, I&rsquo;ll be working on a release of Categories. I intend
-to use it in my next product anyway, and so I may as well also package
-it for release to the tiny community of people who are interested in
-such things.</p>
-<p>The current working prototype of Categories runs on Gambit, and it&rsquo;s
-likely that&rsquo;s the version I&rsquo;ll clean up and release first. Then I&rsquo;ll
-port it back to Clojure (which is where I developed the first versions
-of it), and make that available as well. It may be a little while
-before I do either; we must now wait on the verdict of my
-testers. When they say Delectus is done, then I can move forward.</p>
-<p>I have several other plans in the works, including the resurrection of
-some old friends. After six years, I still occasionally get fan mail
-about Alpaca, the text editor. Those few fans may be glad to know that
-a new version of Alpaca is on the roadmap. Another old project that
-I&rsquo;m still sometimes asked about is Bosco, a simple set of tools for
-building a Cocoa application in Clozure Common Lisp. Well, Bosco was
-absorbed into Clozure Common Lisp a couple of years ago, but there
-stlll seems to be a place under the sun for a small package of files
-that shows how to build a minimal Cocoa application with the smallest
-possible amount of Lisp code. I have another project called Apis that
-can serve that purpose, among others. Apis, and other things derived
-from it, are also on the roadmap.</p>
-<p>There are other things, but they&rsquo;re even further down the road. For
-now, I&rsquo;m still squarely in the midst of Delectus, and loving
-Gambit. Turns out it&rsquo;s still a great platform for developing Cocoa
-apps.</p>
+<p>Here&rsquo;s what a domain definition looks like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>-my-domain- 
+  (<span style="color:#a6e22e">domain</span> catalog: some-catalog-data-structure 
+          parser: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> formals) <span style="color:#f92672">...</span>)
+          matcher: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> signature values) <span style="color:#f92672">...</span>)  
+          comparator: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> signature1 signature2 values) <span style="color:#f92672">...</span>)))  
+</code></pre></div><p>Right away you&rsquo;ll notice that, although I said you have to define
+three things, there are four inputs to the domain
+constructor. Categories provides each domain with a data structure
+called a <strong>catalog</strong>. The catalog can be anything you like. It can be
+a false value, or an integer, or a table, or a more complex data
+structure. It&rsquo;s up to you. Its purpose is to provide storage for any
+auxiliary data that your domain might need to perform its tasks
+correctly and efficiently. You can use it to store method caches, or
+arrangements of supertypes designed to make lookup fast, or whatever
+you wish. You can also ignore it completely, if you wish.</p>
+<p>The other inputs to the domain constructor are essential, though. Each
+of them is a function that defines one aspect of how the domain
+works. Because your domain may have crucial data stored in its
+catalog, all three of the functions accept the domain itself as the
+first argument. Its up to you what you do with that argument; it&rsquo;s
+available in case you need it.</p>
+<p>Besides the domain parameter, the functions that define a domain deal
+with three other items: formal parameters, method signatures, and
+input values.</p>
+<p>A formal parameter is an object that represents the formal arguments
+in a function definition. Categories doesn&rsquo;t define the format of
+argument lists; that&rsquo;s up to the domain. When it processes a function
+definition, it extracts the formal parameter from the function or
+define-function expression, and passes it to the domain&rsquo;s parser. The
+parser must accept the formal parameter and return a method
+signature. It&rsquo;s the parser that determines what the argument list of a
+function definition looks like.</p>
+<p>The parser doesn&rsquo;t have to be complicated. Consider a -c3- function
+definition again:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- add ((<span style="color:#a6e22e">x</span> &lt;integer&gt;)(<span style="color:#a6e22e">y</span> &lt;integer&gt;)) <span style="color:#f92672">...</span>)  
+</code></pre></div><p>All the parser needs to do is collect the type qualifiers from the
+formal parameter list, which is <code>((x &lt;integer&gt;)(y &lt;integer&gt;))</code>, and
+make a method signature that matches two inputs that are both of type
+<code>&lt;integer&gt;</code>.</p>
+<p>That brings us to method signatures, and to the matcher. Once again,
+the method signature can be any data structure you like, as long as it
+stores the information that the matcher needs. Categories passes to
+the matcher a method signature and a collection of input values. The
+matcher must return true if the signature matches the inputs, and
+false otherwise. For -c3-, a method signature can simply be a sequence
+of types. For example, the method signature for the add function
+defined above is just <code>(&lt;integer&gt; &lt;integer&gt;)</code>. The -c3- domain will
+say that any sequence of two values matches that signature, as long as
+both are of type <code>&lt;integer&gt;</code>, or of some type that, according to -c3-,
+is a subtype of <code>&lt;integer&gt;</code>.</p>
+<p>What if more than one signature matches a set of inputs? How does the
+domain know what to do?</p>
+<p>That&rsquo;s what the comparator is for. After a function determines all the
+signatures that match a set of inputs, it sorts them. The comparator
+is the function it uses to determine their order. The comparator must
+accept two signatures and a sequence of input values. If the first
+signature is a better match than the second for the inputs, then the
+comparator returns -1. If the second signature is a better match, it
+returns 1. If neither is better, it returns 0. It&rsquo;s best to try to
+arrange for the comparator not to return zero, if that makes sense for
+the domain you&rsquo;re designing, because returning zero means you can&rsquo;t
+tell which method to apply. Categories has to signal a dispatch error
+when that happens.</p>
+<h3 id="customizing-the-default-domain">Customizing the default domain</h3>
+<p>It may happen that you want to make your own domain, but you don&rsquo;t
+really want to totally rewrite how everything works. Maybe, for
+example, you want to use something other than C3 to order methods, but
+everything else about how Categories works suits you fine. In order to
+make it easier to customize just the part you want to customize,
+Categories provides functions that implement the behavior of the
+default domain. You can make your own domains using them, and you can
+replace just one of them, or two of them, or you can use all of the
+standard functions, but change their inputs or outputs a little using
+your own code.</p>
+<p>As an example, you can make a domain that duplicates the behavior of
+the default domain like this:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>-my-c3-domain- 
+  (<span style="color:#a6e22e">domain</span> catalog: (<span style="color:#a6e22e">make-c3-catalog</span>)
+          parser: (<span style="color:#a6e22e">c3-signature-parser</span>) 
+          matcher: (<span style="color:#a6e22e">c3-signature-matcher</span>)
+          comparator: (<span style="color:#a6e22e">c3-signature-comparator</span>))) 
+</code></pre></div><h3 id="what-next">What next?</h3>
+<p>All of the features described in this overview have been implemented,
+but the working code doesn&rsquo;t provide this surface syntax. The syntax
+of the working versions is not too different in most places, but it&rsquo;s
+a little more complicated and not quite so tidy. I&rsquo;ll be fixing that
+as part of getting the code ready for release.</p>
+<p>The prototype I&rsquo;ve most recently been working on is implemented on top
+of Gambit Scheme 4.5.2. I&rsquo;ve tried to avoid making it particularly
+Gambit-specific, but the surface syntax I chose does use DSSSL
+keywords, which not all Schemes support. In addition, some of the
+syntax needs to be defined as macros. For reasons of convenience,
+those will be defined using Gambit&rsquo;s define-macro form, rather than
+something more portable. It may turn out that someone wants Categories
+on some Scheme that lacks DSSSL keywords, or where a different means
+of defining macros is needed. I&rsquo;ll cross that bridge when I come to
+it.</p>
+<p>I plan to port it back to Clojure, as well. The first few versions of
+Categories were written in Clojure, but I wanted to move it elsewhere,
+mainly to gain the perspective of looking at it as something
+independent of a particular language, rather than as an extension
+specifically to Clojure. I&rsquo;m planning a sizeable project in Clojure
+shortly, though, and I know for sure that I&rsquo;ll want what Categories
+offers me for it.</p>
+<p>It may be that the design of Categories has serious flaws. If so, feel
+free to enlighten me about them. If they can be repaired, I&rsquo;ll do my
+best to fix them. If not, I&rsquo;ll have to look for alternatives. I could
+always port <a href="http://github.com/adlai/sheeple">Sheeple</a> to Clojure, or
+maybe implement <a href="http://users.rcn.com/david-moon/PLOT/">PLOT&rsquo;s</a> object
+system.</p>
 
 
 				</div>
@@ -368,13 +656,13 @@ apps.</p>
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/20/">20</a>
+    <a class="page-link" href="/posts/page/21/">21</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/17/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/20/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/21/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 

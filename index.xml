@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2009 - 2021, mikel evins; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 04 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mikelevins.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mikelevins.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>On the taxonomy of types</title>
+      <link>http://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</link>
+      <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
+      
+      <guid>http://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</guid>
+      <description>Some time between 1992 and 1994 I wrote an article for MacTech Journal about protocol-oriented programming. The general idea was to explain how you can get most of the advantages of object-oriented programming, without some of the disadvantages, and without relying on the language or runtime support offered by object-oriented languages. I adopted an approach that emphasized protocols, rather than classes or prototypes.
+Philip Wadler had described a somewhat similar approach in a paper titled &amp;ldquo;How to make ad-hoc polymorphism less ad hoc&amp;rdquo; in 1988, the paper that proposed the concept of typeclasses.</description>
+    </item>
+    
     <item>
       <title>Art is not optional</title>
       <link>http://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</link>

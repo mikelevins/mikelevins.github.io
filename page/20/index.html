@@ -69,7 +69,7 @@
 	
 	<div class="tagbutton">
 	    <a href=/tags/programming/ title="All pages with tag <i>programming</i>">programming</a>
-	    <sup>8</sup>
+	    <sup>9</sup>
 	</div>
 	
 	 
@@ -115,142 +115,136 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="http://mikelevins.github.io/posts/2009-04-26-more-joy/">More joy</a></h1>
-						<span>Apr 26, 2009</span>
+						<h1><a href="http://mikelevins.github.io/posts/2009-05-25-obamus-caesar/">Obamus Caesar</a></h1>
+						<span>May 25, 2009</span>
 					</div>
 
-					<p>Programmers inevitably spend a certain amount of our time fighting
-with our tools. There&rsquo;s always something wrong with them, always some
-case that they handle badly, always some work we have to do, not
-because of the job we&rsquo;re doing, but because of limitations of the
-stupid tool.</p>
-<p>Programming can be a joy, even programming for a living. I&rsquo;m lucky in
-that it&rsquo;s been a joy for me more often than it hasn&rsquo;t. But fighting
-with the tools is not a source of joy. In fact, it&rsquo;s the
-opposite. More fighting with tools means less joy.</p>
-<p>Less joy is bad.</p>
-<p>That&rsquo;s why I remain a Lisp programmer: the various forms of Lisp have
-given me by far the best return on investment I ever experienced in
-terms of joy per unit fighting. I can write code in other
-languages. I&rsquo;ve written lots of it. I&rsquo;ve been paid a lot of money to
-write a lot of lines of C, C++, Python, shell script, Java, ML,
-Objective-C&hellip;just lots of languages, on lots of jobs, in lots of
-circumstances. I&rsquo;m still writing Lisp code because of that
-joy-to-fighting ratio.</p>
-<p>More joy is good.</p>
-<p>So what&rsquo;s my favorite programming language?</p>
-<p>Well&hellip;</p>
-<p>I used to say it was 1992-era Dylan. Dylan was a Lisp that Apple
-invented. I worked for several years on Apple&rsquo;s Newton project. Newton
-was initially written mostly in Dylan, and I got to write a lot of OS
-code in Dylan. That was a time of high joy in my programming life.</p>
-<p>It didn&rsquo;t last, of course. The story of Newton&rsquo;s abandonment of Dylan
-and its other adventures makes entertaining reading, but the short of
-it is that eventually I had to stop programming in Dylan.</p>
-<p>Less joy is bad.</p>
-<p>Halfway through 2008, one of the original designers and implementors
-of Dylan pointed out to me this new Lisp dialect named Clojure:</p>
-<p><a href="http://clojure.org/">http://clojure.org/</a></p>
-<p>The reason she noticed it was that it&rsquo;s a Lisp whose name is a
-misspelling of the world &ldquo;closure&rdquo;, and she&rsquo;s a partner in a Lisp
-company named &ldquo;Clozure Associates&rdquo;. Fun coincidence!</p>
-<p>It turned out that this new Lisp, named Clojure, was pretty good. In
-fact, the more little projects I ported to it, the happier I
-became. More joy is good.</p>
-<p>Three quarters of a year later, Clojure has become my favorite
-programming language for personal projects. Whenever I think about
-writing something, I immediately think about Clojure, and if
-deployment on the JVM is at all reasonable, then Clojure is probably
-what I&rsquo;ll use.</p>
-<p>I guess Clojure is my favorite programming language now.</p>
-<p>All is not entirely well, though. There&rsquo;s a lot of joy, but there&rsquo;s
-still just a little bit too much fighting.</p>
-<p>Every time I do anything significant in Clojure, I inevitably stumble
-over something that makes me wish I was using Dylan instead.</p>
-<p>Bother.</p>
-<p>I never used to wish I was using Clojure back in the day, instead of
-Dylan. Well, of course, Clojure didn&rsquo;t exist then, but I never wished
-I was using anything instead of Dylan.</p>
-<p>So why don&rsquo;t I just use Dylan? It&rsquo;s still around, right?</p>
-<p><a href="http://www.opendylan.org/">http://www.opendylan.org/</a></p>
-<p>Well&hellip;something happened to Dylan over the past seventeen years. It&rsquo;s
-not bad or anything. It just doesn&rsquo;t excite me that way its ancestral
-form did. It doesn&rsquo;t feel like a Lisp anymore. Less joy is bad.</p>
-<p>Still, when I use Clojure, I often wish I had Dylan. When I used
-Dylan, I never wished I had something else. What&rsquo;s the problem?</p>
-<p>Sometimes I&rsquo;m working on an application that has certain requirements
-on its data. I&rsquo;d like to just clearly and concisely write down those
-requirements. In Dylan (or a zillion other languages) I&rsquo;d write a type
-definition (Dylan calls them classes). There&rsquo;s nothing like that in
-Clojure.</p>
-<p>Now, Clojure is a Lisp. You can write whatever facilities you need, if
-they&rsquo;re not there already. So I wrote my own implementation of record
-types, so that I could write down my data requirements
-succinctly. Problem solved. Still: more fighting, less joy.</p>
-<p>Polymorphic functions are really handy. With polymorphic functions you
-can easily write abstract protocols and then implement them for
-various different data types without needing to rewrite any of the
-protocol code. Very useful, especially when you&rsquo;re writing some big
-application that you expect to evolve over time, that you expect to
-need to encompass new and evolving data types.</p>
-<p>Clojure has its own idea about how polymorphic functions should
-work. I don&rsquo;t want to get into the details, because it would get long
-and eye-glazing and I&rsquo;d probably start to froth at the mouth. Let&rsquo;s
-just say that Clojure&rsquo;s creator and some of its other users believe
-that Clojure&rsquo;s approach is a better way to approach polymorphism,
-whereas I think it&rsquo;s like someone giggling hysterically as they break
-all your toys and poke sharp sticks in your eyes.</p>
-<p>More fighting; less joy.</p>
-<p>So I wrote my own generic functions subsystem. Now I can make APIs
-that don&rsquo;t randomly burst into flame when someone writes code that
-uses them. Once again, it&rsquo;s nice that Clojure is a Lisp: it gives me
-the tools I need to patch things like this. Still, less joy continues
-to be bad.</p>
-<p>One of the great things about Clojure is that it&rsquo;s designed to be
-hosted on the JVM, and to interoperate seamlessly with Java. That&rsquo;s
-quite a useful feature, and Clojure&rsquo;s Java interface is really easy
-and convenient. So easy and convenient, in fact, that it&rsquo;s probably
-easier to use Java libraries from Clojure than it is to use them from
-Java.</p>
-<p>On the other hand, Clojure sort of has more than one type system, and
-each of the type systems is sort of not really comprehensive. I mean,
-on the one hand, every Clojure value is in fact a Java value, but, on
-the other hand, knowing that two different values are both instances
-of PersistentHashMap may not be all that helpful if each has different
-:type metatdata, and your application includes some code somewhere
-that distinguishes them on that basis.</p>
-<p>What exactly is the type of Clojure value? Well, there&rsquo;s its Java
-class, which may or may not be a helpful thing to know, depending on
-context. Then there&rsquo;s its metadata, if it&rsquo;s a kind of value that can
-have metadata, and if it is, there might or might not be a :type in
-that metadata, and that type might or might not be something your code
-can use for something useful. It sort of feels like Common Lisp&rsquo;s
-types before CLOS came along and absorbed all types into its grand
-galactic scheme.</p>
-<p>And what if you want to make your own types? Well, there isn&rsquo;t really
-any Clojure facility for doing that, but it&rsquo;s a Lisp, right? You can
-make whatever kind of type system you want. Of course, the more type
-systems you have, the more you have to keep track of, and none of them
-are really comprehensive over all possible Clojure values. Well,
-except Java&rsquo;s. You can always fall back to Java classes. Except that
-if you want to define new ones you have to kind of jump through a few
-hoops.</p>
-<p>You know what I&rsquo;m going to say: more fighting, less joy.</p>
-<p>No doubt someone will skim this and assume I&rsquo;m bashing Clojure. I&rsquo;m
-not bashing Clojure. It&rsquo;s my favorite programming language right
-now. I just noticed that, hey, I keep wishing it was something
-else. That&rsquo;s weird. The last time I was doing a lot of work in my
-favorite programming language, I didn&rsquo;t ever wish it was something
-else. What&rsquo;s up with that?</p>
-<p>Maybe it&rsquo;s that Clojure is still very young and is evolving rapidly
-(except, hmm&hellip;Dylan was really young back then and evolving very
-rapidly, too&hellip;)</p>
-<p>Or maybe it&rsquo;s that Clojure approximates the Lisp I really want,
-without actually being it. If so, then Dylan was apparently a closer
-approximation, but one that grew farther away over time, rather than
-closer.</p>
-<p>I guess I&rsquo;ll have to do some thinking about what both Dylan and
-Clojure are approximations of.</p>
+					<p>In 27 B.C., Augustus Caesar became the first emperor of Rome, marking
+the final end of the Roman Republic. While officially praising and
+respecting Rome&rsquo;s republican laws and traditions, he laid the
+groundwork for five centuries of autocracy that have become synonymous
+with despotism and corruption.</p>
+<p>It has been common since the founding of the American republic to
+compare and contrast it with that of ancient Rome, and the comparison
+can be entertaining, and maybe even informative, if we don&rsquo;t try to
+make the analogy closer than it really is. The American presidency is
+not, of course, an hereditary monarchy. The powers granted to the
+office are not absolute. America is not Rome.</p>
+<p>Yet the Roman emperor&rsquo;s office did not start out as an absolute or
+hereditary monarchy either. In fact, Augustus and his immediate
+successors never held any such office as &ldquo;Emperor;&rdquo; Rome had no such
+office. They were called &ldquo;Imperator,&rdquo; but that simply meant commander
+of Rome&rsquo;s legions, like our own &ldquo;Commander in Chief.&rdquo; The Roman
+Imperator didn&rsquo;t even have the domestic authority wielded by the
+American President. Augustus became &ldquo;emperor,&rdquo; not through succession
+to a throne, but by adept political maneuvering and deal-making&ndash;and
+the shedding of just the right blood, of course. He held power and
+authority that are nowhere described or granted in Rome&rsquo;s laws or
+traditions. Rome was a republic on paper long after its first emperor
+had consolidated his power.</p>
+<p>At what point was the Republic over, and the Empire established? Did
+Romans during the reign of Augustus know that the Republic was dead?
+Surely, they must have. They lamented its passing while Julius Caesar
+still lived. We can measure the death of the Republic by the
+disappearance of those laments. After the civil wars were over, and
+Augustus was established in power, he &ldquo;restored&rdquo; the Senate, by which
+we mean that he told the Senate and the people publicly that power was
+back in their hands, while privately making sure that his hands were
+the ones on all the important levers. Gradually the laments over the
+death of the Republic were replaced by praise for its continued
+vitality, and Romans once again spoke in praise of the Republic and
+the rights of free Romans.</p>
+<p>It was a sham, of course. We can look back and with a superior smile
+acknowledge what everyone knows: that after the ascension of Augustus,
+the Romans may have said they were &ldquo;free citizens&rdquo; of a &ldquo;free
+Republic,&rdquo; but they were in fact subjects of an autocrat, the first in
+a line that would continue for five centuries and stand forever after
+as the paradigm of despotism.</p>
+<p>Rome did not declare itself an autocracy; its monarchy was
+furtive. Its citizens wanted to think that they were free people, that
+their government was constitutionally limited by its laws and
+traditions, that there were &ldquo;no kings in Rome.&rdquo; We can chuckle, but
+what will posterity say of us?</p>
+<p>On May 21st, President Barak Obama proposed a new policy of &ldquo;prolonged
+detention,&rdquo; a euphemism for indefinite imprisonment without trial or
+charge. His proposal is a breathtaking power-grab, a long step beyond
+the worst excesses of the Bush Administration. What&rsquo;s more, he
+proposed it as the capstone of a speech, delivered in front of the
+document itself, praising the lasting value of the &ldquo;rule of law&rdquo; and
+the limits placed on government power by the U.S. Constitution. That&rsquo;s
+irony that you can feel in your belly.</p>
+<p>Perhaps it&rsquo;s as I began to think during the presidency of George
+W. Bush: perhaps the American electorate really doesn&rsquo;t care about the
+Constitution anymore. That numbness has been coming for
+generations. Presidents and congresses have been trampling the
+boundaries of the Constitution and tearing holes in it almost since it
+was ratified. Each generation extends new outrages past the outer
+limits of the last, until we are asked to accept legal interpretations
+of its once-plain language that should embarrass any reasonable
+person.</p>
+<p>Thomas Jefferson fretted over the Louisiana Purchase, suffering
+misgivings because he didn&rsquo;t believe the Constitution granted him the
+power to do it. 139 years later, the U.S. Supreme Court could rule
+with straight faces (in Wickard v. Filburn) that the commerce clause
+of the Constitution grants to the federal government the power to
+regulate what a man does with grain produced by his own hands on his
+own land for his own use. By that point Americans were already living
+with a system of government whose relationship to its charter was
+tenuous, if not surreal.</p>
+<p>At least, though, politicians had to <em>say</em> that they respected the
+Constitution. That seems now to have changed. During the presidency of
+George W. Bush, he is rumored to have said &ldquo;Stop throwing the
+Constitution in my face. It&rsquo;s just a goddamned piece of paper!&rdquo; The
+remark itself is not all that interesting. No one who was present at
+the meeting was willing to go on record saying that it happened
+(though more than one was willing to say so privately), and even if we
+could prove that he did say it, people say all sorts of ill-considered
+things without dire consequences. What is more interesting is that the
+American public didn&rsquo;t much seem to care. That remarkable utterance
+stimulated no public outrage whatsoever.</p>
+<p>Evidently, the same public whose elected representatives had impeached
+a president for cheating on his wife couldn&rsquo;t bring themselves to care
+whether his successor meant what he said when he swore to &ldquo;preserve,
+protect, and defend&rdquo; the Constitution of the United States. Evidently,
+Americans now regard that oath as a bit of theater required by
+tradition, and nothing more, just as the Romans felt obliged to keep
+voting certain offices to Augustus, though there was certainly no
+danger that he would lose power without them.</p>
+<p>At the end of that president&rsquo;s term of office, during the election to
+replace him, only one candidate made an issue of the Constitution&rsquo;s
+limits on federal power. That candidate was dismissed early as a
+crank. His critics were perhaps premature; Ron Paul went on to raise
+far more money, attract far more media attention, and make far more
+salient points than anyone expected him to. Still, the common
+consensus remained that he was a fringe candidate, if not a bit of a
+nut. And why? Because he was resolutely committed to the limits the
+U.S. Constitution places on governmental authority. How quaint!</p>
+<p>We have passed a turning point. The common knowledge is not what it
+was when I was a child. Once, people took for granted that the
+Constitution seriously limited the powers of government
+officials. That notion was wishful thinking, even then; Civil War and
+its attendant calamities, economic depression, and facile court
+rulings had long since turned the Constitution into a paper tiger.
+But public servants were at least expected to act out a pantomime of
+respect for it.</p>
+<p>We&rsquo;re in a new era now. Barack Obama can stand in front of the
+Constitution and make a lovely speech praising its virtues and the
+&ldquo;rule of law&rdquo; as a prelude to calling for an act of naked
+despotism. Oh, the usual commentators are shocked and appalled, but
+there will be another news story tomorrow. And anyway, our own Lex
+Galbina, the Military Commissions Act of 2006, is still on the books,
+along with more than a century of retreat from the clear limits and
+provisions of the Constitution.</p>
+<p>Augustus is generally regarded as the first Roman emperor, although he
+never officially held any such office, and although Rome went on for
+some time pretending that it was still a republic.</p>
+<p>Is that where we are now? A candidate in America wouldn&rsquo;t get far by
+openly scoffing at the Constitution in so many words, but it&rsquo;s already
+okay to scoff at those who take the Constitution seriously. It&rsquo;s okay,
+once you&rsquo;re elected, to say &ldquo;it&rsquo;s just a goddamn piece of paper,&rdquo; or
+to laud it with praises and in the same breath grab for despotic
+power.</p>
+<p>Hail Obamus Caesar, Consul of the American Republic.</p>
 
 
 				</div>
@@ -283,11 +277,14 @@ Clojure are approximations of.</p>
   <li class="page-item active">
     <a class="page-link" href="/page/20/">20</a>
   </li>
-  <li class="page-item disabled">
-    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  <li class="page-item">
+    <a class="page-link" href="/page/21/">21</a>
   </li>
   <li class="page-item">
-    <a href="/page/20/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/21/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/page/21/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
