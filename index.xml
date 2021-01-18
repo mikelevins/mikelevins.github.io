@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>engine of joy</title>
-    <link>http://mikelevins.github.io/</link>
+    <link>https://mikelevins.github.io/</link>
     <description>Recent content on engine of joy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2009 - 2021, mikel evins; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="http://mikelevins.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mikelevins.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>On the taxonomy of types</title>
-      <link>http://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</link>
+      <link>https://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</link>
       <pubDate>Wed, 06 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</guid>
+      <guid>https://mikelevins.github.io/posts/2021-01-06-type-taxonomy/</guid>
       <description>Some time between 1992 and 1994 I wrote an article for MacTech Journal about protocol-oriented programming. The general idea was to explain how you can get most of the advantages of object-oriented programming, without some of the disadvantages, and without relying on the language or runtime support offered by object-oriented languages. I adopted an approach that emphasized protocols, rather than classes or prototypes.
 Philip Wadler had described a somewhat similar approach in a paper titled &amp;ldquo;How to make ad-hoc polymorphism less ad hoc&amp;rdquo; in 1988, the paper that proposed the concept of typeclasses.</description>
     </item>
     
     <item>
       <title>Art is not optional</title>
-      <link>http://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</link>
+      <link>https://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</link>
       <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</guid>
+      <guid>https://mikelevins.github.io/posts/2021-01-04-art-is-not-optional/</guid>
       <description>Art is one of the oldest things that humans do. A handful of carvings have been found in a few different places that are somewhere between half a million and three quarters of a million years old, probably older than Homo sapiens.
 Art is older than writing or architecture or agriculture. It&amp;rsquo;s older than most kinds of tools. It might be older than fire; history.com claims that the oldest &amp;ldquo;unequivocal&amp;rdquo; evidence of human control of fire is about 400,000 years old.</description>
     </item>
     
     <item>
       <title>On repl-driven programming</title>
-      <link>http://mikelevins.github.io/posts/2020-12-18-repl-driven/</link>
+      <link>https://mikelevins.github.io/posts/2020-12-18-repl-driven/</link>
       <pubDate>Fri, 18 Dec 2020 23:29:52 -0600</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-12-18-repl-driven/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-12-18-repl-driven/</guid>
       <description>Once upon a time, someone with the handle &amp;ldquo;entha_saava&amp;rdquo; posted this question on Hacker News:
  Can someone knowledgeable explain how are lisp REPLs different from Python / Ruby REPLs? What is the differentiating point of REPL driven development?
  The answer is that there is a particular kind of programming in which you build a program by interacting with it as it runs, and there are certain languages and runtimes that are designed from the ground up to support that kind of programming.</description>
@@ -41,20 +41,20 @@ Art is older than writing or architecture or agriculture. It&amp;rsquo;s older t
     
     <item>
       <title>What do you mean, you&#39;re an anarchist?</title>
-      <link>http://mikelevins.github.io/posts/2020-09-19-what-do-you-mean/</link>
+      <link>https://mikelevins.github.io/posts/2020-09-19-what-do-you-mean/</link>
       <pubDate>Sat, 19 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-09-19-what-do-you-mean/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-09-19-what-do-you-mean/</guid>
       <description>Once in a while it comes up in conversation that I consider myself an anarchist. Most of the time when people learn that, they have one of three reactions:
  I&amp;rsquo;m kidding (or exaggerating, or engaging in some kind of hyperbole for effect) I&amp;rsquo;m serious, and crazy I&amp;rsquo;m serious, and they want to know what the heck I mean and how I can hold that position  Well, I&amp;rsquo;m not kidding, and as far as I know, I&amp;rsquo;m not crazy, so maybe I should say what I mean and how and why I hold the position I do.</description>
     </item>
     
     <item>
       <title>On sailing</title>
-      <link>http://mikelevins.github.io/posts/2020-07-09-on-sailing/</link>
+      <link>https://mikelevins.github.io/posts/2020-07-09-on-sailing/</link>
       <pubDate>Thu, 09 Jul 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-07-09-on-sailing/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-07-09-on-sailing/</guid>
       <description>Living is sailing.
 When you sail, you are borne here and there by vast forces that are outside your control. You&amp;rsquo;re carried by the sea, propelled by the wind, and guided by the sun and stars. None of these elements of nature pay the slightest attention to your wishes.
 The wind and sea may at any moment turn against you. They may swamp you or dash you against an unfamiliar shore.</description>
@@ -62,10 +62,10 @@ The wind and sea may at any moment turn against you. They may swamp you or dash 
     
     <item>
       <title>On young-earth creationism</title>
-      <link>http://mikelevins.github.io/posts/2020-02-16-on-young-earth-creationism/</link>
+      <link>https://mikelevins.github.io/posts/2020-02-16-on-young-earth-creationism/</link>
       <pubDate>Sun, 16 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-02-16-on-young-earth-creationism/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-02-16-on-young-earth-creationism/</guid>
       <description>Once, around ten years ago, someone in an online discussion said that they were raised as a young-earth creationist, but had become curious about the scientific account of the natural world and how it worked. They wanted to know what the problems with young-earth creationism were, from a scientific perspective.
 I offered them the best answer I could manage. Here it is:
 The first thing you have to do is set aside God as an explanation.</description>
@@ -73,20 +73,20 @@ The first thing you have to do is set aside God as an explanation.</description>
     
     <item>
       <title>Programming as teaching</title>
-      <link>http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</link>
+      <link>https://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</link>
       <pubDate>Mon, 03 Feb 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/</guid>
       <description>Most programming uses an approach that we might call programming as carpentry. We start with some idea of an artifact we want to build. We analyze the idea into a set of needed parts. We set to work on our workbench to craft the needed parts and assemble them into a finished product, then we examine and measure the result to determine how close we came to our goal.
 Next we repeat the process to correct details that have fallen short of what we want, either because we made mistakes in construction, or because our original plan was wrong in some way.</description>
     </item>
     
     <item>
       <title>Lev Chrysotile, MD</title>
-      <link>http://mikelevins.github.io/posts/2020-01-30-lev-chrysotile/</link>
+      <link>https://mikelevins.github.io/posts/2020-01-30-lev-chrysotile/</link>
       <pubDate>Thu, 30 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-01-30-lev-chrysotile/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-01-30-lev-chrysotile/</guid>
       <description>Ixion 11 &amp;ldquo;Lev&amp;rdquo; Chrysotile is the ship&amp;rsquo;s physician aboard Kestrel. He&amp;rsquo;s the narrator of the first several Kestrel stories.
 Lev is a mech—that is, an autonomous, self-aware robot. (Such persons are not referred to as &amp;ldquo;robots&amp;rdquo; in the setting; the word is considered a slur.) He is a Leslie Model 11 specialized for medical field maintenance on biological and mech persons.
 He&amp;rsquo;s about twelve years old at the beginning of the Kestrel stories, but, like most autonomous mechs, Leslie Model 11 s roll out of the factory fully mature and prepared to take care of themselves.</description>
@@ -94,10 +94,10 @@ He&amp;rsquo;s about twelve years old at the beginning of the Kestrel stories, b
     
     <item>
       <title>Against despair</title>
-      <link>http://mikelevins.github.io/posts/2020-01-29-against-despair/</link>
+      <link>https://mikelevins.github.io/posts/2020-01-29-against-despair/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-01-29-against-despair/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-01-29-against-despair/</guid>
       <description>Despair is a pernicious kind of vanity, and it&amp;rsquo;s seductive when things get hard.
 Despair tells you a story like this: &amp;ldquo;I have tried everything and it hasn&amp;rsquo;t worked. I may as well give up.&amp;rdquo;
 This story is a lie.
@@ -106,20 +106,20 @@ When despair tells you &amp;ldquo;it hasn&amp;rsquo;t worked,&amp;rdquo; it mean
     
     <item>
       <title>Mai Greenhill</title>
-      <link>http://mikelevins.github.io/posts/2020-01-25-mai-greenhill/</link>
+      <link>https://mikelevins.github.io/posts/2020-01-25-mai-greenhill/</link>
       <pubDate>Sat, 25 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-01-25-mai-greenhill/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-01-25-mai-greenhill/</guid>
       <description>Ordinary Spacer Mai Greenhill, a member of the crew in the Kestrel Chronicles stories.
 Captain Esgar Rayleigh recruited Mai from the Greenhill clan of Canines who live in the Greater Asgard Wildlife Preserve system on Callisto. Several companies in the Greater Asgard region recruit crew from Canine clans, but Mai is the first one recruited by Rayleigh Company.</description>
     </item>
     
     <item>
       <title>Amor Fati</title>
-      <link>http://mikelevins.github.io/posts/2020-01-24-amor-fati/</link>
+      <link>https://mikelevins.github.io/posts/2020-01-24-amor-fati/</link>
       <pubDate>Fri, 24 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2020-01-24-amor-fati/</guid>
+      <guid>https://mikelevins.github.io/posts/2020-01-24-amor-fati/</guid>
       <description>Amor fati is a Latin phrase that means &amp;ldquo;love of fate.&amp;rdquo; It&amp;rsquo;s a concept of virtue that we inherit from the ancient Stoics, though we can probably thank Friedrich Nietzsche for the Latin phrase and for its presence in modern discussion1.
 The idea isn&amp;rsquo;t original with Nietzsche. It appears in the writings of Marcus Aurelius2—though not in so many words—and in Epictetus3before him.
 It&amp;rsquo;s not obvious at first glance what it&amp;rsquo;s supposed to mean.</description>
@@ -127,10 +127,10 @@ It&amp;rsquo;s not obvious at first glance what it&amp;rsquo;s supposed to mean.
     
     <item>
       <title>Book Three Incoming</title>
-      <link>http://mikelevins.github.io/posts/2015-11-28-book-three-incoming/</link>
+      <link>https://mikelevins.github.io/posts/2015-11-28-book-three-incoming/</link>
       <pubDate>Sat, 28 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2015-11-28-book-three-incoming/</guid>
+      <guid>https://mikelevins.github.io/posts/2015-11-28-book-three-incoming/</guid>
       <description>Here&amp;rsquo;s a sneak peek at the cover for the book I&amp;rsquo;m working on now:
 As the subtitle says, it&amp;rsquo;s the third book about the torch ship Kestrel and her crew. This time the story is less about old damaged ships on the edge of the solar system, and more about crime and punishment in the big (orbital) city.
 It took me seven years to write my first unpublished book about this far-future world.</description>
@@ -138,56 +138,56 @@ It took me seven years to write my first unpublished book about this far-future 
     
     <item>
       <title>Captain Rayleigh</title>
-      <link>http://mikelevins.github.io/posts/2015-11-28-captain-rayleigh/</link>
+      <link>https://mikelevins.github.io/posts/2015-11-28-captain-rayleigh/</link>
       <pubDate>Sat, 28 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2015-11-28-captain-rayleigh/</guid>
+      <guid>https://mikelevins.github.io/posts/2015-11-28-captain-rayleigh/</guid>
       <description>Esgar Rayleigh is Kestrel&amp;rsquo;s captain. You know this has to be a formal portrait because you don&amp;rsquo;t see a cup of coffee in his hand.</description>
     </item>
     
     <item>
       <title>Chief Engineer Burrell</title>
-      <link>http://mikelevins.github.io/posts/2015-11-28-chief-engineer-burrell/</link>
+      <link>https://mikelevins.github.io/posts/2015-11-28-chief-engineer-burrell/</link>
       <pubDate>Sat, 28 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2015-11-28-chief-engineer-burrell/</guid>
+      <guid>https://mikelevins.github.io/posts/2015-11-28-chief-engineer-burrell/</guid>
       <description>This is Evelyn Burrell, the chief engineer aboard Kestrel:
 I always do a lot of sketching and cartooning when I&amp;rsquo;m working. I don&amp;rsquo;t always share the drawings, but I don&amp;rsquo;t see why I shouldn&amp;rsquo;t.</description>
     </item>
     
     <item>
       <title>General public busybody theory</title>
-      <link>http://mikelevins.github.io/posts/2010-01-23-general-public-busybody-theory/</link>
+      <link>https://mikelevins.github.io/posts/2010-01-23-general-public-busybody-theory/</link>
       <pubDate>Sat, 23 Jan 2010 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2010-01-23-general-public-busybody-theory/</guid>
+      <guid>https://mikelevins.github.io/posts/2010-01-23-general-public-busybody-theory/</guid>
       <description>I was idly thinking about the GIFT, which comes up often for me because I not only surf the net, I also play networked games, where the theory plays out so often and so emphatically. I was also thinking about the things that people think are weird and foolish in other people, because I happen to be traveling this week, and those things vary somewhat from one place to another.</description>
     </item>
     
     <item>
       <title>A peek at Categories</title>
-      <link>http://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</link>
+      <link>https://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</link>
       <pubDate>Fri, 23 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/</guid>
       <description>I&amp;rsquo;ve begun preparations to package Categories for release. The first thing I&amp;rsquo;m doing is going over the surface syntax. In previous iterations I&amp;rsquo;ve built Categories from the bottom up, which confirmed that the concepts and mechanisms worked, but left a few warts in the surface syntax. This time, I figured I&amp;rsquo;d start at the surface syntax and work the other way, in hopes that the result will be more congenial.</description>
     </item>
     
     <item>
       <title>Gambit considered helpful</title>
-      <link>http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</link>
+      <link>https://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</link>
       <pubDate>Sun, 18 Oct 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/</guid>
       <description>I&amp;rsquo;ve just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my testers. Delectus is an application for keeping track of collections of things. The inspiration for it was an ancient and hoary program my mother used to keep track of her movies. She has around a thousand movies, the majority of them still on videocassettes. Each cassette has a catalog number on it, and she uses a database program to associate those numbers with information like the title, star, genre, and so forth, so that she can quickly find a particular movie in her stacks of shelves.</description>
     </item>
     
     <item>
       <title>Categories</title>
-      <link>http://mikelevins.github.io/posts/2009-08-13-categories/</link>
+      <link>https://mikelevins.github.io/posts/2009-08-13-categories/</link>
       <pubDate>Thu, 13 Aug 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-08-13-categories/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-08-13-categories/</guid>
       <description>There are a few things I&amp;rsquo;ve written that I see cited or quoted repeatedly. The oldest is a quip about omnipotent beings that I wrote eighteen years ago in a USENET discussion:
 &amp;ldquo;Perhaps this morning there were only three Euclidean solids, but god changed its mind retroactively at lunchtime, remaking the whole history of the universe. That&amp;rsquo;s the way it is with omnipotent beings.&amp;rdquo;
 More recent is an explanation I once gave of the concept of &amp;ldquo;natural law&amp;rdquo; in politics.</description>
@@ -195,10 +195,10 @@ More recent is an explanation I once gave of the concept of &amp;ldquo;natural l
     
     <item>
       <title>Heresy</title>
-      <link>http://mikelevins.github.io/posts/2009-07-17-heresy/</link>
+      <link>https://mikelevins.github.io/posts/2009-07-17-heresy/</link>
       <pubDate>Fri, 17 Jul 2009 23:29:52 -0600</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-07-17-heresy/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-07-17-heresy/</guid>
       <description>I’m coming to the close of a contract, and I’m spending part time doing what is natural in that situation: looking for new contracts, and preparing some of my personal projects for release as products.
 The first product scheduled for delivery is a Cocoa application for Mac OS X. Written in Scheme. This, of course, is heresy.
 Cocoa applications are supposed to be written in Objective-C. (Well, to be fair, about a third of the code in this one is Objective-C.</description>
@@ -206,20 +206,20 @@ Cocoa applications are supposed to be written in Objective-C. (Well, to be fair,
     
     <item>
       <title>Obamus Caesar</title>
-      <link>http://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</link>
+      <link>https://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</link>
       <pubDate>Mon, 25 May 2009 23:29:52 -0600</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-05-25-obamus-caesar/</guid>
       <description>In 27 B.C., Augustus Caesar became the first emperor of Rome, marking the final end of the Roman Republic. While officially praising and respecting Rome&amp;rsquo;s republican laws and traditions, he laid the groundwork for five centuries of autocracy that have become synonymous with despotism and corruption.
 It has been common since the founding of the American republic to compare and contrast it with that of ancient Rome, and the comparison can be entertaining, and maybe even informative, if we don&amp;rsquo;t try to make the analogy closer than it really is.</description>
     </item>
     
     <item>
       <title>More joy</title>
-      <link>http://mikelevins.github.io/posts/2009-04-26-more-joy/</link>
+      <link>https://mikelevins.github.io/posts/2009-04-26-more-joy/</link>
       <pubDate>Sun, 26 Apr 2009 23:29:52 -0600</pubDate>
       
-      <guid>http://mikelevins.github.io/posts/2009-04-26-more-joy/</guid>
+      <guid>https://mikelevins.github.io/posts/2009-04-26-more-joy/</guid>
       <description>Programmers inevitably spend a certain amount of our time fighting with our tools. There&amp;rsquo;s always something wrong with them, always some case that they handle badly, always some work we have to do, not because of the job we&amp;rsquo;re doing, but because of limitations of the stupid tool.
 Programming can be a joy, even programming for a living. I&amp;rsquo;m lucky in that it&amp;rsquo;s been a joy for me more often than it hasn&amp;rsquo;t.</description>
     </item>
