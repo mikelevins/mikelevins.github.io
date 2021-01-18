@@ -43,6 +43,10 @@
 	    
 	    
             <div class="tagbutton">
+		<a href="/posts/2021-01-18-against-vanity/">Against vanity</a>
+            </div>
+	    
+            <div class="tagbutton">
 		<a href="/posts/2021-01-06-type-taxonomy/">On the taxonomy of types</a>
             </div>
 	    
@@ -60,10 +64,6 @@
 	    
             <div class="tagbutton">
 		<a href="/posts/2020-07-09-on-sailing/">On sailing</a>
-            </div>
-	    
-            <div class="tagbutton">
-		<a href="/posts/2020-02-16-on-young-earth-creationism/">On young-earth creationism</a>
             </div>
 	    
     </div>
@@ -103,7 +103,7 @@
 	
 	<div class="tagbutton">
 	    <a href=/tags/stoicism/ title="All pages with tag <i>stoicism</i>">stoicism</a>
-	    <sup>3</sup>
+	    <sup>4</sup>
 	</div>
 	
 	 
@@ -135,53 +135,37 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://mikelevins.github.io/posts/2021-01-06-type-taxonomy/">On the taxonomy of types</a></h1>
-						<span>Jan 6, 2021</span>
+						<h1><a href="https://mikelevins.github.io/posts/2021-01-18-against-vanity/">Against vanity</a></h1>
+						<span>Jan 18, 2021</span>
 					</div>
 
-					<p>Some time between 1992 and 1994 I wrote an article for <em>MacTech Journal</em> about <a href="http://preserve.mactech.com/articles/frameworks/8_2/Protocol_Evins.html"><strong>protocol-oriented programming</strong></a>. The general idea was to explain how you can get most of the advantages of object-oriented programming, without some of the disadvantages, and without relying on the language or runtime support offered by object-oriented languages. I adopted an approach that emphasized <strong>protocols</strong>, rather than classes or prototypes.</p>
-<p>Philip Wadler had described a somewhat similar approach in a paper titled &ldquo;How to make ad-hoc polymorphism less ad hoc&rdquo; in 1988, the paper that proposed the concept of typeclasses. Typeclasses were later folded into the Haskell programming language.</p>
-<p>I didn&rsquo;t know about his paper at the time. I was just barely aware of functional programming languages, and had just begun to fool around with Concurrent Clean and Standard ML. I was writing about practices that had emerged organically in my day-to-day work as an adaptation to working in a mixed-language programming environment, and didn&rsquo;t see any connection to functional programming at the time.</p>
-<p>A few years later I immersed myself in OCaml and then Haskell, and I ran into Haskell&rsquo;s typeclasses. It was sort of like meeting a group of congenial strangers who bear an uncanny resemblance to your own family.</p>
-<p>A few years later I was pining for the lost glory of early Dylan (back when it was still an old-fashioned Lisp), and I started working on interpreters and compilers meant to give me back some of my pleasure in programming. Dylan had evolved into a language that didn&rsquo;t interest me.</p>
-<p>By that time I was well aware of Haskell&rsquo;s typeclasses, and had figured out that they were doing something analogous to what I was talking about in that old article.</p>
-<p>I created a Lisp named &ldquo;Bard&rdquo; that was intended to be a very simple version of Dylan&ndash;that is to say, a subset of Scheme, but with a type system based on a subset of CLOS. I never build anything without messing around with its design, though, and this simple project almost immediately turned into a long-running series of experiments in language design and implementation. I wanted to get the goodness of early Dylan back again, but I also wanted to honor and explore some things I had learned from Haskell and the ML family, including typeclasses. And, of course, I just wanted to try some things out.</p>
-<p>Along the way, I also learned Clojure and used it for a number of projects. I liked it without reservation at first, but gradually lost some of my enthusiasm as I got to know it better. Its design and its current implementations lack some affordances that I consider essential (mostly in the area of robust support for <a href="https://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/">Programming as Teaching</a>, but it did go onto my list of favored tools.</p>
-<p>Clojure has a unique approach to ad hoc polymorphism. I wouldn&rsquo;t say that I actually like it, but it did influence me to experiment with alternate approaches, myself. That influence, plus the influences of Haskell and of my own article from years before led me to write an experimental object system named <a href="https://github.com/mikelevins/categories">&ldquo;Categories&rdquo;</a>.</p>
-<p>Categories is an object system that tries to separate the three concepts that I called out way back in my MacTech article: <strong>representation</strong>, <strong>behavior</strong>, and <strong>taxonomy</strong>.</p>
-<p><strong>Representation</strong> means the structure of data, in the sense of how parts are fitted together to form values.</p>
-<p><strong>Behavior</strong> means what you can do with values; that is, what operations they support.</p>
-<p><strong>Taxonomy</strong> means how values are related to other values. Is this value the same kind of thing as that one? Is it an extension of that one? Do they share some behavior? If a value is an instance of this, does that mean it&rsquo;s also an instance of that?</p>
-<p>Most programming languages tend to conflate these concepts to some degree, though they are logically distinct. I tried to separate them in the MacTech article, though it took a few years of trying before I arrived at a succinct expression of the idea.</p>
-<p>Haskell&rsquo;s typeclasses got it, though. They are pretty much exactly what I had in mind originally. They cleanly separate representation, behavior, and taxonomy into distinct concerns.</p>
-<p>Haskell types handle representation. Typeclasses declare taxonomic relationships among types and the functions that operate on them, and function definitions on particular types&ndash;<strong>instances</strong> in Haskell parlance&ndash;define behavior.</p>
-<p>In Categories I tried defining a dynamic-language object system that did something similar, but that also enabled you to dynamically choose the kind of type system you want. Categories defines representations as <strong>schemas</strong> (concrete data structures), behaviors as <strong>protocols</strong> (sets of polymorphic functions), and taxonomony using <strong>domains</strong> (data structures that represent dispatching strategies and the taxonomic relations used to implement them).</p>
-<p>Categories worked, though the implementations were not particularly efficient. There isn&rsquo;t anything to prevent further optimization, and there are some well-known strategies that could be used to make performance better, but the design of categories was just a little unaesthetic by my standards. The abstract definitions of the concepts intrude a little bit too much into the practical tools. To put it another way, it forces you to declare things that you probably don&rsquo;t care about and don&rsquo;t want to know when you&rsquo;re working on something.</p>
-<p>The last time I actively worked on Categories was about eight years ago. I sort of moved on, looking for ways to simplify it, to make it more concrete and less about its own internals, and to simplify Bard, the Lisp that I built in parallel with Categories.</p>
-<p>I wrote a Common Lisp library based on Bard and Categories, named folio. In response to some feedback from users, I overhauled it to make it easier to use pieces of it without importing the whole thing, and to adopt a package-naming convention less likely to lead to name collisions. The current version, <a href="https://github.com/mikelevins/folio2">folio2</a>, is presently my most popular open-source library, though I doubt that many of its users known anything about its heritage in Categories or Bard.</p>
-<p>There is a folio3 in development, and a Bard 0.7, and both of them represent attempts to further simplify these concepts and make them more convenient, without losing the separation of representation, behavior, and taxonomy. The particular balance I&rsquo;m grappling with right now is trying to find a middle ground between a clean separation of concepts and a convenient surface language for writing programs.</p>
-<p>Let me give an example: in Bard 0.7, a <strong>class</strong> is a named collection of <strong>types</strong>. A <strong>type</strong> is either a class or a <strong>structure</strong>. A <strong>structure</strong> is a concrete description of how to construct a value.</p>
-<p>In the current version, classes have no internal structure and no taxonomic relation to other types. They&rsquo;re just named containers for groups of types that participate in polymorphic functions in a particular role.</p>
-<p>An example might be a protocol function like:</p>
-<pre><code>(function add-first [Element List])
-</code></pre><p>In the vocabulary of Bard 0,7, this expression declares a <strong>function</strong> named <code>add-first</code> that accepts two arguments of classes <code>Element</code> and <code>List</code>. From this declaration we know nothing about <code>Element</code> and <code>List</code>, except that in order to be an instance of one of them, there has to be some method on <code>add-first</code> that works on them.</p>
-<p>For example, suppose there&rsquo;s also a method definition like this:</p>
-<pre><code>(define method (add-first item list)
-  where: {item: &lt;small-integer&gt;
-          list: &lt;vector&gt;}
-  ...)
-</code></pre><p>This method definition means that I can call <code>add-first</code> with arguments of type <code>&lt;small-integer&gt;</code> and <code>&lt;vector&gt;</code>. It also means that <code>&lt;small-integer&gt;</code> is a member of class <code>Element</code>, and <code>&lt;vector&gt;</code> is a member of class <code>List</code>.</p>
-<p>Classes, remember, are not data structures. They&rsquo;re named collections of types that fulfill some defined role in some protocol. There&rsquo;s some protocol that defines the function <code>add-first</code>, which accepts as inputs an <code>Element</code> and a <code>List</code>. By defining the above method, I establish that instances of <code>&lt;small-integer&gt;</code> are also instances of <code>Element</code>, and instances of <code>&lt;vector&gt;</code> are also instances of <code>List</code>.</p>
-<p>This approach works, and is not entirely different from how Haskell handles typeclasses. I&rsquo;m not quite satisfied, though, with how it works out in practice, especially in the context of an interactive programming environment.</p>
-<p>For example, one of the best things about interactive programming is that you can start with what you know and build some naive structures and functions that work with that partial knowledge. You can use that partial construction to discover more details and refine your approach. You can then revise your program (as it runs!) to reflect your improved understanding.</p>
-<p>The approach to types reflected in the above descrption works fine if you start with protocols and define all of their functions and the abstract classes they operate on. Then you just need to fill in the concrete types needed to make the classes into real data, and write the method definitions that specialize them properly.</p>
-<p>It also works fine if you start out with a sketch of an idea and then, as you refine your knowledge, you rewrite your definitions and rebuild your whole program from the ground up with the new knowledge embodied in the changed definitions. That&rsquo;s how Haskell tends to work.</p>
-<p>But that&rsquo;s pretty much the opposite of exploratory interactive programming, which is the singular strength of old-fashioned Lisp and Smalltalk environments. Those environments embody the way I prefer to work. I&rsquo;m much more likely to want to start with the concrete values and methods that I understand and connect them together bottom-up, figuring out the proper relations as I go, building and changing the program as it runs. That means I need Bard to respond reasonably when I evaluate <code>define method</code> with no relevant classes defined yet. I need it to do the right thing when I discover a class and define it, fitting the appropriate structures into the new classes or, better yet, discovering potential classes for me and suggesting them.</p>
-<p>It&rsquo;s not a problem of the code working right. I have implementations in which the structures and methods and functions all do the right thing. It&rsquo;s a matter of making it convenient and comfortable to derive the taxonomies as I discover them. I can of course go through my code and set up the right taxonomies and make all of the definitions reconcile, but that feels a lot like drudgery. I&rsquo;d like it if the environment could infer the right taxonomic relationships for me (and optimize them when that turns out to be possible!) without my having to explicitly define the relations. I&rsquo;m not sure it works, though. Not yet.</p>
-<p>Inheritance is a possible solution. Currently, Bard does not include inheritance, because I&rsquo;ve been trying to see how far I could get without it. But it does make it easier to figure out where in the taxonomic graph a new structure should fit. The tradeoff is that the traditional approaches to inheritance conflate representation with taxonomy in a way I don&rsquo;t care for.</p>
-<p>Inheritance is also handy for conveniences like defining a default method that gets run when the arguments to a function don&rsquo;t match any more specific case, or for when you want to do the same thing in a lot of different cases without repeating yourself. There are other ways to do those things, but inheritance is a pretty clean way to handle them.</p>
-<p>I&rsquo;m still thinking things over. One of Categories' domains implemented multiple inheritance and it worked fine, so I can fall back on that, if I decide I need to.</p>
-<p>Maybe Bard will end up with inheritance. Maybe not.</p>
+					<p>Once upon a time someone close to me asked me something like, &ldquo;What&rsquo;s wrong with vanity?&rdquo; My answer went something like this:</p>
+<p>Let&rsquo;s start with Webster&rsquo;s definition of &ldquo;vanity&rdquo;:</p>
+<blockquote>
+<p>vanity, n.</p>
+<ol>
+<li>
+<p>inflated pride in oneself or one&rsquo;s appearance: CONCEIT</p>
+</li>
+<li>
+<p>something that is vain, empty, or valueless</p>
+</li>
+</ol>
+</blockquote>
+<p>Vanity is a story that we tell ourselves, not because it&rsquo;s true, but because it pleases us. The pleasure it gives us invites us to repeat it, and therein lies the peril.</p>
+<p>What we habitually do and say and think becomes what we are. There are better things to become than an empty story.</p>
+<p>Vanity is the person who is concerned about being described as wicked, but who doesn&rsquo;t care about actually being wicked.</p>
+<p>Vanity teaches us to attend to what doesn&rsquo;t matter, and neglect what does.</p>
+<p>Vanity seduces. It rewards our attention to whatever flatters or aggrandizes us, whatever tells us that we are right or good or significant, whatever silly story we&rsquo;re telling ourselves because it pleases us to do so.</p>
+<p>Now, I like silly stories as much as the next fellow&ndash;probably more than most, in fact. But it&rsquo;s important to know when we&rsquo;re repeating facts about the world and when we&rsquo;re just telling silly stories. It&rsquo;s foolish to confuse one for the other. Vanity invites us to blur the distinction. It encourages us to dwell on stories because they please us, rather than because they&rsquo;re true.</p>
+<p>Our understanding is our map of the world. It informs us where we can go and what we can do. It enables us to choose this way rather than that way, because this way is better. If the map is wrong, then our choices are likely to be wrong, too.</p>
+<p>Vanity encourages us to use a map because it&rsquo;s pretty, rather than because it&rsquo;s accurate. There&rsquo;s nothing wrong with a pretty picture, but if we mistake it for a map and use it for navigation, then we are lost. If we reach our destination without mishap, it&rsquo;s purely by dumb luck. To avoid catastrophe, we must remember to consult a proper map, no matter how attractive the pretty picture might be.</p>
+<p>In the limit, if we forget that there&rsquo;s a different between what pleases us and what&rsquo;s true, we can become disastrously lost. We may forget that there is a destination, that there is any possibility of reaching one. That way lies a life of wandering in the wilderness at the mercy of Fortune.</p>
+<p>Vanity is sugar for the psyche. A little bit won&rsquo;t hurt, but the sweet taste is addictive. If you yield to the temptation it can crowd out nutritious fare. Embrace it without restraint and it becomes a poison. It fills irreplaceable hours of our lives with longing for rewards that amount to nothing, and ambitions that lead nowhere.</p>
+<p>In small doses, vanity is harmless, a spice that turns happiness to joy.</p>
+<p>In large doses it&rsquo;s deadly.</p>
+<p>A person who leaves no room at all for vanity may become a a stick in the mud.</p>
+<p>One who leaves room for nothing else is a monster.</p>
 
 
 				</div>
@@ -209,13 +193,13 @@
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/posts/page/21/">21</a>
+    <a class="page-link" href="/posts/page/22/">22</a>
   </li>
   <li class="page-item">
     <a href="/posts/page/2/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/posts/page/21/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/posts/page/22/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
