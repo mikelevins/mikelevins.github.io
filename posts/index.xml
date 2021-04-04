@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2009 - 2021, mikel evins; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 09 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mikelevins.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://mikelevins.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why repl.it disappoints me</title>
+      <link>https://mikelevins.github.io/posts/2021-04-04-replit/</link>
+      <pubDate>Sun, 04 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://mikelevins.github.io/posts/2021-04-04-replit/</guid>
+      <description>I&amp;rsquo;ve written before about my high regard for read-eval-print loops, and about an approach to programming that is built around interacting with them. You might therefore assume that I would be enthusiastic about replit, a web-based platform for interactive programming in dozens of programming languages.
+I want to be enthusiastic about it. replit&amp;rsquo;s heart certainly seems to be in the right place. In various mission statements, recruiting posts, and other communications, it has described its mission as &amp;ldquo;shaking up&amp;rdquo; the software industry, building the &amp;ldquo;best, simplest, and fastest coding environment&amp;rdquo;, creating &amp;ldquo;learnable programming environments&amp;rdquo;, and engaging in &amp;ldquo;vision-driven design&amp;rdquo;.</description>
+    </item>
+    
     <item>
       <title>Thinkbox</title>
       <link>https://mikelevins.github.io/posts/2021-02-09-thinkbox/</link>
