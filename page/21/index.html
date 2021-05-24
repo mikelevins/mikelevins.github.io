@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="generator" content="Hugo 0.80.0" />
+	<meta name="generator" content="Hugo 0.83.1" />
 	
 	<title>engine of joy - by mikel evins</title>
 
@@ -76,7 +76,7 @@
 	
 	<div class="tagbutton">
 	    <a href=/tags/science/ title="All pages with tag <i>science</i>">science</a>
-	    <sup>1</sup>
+	    <sup>2</sup>
 	</div>
 	
 	 
@@ -115,239 +115,200 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://mikelevins.github.io/posts/2009-08-13-categories/">Categories</a></h1>
-						<span>Aug 13, 2009</span>
+						<h1><a href="https://mikelevins.github.io/posts/2009-10-18-gambit-considered-helpful/">Gambit considered helpful</a></h1>
+						<span>Oct 18, 2009</span>
 					</div>
 
-					<p>There are a few things I&rsquo;ve written that I see cited or quoted
-repeatedly. The oldest is a quip about omnipotent beings that I wrote
-eighteen years ago in a USENET discussion:</p>
-<p>&ldquo;Perhaps this morning there were only three Euclidean solids, but god
-changed its mind retroactively at lunchtime, remaking the whole
-history of the universe.  That&rsquo;s the way it is with omnipotent
-beings.&rdquo;</p>
-<p>More recent is an explanation I once gave of the concept of &ldquo;natural
-law&rdquo; in politics. There are a couple of basic theories of law; one of
-them is called &ldquo;natural law&rdquo;. Because that phrase is also used to mean
-&ldquo;law of nature&rdquo;, people sometimes confuse the two concepts, often, I
-think, because they&rsquo;re not aware that the legal one exists, or are not
-aware of what it is. This was my attempt to succinctly summarize it in
-one discussion:</p>
-<p>&ldquo;People will naturally and predictably find some methods for resolving
-[&hellip;] conflicts more congenial than others. There are some classes of
-conflict for which people will naturally and predictably find certain
-kinds of resolutions more congenial than others. The procedures people
-find more congenial will also produce the resolutions people find more
-congenial. And the procedures and resolutions that people find more
-congenial will tend to resemble each other across times and cultures.&rdquo;</p>
-<p>Two others are more technical articles that I wrote early in the 1990s
-about programming. They were published in a magazine aimed at Mac
-developers, called Frameworks.</p>
-<p>&ldquo;Objects Without Classes&rdquo; was republished by the ACM&rsquo;s Computer
-magazine in Volume 27 , Issue 3 (March 1994) . It&rsquo;s a basic
-description of prototype-based object systems, such as those found in
-languages like Self and Javascript. Languages with prototype-based
-object systems probably seemed novel to more people then than they do
-now. Lots of people use Javascript now, but at that time you might
-never have heard of prototype-based object systems unless you were at
-Sun working on Self, or in the AI business, working with frame
-languages, or at Apple working on Newton or SK8.</p>
-<p>The topic of this post is the ideas presented in &ldquo;Protocols,&rdquo;
-originally published in the March, 1994 issue of Frameworks, and
-archived at
-<a href="http://www.mactech.com/articles/frameworks/8_2/Protocol_Evins.html">http://www.mactech.com/articles/frameworks/8_2/Protocol_Evins.html</a>. It&rsquo;s
-an article about how representation, behavior, and taxonomy are
-distinct concepts that can be handled separately, despite the fact
-that object-oriented languages tend to confuse them.</p>
-<p>Those points need clarifying, I know.</p>
-<p>By &ldquo;representation,&rdquo; I mean how we concretely lay out data. As an
-example, you can represent an array as a contiguous sequence of memory
-locations, or as a table of indexes paired with pointers, or as a tree
-of cells in which bit patterns are mapped to subtrees, or, of course,
-in many other ways. There are circumstances in which each of the
-different approaches might be advantageous. These are different
-<em>representations</em> of a common abstract concept that I have here called
-an &ldquo;array&rdquo;.</p>
-<p>By &ldquo;behavior,&rdquo; I mean the set of operations that is defined on any
-given set of values. Taking the abovementioned abstract concept of an
-&ldquo;array&rdquo; as an example, you can use any of the mentioned
-representations to support a common behavior. You can
-straightforwardly implement functions that fetch an element of an
-array by index, that iterate over the members of an array, that write
-a new value to the array at some specified index. The implementation
-and performance details will differ, of course, because the
-representation differs, but the behavior—that is, the API and what it
-accomplishes—is the same.</p>
-<p>By &ldquo;taxonomy,&rdquo; I mean the relationship between one defined set of
-values and another. Types are categories of values. They are (possibly
-unbounded) collections of data objects. Types naturally have subtypes;
-a collection of values has a natural relation to a smaller collection
-of some of the same values: the smaller set is a subtype of the larger
-one. It&rsquo;s natural to think of obtaining the smaller set by starting
-with the larger one and adding restrictions that filter out some
-values. You can think of taxonomies of types, such as the class
-hierarchies in languages like Smalltalk and Java, as sets of values
-that begin with a very inclusive type, like Java&rsquo;s Object, and
-develops more and more refined types by adding more and more exclusive
-restrictions. Object is all the values (I know; it&rsquo;s not really all of
-them.) Number excludes all those objects that aren&rsquo;t representations
-of magnitudes. Integer excludes all that are not representations of
-whole numbers. And so on.</p>
-<p>These three concepts, representation, behavior, and taxonomy, are
-quite distinct, but most object-oriented languages conflate at least
-two of them. Some combine all three. Smalltalk classes, for example,
-are representation, behavior, and taxonomy all rolled into one. The
-representation is in the instance variables; the behavior is in the
-methods; the taxonomy is in the subclass/superclass relations. THe
-trouble with that approach is that when you ask for one of the three,
-you get the other two whether you want them or not. For example, if
-you create a new subclass, you inherit representation, behavior, and
-taxonomy, even if all you wanted was behavior. If you create some
-subclass because you want a certain taxonomic relation, you also get a
-representation and a behavior that may or may not be what you need.</p>
-<p>The claim of the &ldquo;Prototypes&rdquo; article was that you can treat these
-three concepts separately, and by doing so develop a discipline that
-makes object-oriented design and implementation feasible in any
-language. Furthermore, by doing so, you can develop APIs that are
-language independent. To take the &ldquo;array&rdquo; example, what makes it an
-&ldquo;array&rdquo; is that you can get and set elements by index, and iterate
-over them in index order. That&rsquo;s behavior. If representation,
-behavior, and taxonomy are properly separated, you can represent
-&ldquo;arrays&rdquo; any way you like, and you can arrange for them to be subtypes
-of any type you like, and they&rsquo;ll still be arrays, because they
-support &ldquo;array&rdquo; behavior. Representation and taxonomy can be treated
-independently as well, but not if your tools insist on conflating
-them.</p>
-<p>I still think that&rsquo;s true, and useful, but I was always interested in
-codifying the ideas of that article more concretely. I was interested
-in working with an object system designed around clearly
-distinguishing representation, behavior, and taxonomy.</p>
-<p>One language that pretty much nails it is Haskell. In Haskell,
-representation is the province of datatypes. Behavior is handled by
-functions. Taxonomy belongs to typeclasses.</p>
-<p>For those unfamiliar with Haskell, the terminology is probably
-confusing. Without some experience with Haskell, it&rsquo;s probably not at
-all clear how and why &ldquo;datatypes&rdquo; and &ldquo;typeclasses&rdquo; are
-different. Briefly, a Haskell datatype is a named description of an
-arrangement of data. A typeclass is a named description of a set of
-operations. You can make a datatype into a member of a typeclass by
-defining functions that implement the operations specified by the
-typeclass.</p>
-<p>This is pretty close to what I was talking about in &ldquo;Protocols;&rdquo; it&rsquo;s
-probably closer than anything else I&rsquo;ve seen to language support for
-those concepts. The next closest thing, I think, is the style of
-object system exemplified by CLOS (the Common Lisp Object System). In
-CLOS, classes describe representation and taxonomy. Generic functions
-and methods describe behavior. It&rsquo;s easy and convenient to describe
-behavior in CLOS independently of representation or taxonomy. CLOS
-does still conflate representation with taxonomy, though it provides
-facilities for modifying itself that enable you to work around that
-conflation if you really want to.</p>
-<p>In February of 2009 I had been using the new Lisp dialect, Clojure,
-for about five months on some projects, and was generally pretty happy
-with it. One area I wasn&rsquo;t happy with, though, was Clojure&rsquo;s approach
-to types and polymorphic functions. Clojure doesn&rsquo;t really have a type
-system as such. It has a small number of well-chosen and well-designed
-types, and it can transparently use Java&rsquo;s types (Clojure&rsquo;s main
-implementation is built on the JVM). For most uses, these two
-facilities are more than sufficient, and they work very well. They
-fell a little short of what I wanted for some of my work, though. One
-of my projects requires ways to specify a large number of structured
-data elements with taxonomic relations. The set of elements is open,
-and expected to grow over time, so I need a convenient way to add
-descriptions of new ones, and ways to ensure that relevant APIs are
-defined to work in the proper way over all the values currently
-described, and over all those that are yet to be described.</p>
-<p>Clojure gives me a lot of what I want to support this scenario, but
-not all of it. Clojure&rsquo;s maps provide a great way to describe
-structured data, but not a great way to place restrictions on it. I
-can say that Foo has fields A, B, and C, but there&rsquo;s no convenient way
-to say that A is an automobile and B is a hypotenuse; nor is there a
-convenient way to say that a Foo has A,B, and C, and nothing else.</p>
-<p>I was even more dissatisfied with the facilities that Clojure provided
-for defining taxonomy. Clojure&rsquo;s documentation, and its justifiably
-enthusiastic users, make much of the fact that Clojure&rsquo;s derive
-function and its polymorphic MultiFns make it possible to define
-arbitrary taxonomies. That&rsquo;s true for small values of &ldquo;arbitrary&rdquo;. You
-can easily construct any taxonomy, as long as it&rsquo;s a taxonomy that
-Clojure was designed to easily construct. Mine wasn&rsquo;t.</p>
-<p>The details of the problems don&rsquo;t matter. My main point is that I ran
-into a couple of insoluble problems with Clojure&rsquo;s MultiFns, derive,
-and hierarchies, and, after some discussion, satisfied myself that the
-Clojure community regarded those obstacles as features rather than
-bugs. So I did what any sensible Lisp hacker does in a situation like
-that: I wrote my own object system.</p>
-<p>It began as an existence proof of an alternative way of handling
-polymorphic dispatch. There was a little bit of interest in it from a
-couple of people, but for the most part the Clojure community reacted
-with a shrug. On the whole, they&rsquo;re happy with Clojure&rsquo;s
-approach. More power to them.</p>
-<p>As I tweaked a few things to respond to casually-mentioned
-hypothetical objections, I started to like what I had. I was testing
-it by reimplementing important parts of some production code I was
-working on. I realized pretty early that the subsystem I was builiding
-bore more than a passing resemblance to the ideas in &ldquo;Protocols&rdquo;. I
-refactored it a few times. I tried a couple of different
-implementation strategies. It got faster, simpler, and more appealing
-(to me, that is). Somewhere along the way, I started calling it
-Categories.</p>
-<p>I have a couple of implementations of it in Clojure now, with somewhat
-different APIs. More recently, I ported it to Scheme, so that I can
-try it out in a different application context. The API mutated a
-little more. I&rsquo;m still refactoring things to try to make the surface
-API simpler and easier to understand.</p>
-<p>Categories represents the concepts from &ldquo;Protocols&rdquo; pretty
-straightforwardly. The basic concepts are:</p>
-<p>Types: descriptions of how data are laid out.</p>
-<p>Functions: operations that accept zero or more values as parameters,
-and that compute and return zero or more values as results.</p>
-<p>Domains: descriptions of relations among types.</p>
-<p>Functions are polymorphic, and are defined in terms of domains. In
-other words, a functions looks at its arguments at runtime and decides
-which actual code to run based on what it sees. This is like any other
-object-oriented language, as far as it goes. The distinguishing
-characteristic of the system is how a function choses a method.</p>
-<p>When you construct a function, one parameter to its constructor is a
-domain. A domain contains a catalog of types, and a set of rules
-(represented as functions) that describe how the types are
-related. Domains can tell you things like whether a type is a member
-of the domain, whether one type is a subtype of another, and whether a
-method can be applied to a particular set of argument values.</p>
-<p>Importantly, you can have as many domains as you want, and each one
-can work differently. How you represent the relations among types is
-entirely up to you. This means that you can pretty easily implement
-any kind of dispatching you want. Smaltalk-style, Java-style,
-CLOS-style, predicate dispatch—it&rsquo;s all good. The Categories subsystem
-defines a default domain that implements a dispatch scheme very
-similar to those of CLOS and Dylan (because I like those schemes and
-am comfortable with them), but the default is just one domain. If you
-want something different, it&rsquo;s easy enough to build it. Just to make
-sure, I wrote implementations of Clojure&rsquo;s dispatch and of a
-predicate-dispatch scheme. They were easy to do.</p>
-<p>When I was first discussing these ideas, someone mentioned some
-concern that it wouldn&rsquo;t be possible to implement such a system
-efficiently, or to optimize it. In practice, it hasn&rsquo;t been a
-problem. There is a tradeoff between exposing the API you need to
-implement a domain efficiently, and making the domain API
-understandable, and that&rsquo;s been a major issue I&rsquo;m dealing with in
-rewrites of Categories. It seems clear at this point, though, that
-efficient implementations are doable. The trick is setting things up
-so that you can write domains that are efficient without exposing a
-confusing array of knobs and switches. I&rsquo;m still working on striking
-the right balance.</p>
-<p>You can&rsquo;t get a current working version of Categories right now; I
-still have its guts out on the table so I can tinker with them. Some
-of its early predecessors are readily available if you really want
-them, but if you read this and are really interested in Categories,
-I&rsquo;d counsel patience. I&rsquo;m folding it into some product code right now,
-and making corrections and improvements as that process reveals the
-need. It&rsquo;s my intention to nail it down and ship a product that uses
-it, then port that version back over to Clojure to support some other
-work I&rsquo;m doing in that language. Once I reach that point, if you ask
-me for it, I&rsquo;ll give it to you.</p>
-<p>Why would you want it? I dunno; you might not. I sure did, though,
-enough to build it. Soon I&rsquo;ll see if it was a waste of time, or a
-great new tool for my toolbox.</p>
+					<p>I&rsquo;ve just packed up Delectus(tm) 1.0 Alpha 2 and shipped it off to my
+testers. Delectus is an application for keeping track of collections
+of things. The inspiration for it was an ancient and hoary program my
+mother used to keep track of her movies. She has around a thousand
+movies, the majority of them still on videocassettes. Each cassette
+has a catalog number on it, and she uses a database program to
+associate those numbers with information like the title, star, genre,
+and so forth, so that she can quickly find a particular movie in her
+stacks of shelves. Recently the software, which is over twenty years
+old, finally became obsolete. As we were looking for a replacement, I
+decided I&rsquo;d just write one, and that became the genesis of Delectus.</p>
+<p>The basic design of Delectus is very simple. A Delectus document
+stores a list of rows and a list of columns. Each column has a text
+label. Each row contains a list of text fields. The number of fields
+is the same in every row, and it&rsquo;s also the same as the number of
+columns. So you can create a document with the columns &ldquo;Title&rdquo;,
+&ldquo;Genre&rdquo;, and &ldquo;Star&rdquo;, and every row will then have three fields. You
+can make a new row and put the title of a movie into the &ldquo;Title&rdquo;
+field, the star into the &ldquo;Star&rdquo; field, and the genre into the &ldquo;Genre&rdquo;
+field.</p>
+<p>Delectus doesn&rsquo;t decide for you how many columns to create or what the
+names will be. Instead, a new Delectus document has no rows and no
+columns. You can add new rows and new columns at any time, and you can
+delete them at any time, too. This flexibility makes it easy to set up
+your databases any way that is convenient for you. You can sort a
+document&rsquo;s entries, forward or backward, by clicking the heading of a
+column. If every entry in a column is a number, Delectus detects that
+automatically, and sorts by number instead of lexicographically.</p>
+<p>Delectus uses a trash can, like OS X&rsquo;s trash can. When you delete a
+row or column, it&rsquo;s not really gone, but tossed into the trash. Click
+a trash button, and Delectus shows the trash to you, integrated in the
+document, but displayed in a different color, so you can easily tell
+which items are deleted. Empty the trash, of course, and the deleted
+items are gone forever.</p>
+<p>Delectus is mainly written in Scheme. The Scheme compiler I&rsquo;m using is
+Gambit-C. A few weeks ago, I wrote a post about the happy discovery
+that Gambit-C made it easy to work with Mac OS X&rsquo;s Cocoa frameworks. I
+said Gambit was a great platform for Cocoa development. That opinion
+drew some fire, but I haven&rsquo;t changed it. To the contrary, I&rsquo;ve grown
+happier with Gambit as I&rsquo;ve developed Delectus.</p>
+<p>Some people grumbled that I&rsquo;m not allowed to call it a great platform
+if I still have to deal with C code. Now, that&rsquo;s silly. You know, I
+actually had a Lisp system once in which I never had to deal with C
+code. It was called a Symbolics Lisp Machine, Every other Lisp I&rsquo;ve
+used&ndash;and I&rsquo;ve used a lot of them in twenty one years of
+programming&ndash;has had to deal with C in one way or another, at one time
+or another. Heck, even when I was writing Lisp code for an operating
+system written in Lisp (an unshipped version of Apple&rsquo;s Newton), we
+had to deal with C code. If your eyes are damaged by the sight of
+semicolons, a hard road awaits you. C code is in the underpinnings of
+every system you are ever likely to use. At least Gambit makes it easy
+to wrap our beloved parentheses around it, so that the hothouse
+flowers in our midst are protected from the hot exhaust bits spewing
+forth from the C code beneath our feet.</p>
+<p>The other common complaint seems to be that I made a grammatical error
+in using the adjective &ldquo;great&rdquo; to modify a set of development tools
+that does not include an IDE. To paraphrase Yoda, &ldquo;IDEs not make one
+great.&rdquo;  Sure, there have been great IDEs. Smalltalk-80 was a great
+IDE. Xerox Interlisp was a great IDE. Most IDEs are not great. Most
+IDEs are <em>going</em> to be great, someday. That is, they&rsquo;re going to be
+great, right up to the point where the weight of the implementation
+collapses the envelope of optimism providing their buoyancy, and they
+crumple into a heap of random features, slowly and inexorably sinking
+under their combined mass.</p>
+<p>IDEs are large, complicated systems that require serious design and
+engineering. They are major cost centers to anyone who is not in the
+business of selling IDEs, and the market for them is small. It should
+not be surprising that they&rsquo;re mostly not all that good.</p>
+<p>What&rsquo;s more, the benefit of even a great IDE is, let&rsquo;s face it,
+marginal, as long as the basic tools are comprehensive and good. So
+yeah, I&rsquo;d like to have a great IDE. I&rsquo;m not holding my breath. Maybe
+I&rsquo;ll like the Factor IDE. It looks pretty good. But I&rsquo;m working in
+Scheme, right now.</p>
+<p>So, yeah, folks who never want to see a line of C code, you&rsquo;re not
+going to like the tools I&rsquo;m using. Ditto for anyone who must have his
+projects managed by a digital valet in an impeccably-tailored suit of
+color-coordinated windows. There&rsquo;s nothing for you guys to see here;
+move along.</p>
+<p>For me, though, Gambit has definitely been great. In the development
+of Delectus, I&rsquo;ve ditched XCode (but not Interface Builder). In Alpha
+2, 83% of the application code by linecount is Scheme code. The
+remaining 17% is Objective-C. Basically, there&rsquo;s just enough
+Objective-C to load the nibfiles that define the app&rsquo;s windows and
+menus, and hook their event-handlers to the Scheme code that does all
+the real work.</p>
+<p>After some experimentation, I partitioned the application into the
+following parts:</p>
+<ol>
+<li>
+<p>The back-end: this is pure Scheme code that handles all the data
+structures, as well as sorting, filtering, and updating. It also
+handles serializing and deserializing data as CSV and a native
+binary format, and writing to and reading from disk files.</p>
+</li>
+<li>
+<p>The UI: this is Objective-C code that loads the nibfiles, sets up
+calls into the back-end, responds to notifications that originate
+in the back-end, and provides the minor customizations I needed
+to make Apple&rsquo;s UI elements look just the way I wanted. This part
+is less than 700 lines of code, total.</p>
+</li>
+<li>
+<p>The bridge. This is a small amount of Scheme code, and an even
+smaller amount of Objective-C code, in a couple of files. It
+provides simple utilities like a means of converting Scheme
+strings to NSString objects when the UI needs to fetch a string
+from the back-end, without being prodigal about allocation of
+strings. It provides a mechanism for notifying the Objective-C
+code from Scheme code, so that the pure-Scheme back-end can post
+error messages, update requests, and other notifications, without
+any code that is actually aware that an Objective-C component
+exists.</p>
+</li>
+</ol>
+<p>The last point is maybe interesting. There is a very small amount of
+mixed Scheme/C code that enables the Objective-C UI to interact
+productively with the Scheme back-end. I could easily have put that
+code into the main body of the back-end proper, and at first, that&rsquo;s
+what I did. After all, there&rsquo;s only a little of it; what&rsquo;s the harm?</p>
+<p>Before long though, I refactored the code to completely separate all
+that code into a bridge layer. The reason, basically, is that I like
+to have a fairly comprehensive set of unit tests around my major
+application functionality. With such a set of tests in place, it&rsquo;s
+very easy to detect when a change in the code makes an application
+feature fail, and it&rsquo;s easy to find what broke it. By factoring all of
+the mixed code out into its own small layer, I was able to make the
+back-end pure Scheme code, with no reference anywhere to any foreign
+functions. That means that I can load the entire back-end into an
+interactive repl and exercise it. I can run all the unit tests at
+once, or run particular ones interactively. If one breaks, I can use
+the interactive debugger to crawl around inside the back-end&rsquo;s runtime
+and figure out what&rsquo;s wrong.</p>
+<p>Furthermore, by factoring things this way, I create a circumscribed
+and coherent API for calling into the back-end and getting data from
+it. That makes it very easy to hook up the Cocoa UI, simply by having
+event-handlers call the appropriate API functions. UI calls into the
+back-end are almost always one or two lines of code. That means that,
+even when a bug is in the UI rather than the back-end, the way the app
+is factored makes that easy to detect. And since there is so little
+front-end code, it&rsquo;s easy to find and fix.</p>
+<p>Obviously, you could structure any Cocoa app similarly, whether the
+back-end is Scheme or C or ML or whatever. What makes Gambit great for
+me, a Lisp hacker by preference, is that over eighty percent of the
+code I work with is pure Scheme code that I can work with
+interactively, in the way I prefer.</p>
+<p>You could argue that Delectus is really a C program, on the grounds
+that Gambit-C compiles Scheme to C, before subsequently compiling it
+to native code. That suits me fine, as long as I can continue to write
+my C code in Scheme.</p>
+<p>I&rsquo;ll say it again: Gambit-C has been a great platform for developing a
+Cocoa app. I&rsquo;ll enthusiastically use it again in the future to do the
+same kind of work. I would recommend it to anyone who wants to use
+Lisp to write a Cocoa app, provided that they&rsquo;re not allergic to C
+code, and provided that they&rsquo;re okay with using compilers and editors
+without an IDE to command the servants for them.</p>
+<p>Delectus should be out soon. The gating factor right now is the
+opinion of the testers. When they&rsquo;re happy with the feature set and
+the stability of the product, I&rsquo;ll release it.</p>
+<p>After the release of Delectus, I&rsquo;ll begin work on a web application
+aimed at MMORPG players. Most likely, the server side of that
+application will be written in Clojure.</p>
+<p>A little while ago, I promised interested people that they would soon
+be able to get their hands on my Categories object system. The object
+system had to take a back seat to revenue-generating work, but when
+Delectus is out, I&rsquo;ll be working on a release of Categories. I intend
+to use it in my next product anyway, and so I may as well also package
+it for release to the tiny community of people who are interested in
+such things.</p>
+<p>The current working prototype of Categories runs on Gambit, and it&rsquo;s
+likely that&rsquo;s the version I&rsquo;ll clean up and release first. Then I&rsquo;ll
+port it back to Clojure (which is where I developed the first versions
+of it), and make that available as well. It may be a little while
+before I do either; we must now wait on the verdict of my
+testers. When they say Delectus is done, then I can move forward.</p>
+<p>I have several other plans in the works, including the resurrection of
+some old friends. After six years, I still occasionally get fan mail
+about Alpaca, the text editor. Those few fans may be glad to know that
+a new version of Alpaca is on the roadmap. Another old project that
+I&rsquo;m still sometimes asked about is Bosco, a simple set of tools for
+building a Cocoa application in Clozure Common Lisp. Well, Bosco was
+absorbed into Clozure Common Lisp a couple of years ago, but there
+stlll seems to be a place under the sun for a small package of files
+that shows how to build a minimal Cocoa application with the smallest
+possible amount of Lisp code. I have another project called Apis that
+can serve that purpose, among others. Apis, and other things derived
+from it, are also on the roadmap.</p>
+<p>There are other things, but they&rsquo;re even further down the road. For
+now, I&rsquo;m still squarely in the midst of Delectus, and loving
+Gambit. Turns out it&rsquo;s still a great platform for developing Cocoa
+apps.</p>
 
 
 				</div>
@@ -387,13 +348,13 @@ great new tool for my toolbox.</p>
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/page/24/">24</a>
+    <a class="page-link" href="/page/25/">25</a>
   </li>
   <li class="page-item">
     <a href="/page/22/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/page/24/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/page/25/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
