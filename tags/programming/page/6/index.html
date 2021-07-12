@@ -43,6 +43,10 @@
 	    
 	    
             <div class="tagbutton">
+		<a href="/posts/2021-07-12-reimagining-bauhaus/">Reimagining Apple&#39;s bauhaus OS</a>
+            </div>
+	    
+            <div class="tagbutton">
 		<a href="/posts/2021-04-04-replit/">Why repl.it disappoints me</a>
             </div>
 	    
@@ -60,10 +64,6 @@
 	    
             <div class="tagbutton">
 		<a href="/posts/2020-02-03-programming-as-teaching/">Programming as teaching</a>
-            </div>
-	    
-            <div class="tagbutton">
-		<a href="/posts/2009-10-23-a-peek-at-categories/">A peek at Categories</a>
             </div>
 	    
     </div>
@@ -89,7 +89,7 @@
 	
 	<div class="tagbutton">
 	    <a href=/tags/programming/ title="All pages with tag <i>programming</i>">programming</a>
-	    <sup>11</sup>
+	    <sup>12</sup>
 	</div>
 	
 	 
@@ -135,488 +135,151 @@
 				<div class="post">
 
 					<div class="post-heading">
-						<h1><a href="https://mikelevins.github.io/posts/2009-10-23-a-peek-at-categories/">A peek at Categories</a></h1>
-						<span>Oct 23, 2009</span>
+						<h1><a href="https://mikelevins.github.io/posts/2020-02-03-programming-as-teaching/">Programming as teaching</a></h1>
+						<span>Feb 3, 2020</span>
 					</div>
 
-					<p>I&rsquo;ve begun preparations to package Categories for release. The first
-thing I&rsquo;m doing is going over the surface syntax. In previous
-iterations I&rsquo;ve built Categories from the bottom up, which confirmed
-that the concepts and mechanisms worked, but left a few warts in the
-surface syntax. This time, I figured I&rsquo;d start at the surface syntax
-and work the other way, in hopes that the result will be more
-congenial.</p>
-<p>This rather long post describes the current state of the Categories
-surface syntax. Those who are interested in such things are invited to
-tell me what&rsquo;s wrong with it.</p>
-<p>Categories has three logical parts: datatypes (representation),
-functions (behavior), and domains (taxonomy). Following Larry Tesler&rsquo;s
-maxim that &lsquo;simple things should be simple; complex things should be
-possible,&rsquo; I&rsquo;ll start by describing just the simplest and most common
-use-cases, and then make another pass through all three parts of the
-system to add in the more complicated options.</p>
-<h2 id="datatypes">Datatypes</h2>
-<p>Representation is the province of Datatypes. Types are first-class
-objects in Categories. They can be created by evaluating expressions,
-passed to and returned from functions, and bound to variables.</p>
-<p>Categories defines a set of primitive type objects that represent
-built-in types of the underlying platform. For example, the Scheme
-version defines primitive types like <code>&lt;pair&gt;</code> and <code>&lt;symbol&gt;</code>, and it
-arranges for its reflective operations to return appropriate
-values. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">type</span> <span style="color:#e6db74">&#39;foo</span>)
-
-&lt;symbol&gt;
-
-? (<span style="color:#a6e22e">type?</span> <span style="color:#e6db74">&#39;foo</span> &lt;symbol&gt;)
-
-<span style="color:#66d9ef">#t</span>
-</code></pre></div><h2 id="type-synonyms">Type synonyms</h2>
-<p>The simplest possible way to define a type is to say that it&rsquo;s the
-same as some existing type. Of course, even simpler than that is to
-just go ahead and use the existing type. But sometimes you want a
-different name for the type, to better communicate its intended
-use. Sometimes you want to use an existing type for now, but may want
-to represent the data differently in the future. To make these uses
-easier, Categories provides type synonyms:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;name&gt; 
-  (<span style="color:#a6e22e">type-synonym</span> &lt;string&gt;))
-</code></pre></div><p>By defining <code>&lt;name&gt;</code> as a synonym for <code>&lt;string&gt;</code> you can use <code>&lt;string&gt;</code>
-objects to represent names, while calling them <code>&lt;name&gt;</code>s in your code to
-clearly communicate their purpose. Later, if you find that you need to
-represent names in some other way&ndash;say as some structured object that
-takes into account various different kinds of names that people
-use&ndash;you can replace the definition of <code>&lt;name&gt;</code>. You&rsquo;ll then have to
-change the implementations of functions that operate on <code>&lt;name&gt;</code>s, of
-course, but if you structure your APIs appropriately, that&rsquo;s all
-you&rsquo;ll have to change.</p>
-<h3 id="structures">Structures</h3>
-<p>More commonly, we want to create structured types by grouping several
-simpler types into named fields. In Categories, that kind of type is
-called a structure:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
-  (<span style="color:#a6e22e">structure</span> () x y))
-</code></pre></div><p>Like other types, structures are first class objects. The above code
-binds a new structure to the variable <code>&lt;cartesian-point&gt;</code>. The new
-structure has two keys: x and y. Instances of <code>&lt;cartesian-point&gt;</code> will
-contain two values, one stored on the key x, and the other stored on
-the key y.</p>
-<p>You can create an instance of a structure by applying the function
-make to it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;)
-</code></pre></div><p>You can get the value associated with a key by applying the function
-get-key:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;) <span style="color:#e6db74">&#39;x</span>)
-
-Error: Unbound key x 
-</code></pre></div><p>Unfortunately, we didn&rsquo;t specify any value for x when we created the
-instance. You can do that by passing in an initializer for the key:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>) <span style="color:#e6db74">&#39;x</span>) 
-
-<span style="color:#ae81ff">101</span> 
-</code></pre></div><p>You can also specify a default value for a key in the definition of
-the type:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    (<span style="color:#a6e22e">x</span> default: <span style="color:#ae81ff">7</span>)
-    y))
-
-? (<span style="color:#a6e22e">get-key</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt;) <span style="color:#e6db74">&#39;x</span>) 
-  
-<span style="color:#ae81ff">7</span> 
-</code></pre></div><p>Before I go any farther, I had better explain why there&rsquo;s an empty
-list after the symbol &lsquo;structure&rsquo; in:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    x
-    y)) 
-</code></pre></div><p>When you create a new structure, you can specify zero or more existing
-structures to include in its definition. So if I wanted to define a
-new type of 3D point that is just like a cartesian point, but with an
-extra coordinate, I could define it like so:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;3d-point&gt; 
-  (<span style="color:#a6e22e">structure</span> (<span style="color:#a6e22e">&lt;cartesian-point&gt;</span>) 
-   z)) 
-</code></pre></div><p>&lsquo;Okay,&rsquo; you&rsquo;re thinking, &lsquo;that&rsquo;s nothing new. The new type inherits
-from the old one.&rsquo; Not so fast: there&rsquo;s no such thing as inheritance
-in types. Including a type just means you don&rsquo;t have to retype all its
-field definitions when you want to reuse them. Categories does support
-inheritance, but that belongs to domains, not to datatypes. Remember:
-datatypes are representation. Inheritance belongs to taxonomy, and
-that&rsquo;s the province of domains, not of datatypes.</p>
-<h3 id="structure-amenities">Structure amenities</h3>
-<p>The structure constructor provides a few more conveniences. You can
-say that you want Categories to automatically construct getter
-functions for the new type&rsquo;s keys:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    (<span style="color:#a6e22e">x</span> get: get-x) 
-    (<span style="color:#a6e22e">y</span> get: get-y))) 
-</code></pre></div><p>Now you can fetch the x value from a cartesian point like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#a6e22e">get-x</span> (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>))
-
-<span style="color:#ae81ff">101</span> 
-</code></pre></div><p>If you leave off the get: argument for a key, then you have to use
-get-key and the key&rsquo;s name to fetch the value.</p>
-<p>You can also specify a setter:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;cartesian-point&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    (<span style="color:#a6e22e">x</span> get: get-x set: set-x!)  
-    (<span style="color:#a6e22e">y</span> get: get-y set: set-y!)))  
-</code></pre></div><p>Categories then constructs a function for setting the value associated
-with the key:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">? (<span style="color:#66d9ef">define </span>p (<span style="color:#a6e22e">make</span> &lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span>))
-
-<span style="color:#f92672">#</span>&lt;&lt;cartesian-point&gt; x: <span style="color:#ae81ff">101</span> y: <span style="color:#f92672">#</span>&lt;unbound&gt;&gt;
-
-? (<span style="color:#a6e22e">get-x</span> p) 
-
-<span style="color:#ae81ff">101</span>
-
-? (<span style="color:#a6e22e">set-x!</span> p <span style="color:#ae81ff">1001</span>) 
-
-? (<span style="color:#a6e22e">get-x</span> p) 
-
-<span style="color:#ae81ff">1001</span> 
-</code></pre></div><p>If you omit the set: argument then Categories makes the key
-read-only. Categories is generally biased in favor of immutable data.</p>
-<h3 id="functions">Functions</h3>
-<p>Now that we know how to define datatypes, what do we do with them? We
-apply <strong>functions</strong> to them.</p>
-<p>Functions are objects that can be applied to zero or more parameters
-and return zero or more results. Functions as defined in Categories
-are polymoprphic. In other words, the same function can have several
-different definitions. The one that applies to a particular set of
-inputs depends on the inputs.</p>
-<p>This practice of making the particular implementation of a function
-depend on its inputs is called <strong>polymorphism</strong>, and is one of the
-foundations of object-oriented programming. Choosing a specific
-implementation to run is called <strong>dispatching</strong>. Categories provides
-polymorphic functions with programmable dispatching.</p>
-<p>We&rsquo;ll look at how you can create your own dispatching schemes
-below. First, though, let&rsquo;s look at what it&rsquo;s like to define and use
-functions in the simplest way.</p>
-<h3 id="the-default-domain">The Default domain</h3>
-<p>The simplest way to define and use functions in Categories is with the
-<strong>default domain</strong>. Categories assumes you are using the default
-domain unless you tell it otherwise. The features of the default
-domain generally resemble those of CLOS.</p>
-<p>Like types, functions are first-class objects. You can create one and
-bind it to a variable, like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>serialize 
-  (<span style="color:#a6e22e">function</span> ((<span style="color:#a6e22e">s</span> &lt;store&gt;))
-    (vector <span style="color:#e6db74">&#39;store</span> 
-            (<span style="color:#a6e22e">version</span> s) 
-            (map serialize (<span style="color:#a6e22e">columns</span> s)) 
-            (<span style="color:#a6e22e">column-order</span> s) 
-            (<span style="color:#a6e22e">sort-column</span> s) 
-            (<span style="color:#a6e22e">sort-reversed?</span> s) 
-            (map serialize (<span style="color:#a6e22e">rows</span> s)) 
-            (<span style="color:#a6e22e">notes</span> s)))) 
-</code></pre></div><p>The function object that is bound to the variable named &lsquo;serialize&rsquo; is
-created with a single implementation, corresponding to the type
-<code>&lt;store&gt;</code>. If we want to add another implementation, we can use
-add-method!:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)) <span style="color:#f92672">...</span>)
-
-</code></pre></div><p>Why do the parameter lists have double parentheses? Because each
-parameter may be type-qualified:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)(<span style="color:#a6e22e">outs</span> &lt;stream&gt;)) 
-  <span style="color:#f92672">...</span>)  
-</code></pre></div><p>You can define a method to execute when no match is found for the
-inputs by omitting the type qualifiers:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-method!</span> serialize (<span style="color:#a6e22e">something</span> somewhere) <span style="color:#f92672">...</span>)
-
-</code></pre></div><p>It can be an inconvenience to keep track of where the definition of
-the function first appears, and to make sure that all the add-method!
-calls appear after it. If you instead use the define-function macro,
-that bookkeeping is handled for you automatically:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)
-
-(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">d</span> &lt;document&gt;)) <span style="color:#f92672">...</span>)
-    
-</code></pre></div><p>In that case, it doesn&rsquo;t matter which comes first.</p>
-<h3 id="domains">Domains</h3>
-<p>So how exactly does dispatching work in Categories? Well, that depends
-on what domain you use. By default, you use the default domain. The
-default domain, which is named -c3-, uses a dispatching algorithm very
-similar to that of CLOS. It&rsquo;s not identical to CLOS; it uses a scheme
-first described in</p>
-<p><a href="http://192.220.96.201/dylan/linearization-oopsla96.html">http://192.220.96.201/dylan/linearization-oopsla96.html</a></p>
-<p>That scheme, which is generally called &lsquo;C3,&rsquo; yields dispatching
-behavior that is very similar to that of CLOS, but which in a few
-complicated corner cases produces less surprising results. It&rsquo;s the
-default in Categories because I like it, and because it has served the
-general programming community well. It was designed for the Dylan
-programming language, but has been adopted by implementors outside the
-Dylan community, including the Python implementors and the designers
-of the Class::C3 object system for Perl.</p>
-<p>Although C3 is the default dispatching scheme, it&rsquo;s not the only
-dispatching scheme supported by Categories.  Two other dispatching
-schemes are provided with Categories, and by defining domains, you can
-make your own.</p>
-<p>Before we get to that, though, let&rsquo;s just look at how to use something
-other than the default domain.</p>
-<p>When you write:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
-</code></pre></div><p>that expression is really shorthand. It leaves out a reference to the
-domain you&rsquo;re using. If we wrote it out in full, it would look like
-this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
-</code></pre></div><p>You can see that here we&rsquo;ve said explicitly that we&rsquo;re defining a
-function that operates in the -c3- domain. We could instead use one of
-the other domains supplied with Categories, the Flat domain:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -flat- serialize ((<span style="color:#a6e22e">s</span> &lt;store&gt;)) <span style="color:#f92672">...</span>)  
-</code></pre></div><p>The difference between -c3- and -flat- is that -c3- defines supertype
-relations among types, and -flat- doesn&rsquo;t. Suppose you make an
-instance of <!-- raw HTML omitted --> and call serialize on it.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>$r (<span style="color:#a6e22e">make</span> &lt;repository&gt;)) 
-
-(<span style="color:#a6e22e">serialize</span> $r) 
-</code></pre></div><p>What happens? That depends on whether serialize is defined on the -c3-
-or on the -flat- domain. It&rsquo;s the domain that defines how dispatching
-is done. If it&rsquo;s defined on -flat- then the answer is simple:
-serialize finds no match for $r. Unless a default method is defined as
-in the example above, an error is signaled.</p>
-<p>The -c3- domain defines a more complicated&ndash;and more
-familiar&ndash;dispatching scheme. It will try to match $r against
-serialize methods that are defined on <code>&lt;repository&gt;</code>.  When it fails to
-find one, it then tries to find serialize methods defined on
-supertypes of <code>&lt;repository&gt;</code>.</p>
-<p>Didn&rsquo;t I say above that datatypes don&rsquo;t define supertype or
-inheritance relations? Yes, because <em>domains</em> do. The -c3- domain
-defines supertype relations with multiple inheritance. It tries to
-find an inherited method that matches, using the C3 algorithm to
-determine which matching method is most specific. Once again, if no
-such method is found then either the default method is called or, if
-there is no default method, an error is signaled.</p>
-<h3 id="more-options">More options</h3>
-<p>That&rsquo;s a first pass across the simplest and most commonly-used
-features of Categories. Let&rsquo;s go over the parts of the system one more
-time, and look at a few more options that it provides.</p>
-<h3 id="categories">Categories</h3>
-<p>First of all, I left out an important group of types, because it&rsquo;s
-hard to explain what they&rsquo;re for until you&rsquo;ve seen how Categories
-works with domains. A constructor named &lsquo;category&rsquo; creates a kind of
-type that is different from the others. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;vehicle&gt; (<span style="color:#a6e22e">category</span> &lt;car&gt; &lt;truck&gt;)) 
-</code></pre></div><p>The expression above binds a new type to <code>&lt;vehicle&gt;</code>. The new type,
-which is called a category, represents any of the types passed as
-inputs to the &lsquo;category&rsquo; constructor. Once <code>&lt;vehicle&gt;</code> is defined, any
-method matching <code>&lt;vehicle&gt;</code> will also apply to <code>&lt;car&gt;</code> or
-<code>&lt;truck&gt;</code>. You can therefore define functions that accept <code>&lt;vehicle&gt;</code>
-values, and those functions will work on <code>&lt;car&gt;</code> or <code>&lt;truck&gt;</code> values,
-<em>even if the functions are defined on the flat domain</em>. In other
-words, even without inheritance, it is possible to define functions
-that operate the same way on a variety of different types.</p>
-<h3 id="supertypes-and-subtypes">Supertypes and subtypes</h3>
-<p>Okay, but suppose you actually want types that have supertypes and
-subtypes? Well, then, you can use -c3-,or any domain that supports
-supertype relations, and you can add your own types to it. For
-example,</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-type!</span> -c3- &lt;truck&gt; 
-  supertypes: (list &lt;transportation&gt; &lt;four-wheeled-objects&gt;)) 
-</code></pre></div><p>&hellip;adds to -c3- a type named <code>&lt;truck&gt;</code>, with supertypes
-<code>&lt;transportation&gt;</code> and <code>&lt;four-wheeled-objects&gt;</code>.</p>
-<p>You can, of course, also add types to the -flat- domain:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">add-type!</span> -flat- &lt;truck&gt;) 
-</code></pre></div><p>You can&rsquo;t specify any supertypes for it, though, because -flat-
-doesn&rsquo;t support supertype relations. If you try to, then add-type!
-will signal an error.</p>
-<h3 id="name-collisions">Name collisions</h3>
-<p>What happens if I define a type that includes two other types that
-have different definitions for the same key?</p>
-<p>For example, suppose I have these two definitions:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;monument&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    (<span style="color:#a6e22e">age</span> type: &lt;historical-epoch&gt;))
-
-(<span style="color:#66d9ef">define </span>&lt;property&gt; 
-  (<span style="color:#a6e22e">structure</span> () 
-    (<span style="color:#a6e22e">age</span> type: &lt;count-of-years&gt;)) 
-</code></pre></div><p>Now suppose I want to define <code>&lt;historic-property&gt;</code> like
-this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;historic-property&gt; 
-  (<span style="color:#a6e22e">structure</span> (<span style="color:#a6e22e">&lt;monument&gt;</span> &lt;property&gt;) 
-    (<span style="color:#a6e22e">square-footage</span> asking-price)) 
-</code></pre></div><p>Well, I can&rsquo;t. The definition of age in <code>&lt;monument&gt;</code> conflicts with
-the definition of age in <code>&lt;property&gt;</code>. What I can do, though, is
-rename one or both of the included keys:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>&lt;historic-property&gt; 
-  (<span style="color:#a6e22e">structure</span> ((<span style="color:#a6e22e">&lt;monument&gt;</span> (<span style="color:#a6e22e">age</span> as: period))
-              (<span style="color:#a6e22e">&lt;property&gt;</span> (<span style="color:#a6e22e">age</span> as: how-old)))
-    (<span style="color:#a6e22e">square-footage</span> asking-price))) 
-</code></pre></div><h3 id="the-predicate-domain">The Predicate domain</h3>
-<p>Besides the default C3 domain and the flat domain, Categories includes
-a third domain that works very differently from either. The -pred-
-domain matches input function arguments with a user-defined predicate
-function. For example:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -pred- ((<span style="color:#a6e22e">x</span> y z) all-odd?)  <span style="color:#f92672">...</span>)
-
-</code></pre></div><p>The example above shows a function that will match any three inputs,
-as long as calling the function all-odd? on the sequence of three
-inputs returns true. You can define functions that match on any
-predicate you like. You just have to ensure that when the function
-passes the inputs to your predicate, the predicate correctly returns
-either true or false.</p>
-<p>The -pred- domain also uses the C3 algorithm to support supertype
-relations among predicates. Using the -pred- domain you can construct
-whatever relations among predicate functions you like, and Categories
-will dispatch appropriately. For example, you define all-integers? to
-be a supertype of all-odd?, and then anything that matches all-odd?
-will also match all-integers?.</p>
-<p>I should probably mention here that -pred- may not be all that useful
-to anyone. It exists mainly because I wanted to make sure that it was
-workable to build a dispatching scheme in Categories that was quite a
-bit different from the usual thing.</p>
-<p>One mystery remains with the -pred- domain, though: the syntax for
-defining a function is different from the syntax used with the -c3-
-and -flat- domains. How does that work?</p>
-<h3 id="defining-domains">Defining domains</h3>
-<p>The unique define-function syntax of the -pred- domain is provided by
-the domain itself. It turns out that the operators &lsquo;function&rsquo; and
-define-function' don&rsquo;t define the syntax of parameter lists; the
-domain does. The -c3- and -flat- domains both define a syntax that is
-familiar to users of CLOS and similar object systems. You write
-define-function forms like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- add ((<span style="color:#a6e22e">x</span> &lt;integer&gt;)(<span style="color:#a6e22e">y</span> &lt;integer&gt;)) <span style="color:#f92672">...</span>)  
-</code></pre></div><p>The forms <code>(x &lt;integer&gt;)</code> and <code>(y &lt;integer&gt;)</code> mean that the formal
-parameters x and y match inputs only if those inputs can be matched
-with the <code>&lt;integer&gt;</code> type, according to the domain.</p>
-<p>A domain like -pred- works quite differently, and requires a different
-syntax for parameter lists. Instead of piecewise matching input values
-against types, -pred- matches the parameter list as a whole against
-predicates applied to it. That makes it possible to dispatch on
-conditions that -c3- and -flat- can&rsquo;t check. For example, -pred- can
-match a sequence of five integers that are monotonically increasing,
-or a sequence of characters that forms a palindrome.</p>
-<p>But if some domains require unique parameter-list syntax, that means
-Categories must have a way to define that syntax; and it does.</p>
-<p>When you define a domain, you are defining three things:</p>
-<ol>
-<li>
-<p>a format for function parameter lists</p>
-</li>
-<li>
-<p>a function that determines whether a particular method matches a
-given sequence of input values</p>
-</li>
-<li>
-<p>a function that can tell you which of two methods better matches a
-given set of inputs</p>
-</li>
-</ol>
-<p>Here&rsquo;s what a domain definition looks like:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>-my-domain- 
-  (<span style="color:#a6e22e">domain</span> catalog: some-catalog-data-structure 
-          parser: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> formals) <span style="color:#f92672">...</span>)
-          matcher: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> signature values) <span style="color:#f92672">...</span>)  
-          comparator: (<span style="color:#66d9ef">lambda </span>(<span style="color:#a6e22e">domain</span> signature1 signature2 values) <span style="color:#f92672">...</span>)))  
-</code></pre></div><p>Right away you&rsquo;ll notice that, although I said you have to define
-three things, there are four inputs to the domain
-constructor. Categories provides each domain with a data structure
-called a <strong>catalog</strong>. The catalog can be anything you like. It can be
-a false value, or an integer, or a table, or a more complex data
-structure. It&rsquo;s up to you. Its purpose is to provide storage for any
-auxiliary data that your domain might need to perform its tasks
-correctly and efficiently. You can use it to store method caches, or
-arrangements of supertypes designed to make lookup fast, or whatever
-you wish. You can also ignore it completely, if you wish.</p>
-<p>The other inputs to the domain constructor are essential, though. Each
-of them is a function that defines one aspect of how the domain
-works. Because your domain may have crucial data stored in its
-catalog, all three of the functions accept the domain itself as the
-first argument. Its up to you what you do with that argument; it&rsquo;s
-available in case you need it.</p>
-<p>Besides the domain parameter, the functions that define a domain deal
-with three other items: formal parameters, method signatures, and
-input values.</p>
-<p>A formal parameter is an object that represents the formal arguments
-in a function definition. Categories doesn&rsquo;t define the format of
-argument lists; that&rsquo;s up to the domain. When it processes a function
-definition, it extracts the formal parameter from the function or
-define-function expression, and passes it to the domain&rsquo;s parser. The
-parser must accept the formal parameter and return a method
-signature. It&rsquo;s the parser that determines what the argument list of a
-function definition looks like.</p>
-<p>The parser doesn&rsquo;t have to be complicated. Consider a -c3- function
-definition again:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#a6e22e">define-function</span> -c3- add ((<span style="color:#a6e22e">x</span> &lt;integer&gt;)(<span style="color:#a6e22e">y</span> &lt;integer&gt;)) <span style="color:#f92672">...</span>)  
-</code></pre></div><p>All the parser needs to do is collect the type qualifiers from the
-formal parameter list, which is <code>((x &lt;integer&gt;)(y &lt;integer&gt;))</code>, and
-make a method signature that matches two inputs that are both of type
-<code>&lt;integer&gt;</code>.</p>
-<p>That brings us to method signatures, and to the matcher. Once again,
-the method signature can be any data structure you like, as long as it
-stores the information that the matcher needs. Categories passes to
-the matcher a method signature and a collection of input values. The
-matcher must return true if the signature matches the inputs, and
-false otherwise. For -c3-, a method signature can simply be a sequence
-of types. For example, the method signature for the add function
-defined above is just <code>(&lt;integer&gt; &lt;integer&gt;)</code>. The -c3- domain will
-say that any sequence of two values matches that signature, as long as
-both are of type <code>&lt;integer&gt;</code>, or of some type that, according to -c3-,
-is a subtype of <code>&lt;integer&gt;</code>.</p>
-<p>What if more than one signature matches a set of inputs? How does the
-domain know what to do?</p>
-<p>That&rsquo;s what the comparator is for. After a function determines all the
-signatures that match a set of inputs, it sorts them. The comparator
-is the function it uses to determine their order. The comparator must
-accept two signatures and a sequence of input values. If the first
-signature is a better match than the second for the inputs, then the
-comparator returns -1. If the second signature is a better match, it
-returns 1. If neither is better, it returns 0. It&rsquo;s best to try to
-arrange for the comparator not to return zero, if that makes sense for
-the domain you&rsquo;re designing, because returning zero means you can&rsquo;t
-tell which method to apply. Categories has to signal a dispatch error
-when that happens.</p>
-<h3 id="customizing-the-default-domain">Customizing the default domain</h3>
-<p>It may happen that you want to make your own domain, but you don&rsquo;t
-really want to totally rewrite how everything works. Maybe, for
-example, you want to use something other than C3 to order methods, but
-everything else about how Categories works suits you fine. In order to
-make it easier to customize just the part you want to customize,
-Categories provides functions that implement the behavior of the
-default domain. You can make your own domains using them, and you can
-replace just one of them, or two of them, or you can use all of the
-standard functions, but change their inputs or outputs a little using
-your own code.</p>
-<p>As an example, you can make a domain that duplicates the behavior of
-the default domain like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-scheme" data-lang="scheme">(<span style="color:#66d9ef">define </span>-my-c3-domain- 
-  (<span style="color:#a6e22e">domain</span> catalog: (<span style="color:#a6e22e">make-c3-catalog</span>)
-          parser: (<span style="color:#a6e22e">c3-signature-parser</span>) 
-          matcher: (<span style="color:#a6e22e">c3-signature-matcher</span>)
-          comparator: (<span style="color:#a6e22e">c3-signature-comparator</span>))) 
-</code></pre></div><h3 id="what-next">What next?</h3>
-<p>All of the features described in this overview have been implemented,
-but the working code doesn&rsquo;t provide this surface syntax. The syntax
-of the working versions is not too different in most places, but it&rsquo;s
-a little more complicated and not quite so tidy. I&rsquo;ll be fixing that
-as part of getting the code ready for release.</p>
-<p>The prototype I&rsquo;ve most recently been working on is implemented on top
-of Gambit Scheme 4.5.2. I&rsquo;ve tried to avoid making it particularly
-Gambit-specific, but the surface syntax I chose does use DSSSL
-keywords, which not all Schemes support. In addition, some of the
-syntax needs to be defined as macros. For reasons of convenience,
-those will be defined using Gambit&rsquo;s define-macro form, rather than
-something more portable. It may turn out that someone wants Categories
-on some Scheme that lacks DSSSL keywords, or where a different means
-of defining macros is needed. I&rsquo;ll cross that bridge when I come to
-it.</p>
-<p>I plan to port it back to Clojure, as well. The first few versions of
-Categories were written in Clojure, but I wanted to move it elsewhere,
-mainly to gain the perspective of looking at it as something
-independent of a particular language, rather than as an extension
-specifically to Clojure. I&rsquo;m planning a sizeable project in Clojure
-shortly, though, and I know for sure that I&rsquo;ll want what Categories
-offers me for it.</p>
-<p>It may be that the design of Categories has serious flaws. If so, feel
-free to enlighten me about them. If they can be repaired, I&rsquo;ll do my
-best to fix them. If not, I&rsquo;ll have to look for alternatives. I could
-always port <a href="http://github.com/adlai/sheeple">Sheeple</a> to Clojure, or
-maybe implement <a href="http://users.rcn.com/david-moon/PLOT/">PLOT&rsquo;s</a> object
-system.</p>
+					<p>Most programming uses an approach that we might call <strong>programming as
+carpentry</strong>. We start with some idea of an artifact we want to
+build. We analyze the idea into a set of needed parts. We set to work
+on our workbench to craft the needed parts and assemble them into a
+finished product, then we examine and measure the result to determine
+how close we came to our goal.</p>
+<p>Next we repeat the process to correct details that have fallen short
+of what we want, either because we made mistakes in construction, or
+because our original plan was wrong in some way.</p>
+<p>There&rsquo;s a different way to approach programming. We might call it
+<strong>programming as teaching</strong>. In this approach, we begin by starting up
+a runtime that already knows how to be a working program; it just
+doesn&rsquo;t know how to be our particular application. By talking to the
+runtime interactively, we incrementally teach it the features we need
+it to have. When it knows how to provide all those features, we&rsquo;re
+done. We can save the accumulated changes to an artifact, and that
+artifact becomes our product.</p>
+<p>It&rsquo;s less like nailing together an artifact on a workbench, and more
+like teaching a student a new set of skills.</p>
+<p>Programming as carpentry is far better known and more widely used than
+programming as teaching. I&rsquo;d venture to say that most programmers
+aren&rsquo;t even aware that programming as teaching is an option. That&rsquo;s a
+shame, I think, because for some people it&rsquo;s a better option.</p>
+<p>I don&rsquo;t claim that the teaching paradigm is absolutely and objectively
+better. I claim only that it&rsquo;s better for some people. Take me, for
+example: programming as teaching makes me much happier, faster, and
+more productive in my work.</p>
+<p>I&rsquo;m not the only one. There are many other programmers who prefer the
+teaching paradigm. The reason it&rsquo;s an obscure minority paradigm is
+that there are even more programmers—vastly more—who are familiar with
+programming as carpentry.</p>
+<p>The fact that most programmers don&rsquo;t seem to even know that the
+teaching paradigm exists suggests to me that if it were more widely
+known, then more people would use it. What are the odds that everyone
+who prefers the obscure paradigm is already using it, when most people
+don&rsquo;t know it exists?</p>
+<p>In some sense, it doesn&rsquo;t matter. The great majority of software is
+developed in the carpentry paradigm, and the industry prospers. Is it
+really important to evangelize a different paradigm? Probably not, at
+least for the sake of the industry as a whole.</p>
+<p>On the other hand, I think it is important for the sake of us as
+programmers. If I hadn&rsquo;t been exposed to programming as teaching, I
+probably never would have known how happy and productive I can be in
+my work. A world in which I know about the teaching paradigm is a
+better world, at least for me. If there are other programmers who
+would prefer the teaching paradigm, and who don&rsquo;t know about it, then
+there&rsquo;s a better world awaiting them. All they need is to find out
+about it.</p>
+<p>So if programming as teaching is such a great idea—even if it&rsquo;s only
+great for a minority of programmers—why isn&rsquo;t it better known? I think
+it&rsquo;s because programming as teaching requires some tools over and
+above what programming as carpentry requires. You have to expend extra
+work to make those tools available, and you have to know about them
+before you can decide to do that.</p>
+<p>You can build a solid carpentry workbench without knowing anything
+about the teaching paradigm. The reverse isn&rsquo;t true. A good
+programming-as-teaching system is going to need all the tools of the
+carpentry workbench. It&rsquo;s going to need parsers and data structures
+and code-walkers and code generators. It&rsquo;s going to need file I/O and
+performance tools and debuggers, and so forth. It&rsquo;s going to need all
+that stuff, but it&rsquo;s going to need some other stuff, too.</p>
+<p>Programming as teaching means starting the application running before
+it&rsquo;s defined, then defining and redefining features while it runs. It
+means inspecting the contents of its memory, stopping control
+structures in the middle of executing, and inspecting and changing and
+redefining their dynamic context. It means updating the definitions of
+functions that are pending on the stack and of datatypes that are used
+by existing instances, and relying on the application to keep working
+reasonably while you&rsquo;re tinkering around in its guts.</p>
+<p>All of those features require substantial runtime support, and if you
+want it to work well, the runtime needs to be designed from the start
+to support it.</p>
+<p>Smalltalk systems have thorough support for that kind of
+programming. So do Common Lisp and other old-fashioned Lisp
+systems. Outside Smalltalk and Common Lisp and, to some extent FORTH
+systems, there aren&rsquo;t many development systems with the full suite of
+programming-as-teaching features.</p>
+<p>Some of these features exist in some form in modern
+programming-as-carpentry systems, but they don&rsquo;t amount to a
+programming-as-teaching system. To build a working
+programming-as-teaching system, you need to design the whole runtime
+from the ground up to support it. Let me give you an example of what I
+mean.</p>
+<p>The ANSI Common Lisp standard defines a generic function named
+UPDATE-INSTANCE-FOR-REDEFINED-CLASS. When the runtime detects a value
+whose class has been redefined since it was instantiated, it
+automatically calls this function to restructure the value so that it
+conforms to the new definition. In effect, it retroactively makes the
+value an instance of the new definition instead of the old one.</p>
+<p>You can specialize UPDATE-INSTANCE-FOR-REDEFINED-CLASS to correctly
+reinitialize instances to conform to their new definitions. If you
+don&rsquo;t, then the runtime drops you into an interactive session in which
+you can provide the new initialization interactively. You can then
+resume execution and the affected value behaves as if it was
+originally instantiated from the updated definition.</p>
+<p>If you&rsquo;re coming from programming-as-carpentry, you might reasonably
+wonder why you would ever want a function like that at all, much less
+why you would want it to be part of a language standard. But Common
+Lisp was designed by experienced Lisp users and implementors. They
+were steeped in the practice of programming as teaching (though they
+didn&rsquo;t call it that; they just called it &ldquo;programming&rdquo;).</p>
+<p>To the designers of Common Lisp, the normal way of developing a
+program was to start the Lisp and then teach it, definition by
+definition, how to be the program they wanted. They wouldn&rsquo;t expect to
+have to restart their Lisp just because they redefined something;
+that&rsquo;s silly. Redefining things was nearly all they did! No, their
+expectation was that you redefine things and keep going. It&rsquo;s the job
+of the runtime to adapt in a reasonable way to the changes that you
+tell it about. It&rsquo;s also the job of the runtime to ask you for help
+when it doesn&rsquo;t know what to do.</p>
+<p>UPDATE-INSTANCE-FOR-REDEFINED-CLASS is one element of a whole standard
+protocol defined by ANSI Common Lisp for changing and redefining
+things while the program you&rsquo;re developing continues to run. The
+standard describes facilities for defining classes and functions,
+updating bindings, catching errors by dropping into an interactive
+session where you can inspect and change everything about the dynamic
+environment, then tell the function where the error occurred to resume
+execution with the new definitions, and generally for accomplishing
+every aspect of building and deploying a program through an
+interactive conversation with the running program itself.</p>
+<p>Smalltalk systems have the same kind of design.</p>
+<p>This kind of development environment is a whole that is greater than
+the sum of its parts. To get it, you have to design the language and
+runtime from the start to support it. You can&rsquo;t convert a carpentry
+system to a teaching system by patching in one feature at a time.</p>
+<p>Very few development toolchains support the full suite of
+programming-as-teaching features. Most of the ones that do have been
+around for a long time. Newer languages and runtimes are mostly
+designed without any knowledge or understanding of the whole-system
+programming paradigm that is embodied in old Lisp and Smalltalk
+systems. Even some newer Lisps have been designed without that
+understanding.</p>
+<p>I worry sometimes that programming-as-teaching is fading away, and I
+feel sad that my favorite paradigm might someday disappear altogether.</p>
+<p>I don&rsquo;t think that if it does it&rsquo;ll be the end of software
+development, or anything apocalyptic like that. I do think that I&rsquo;ll
+miss it when it&rsquo;s gone, and I think it&rsquo;ll be sad if new generations of
+programmers never have the opportunity to experience it.</p>
+<p>There&rsquo;s something magical about gradually turning a program into the
+application you want by talking to it while it runs. For some fraction
+of programmers, it&rsquo;s the best way of working. I&rsquo;d hate to lose it.</p>
 
 
 				</div>
@@ -656,13 +319,13 @@ system.</p>
     <span aria-hidden="true">&nbsp;&hellip;&nbsp;</span>
   </li>
   <li class="page-item">
-    <a class="page-link" href="/tags/programming/page/11/">11</a>
+    <a class="page-link" href="/tags/programming/page/12/">12</a>
   </li>
   <li class="page-item">
     <a href="/tags/programming/page/7/" class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
   </li>
   <li class="page-item">
-    <a href="/tags/programming/page/11/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    <a href="/tags/programming/page/12/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
   </li>
 </ul>
 
